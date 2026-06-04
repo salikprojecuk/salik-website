@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nitrous oxide canisters are scattered across our streets. What families need to know about laughing gas and its serious harms, especially among young South Asian men." />
+  <title>Laughing Gas and Our Communities: What Families Need to Know &mdash; The Salik Project UK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bar-height: 42px; --gold: #C9922A; --amber: #E8A030; --orange: #D4611A;
+      --dark: #0A0A0A; --dark2: #111111; --dark3: #1A1A1A; --dark4: #222222;
+      --offwhite: #F5F0E8; --white: #FFFFFF; --grey: #888888; --lightgrey: #EEEEEE;
+      --font-serif: 'Cormorant Garamond', Georgia, serif; --font-sans: 'DM Sans', sans-serif;
+      --max: 1200px; --radius: 4px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--dark); color: var(--white); font-family: var(--font-sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    nav { position: fixed; top: var(--bar-height); left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 70px; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,146,42,0.15); transition: background 0.3s; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); line-height: 1.2; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-socials { display: flex; align-items: center; gap: 1rem; }
+    .nav-socials a { color: rgba(255,255,255,0.6); font-size: 1rem; transition: color 0.2s, transform 0.2s; }
+    .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: calc(var(--bar-height) + 70px); left: 0; right: 0; background: var(--dark2); border-bottom: 1px solid rgba(201,146,42,0.2); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-socials { display: flex; gap: 1.2rem; margin-top: 0.5rem; }
+    .mobile-socials a { color: rgba(255,255,255,0.6); font-size: 1.1rem; border: none; }
+    .mobile-socials a:hover { color: var(--gold); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown-chevron { font-size: 0.55rem; opacity: 0.55; transition: transform 0.2s, opacity 0.2s; }
+    .nav-has-dropdown:hover .nav-dropdown-chevron, .nav-has-dropdown:focus-within .nav-dropdown-chevron { transform: rotate(180deg); opacity: 1; }
+    .nav-dropdown { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: #111111; border: 1px solid rgba(201,146,42,0.22); border-radius: var(--radius); padding: 0.4rem 0; min-width: 210px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 101; }
+    .nav-has-dropdown:hover .nav-dropdown, .nav-has-dropdown:focus-within .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown a { display: block; padding: 0.65rem 1.2rem; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+    .nav-dropdown a:hover { color: var(--gold); background: rgba(201,146,42,0.06); }
+    .mobile-dropdown-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); font-family: var(--font-sans); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0; cursor: pointer; text-align: left; }
+    .mobile-dropdown-trigger:hover { color: var(--gold); }
+    .mobile-dropdown-chevron { font-size: 0.6rem; opacity: 0.5; transition: transform 0.2s; flex-shrink: 0; }
+    .mobile-dropdown-trigger[aria-expanded="true"] .mobile-dropdown-chevron { transform: rotate(180deg); }
+    .mobile-dropdown-items { display: none; flex-direction: column; padding: 0.3rem 0 0.5rem 1rem; }
+    .mobile-dropdown-items.open { display: flex; }
+    .mobile-dropdown-items a { color: rgba(255,255,255,0.55); font-size: 0.82rem; padding: 0.45rem 0; border-bottom: none; letter-spacing: 0.06em; }
+    .mobile-dropdown-items a:hover { color: var(--gold); background: none; }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+    .post-hero { background: var(--dark2); padding-top: calc(var(--bar-height) + 70px); }
+    .post-hero-inner { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 2.5rem; }
+    .post-breadcrumb { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; }
+    .post-breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; }
+    .post-breadcrumb a:hover { color: var(--gold); }
+    .post-cat { display: inline-block; background: rgba(201,146,42,0.1); border: 1px solid rgba(201,146,42,0.3); color: var(--gold); font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 14px; border-radius: 99px; margin-bottom: 1.5rem; }
+    .post-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--white); }
+    .post-meta { font-size: 0.78rem; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; }
+    .post-meta strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .post-img-wrap { max-width: 800px; margin: 3rem auto 0; padding: 0 2rem; }
+    .post-img-wrap img { width: 100%; max-height: 480px; object-fit: cover; object-position: center; display: block; filter: grayscale(100%); }
+    .post-body { background: var(--dark2); padding: 4rem 2rem 6rem; }
+    .post-content { max-width: 760px; margin: 0 auto; font-size: 0.97rem; line-height: 1.9; color: rgba(255,255,255,0.72); }
+    .post-content h2 { font-family: var(--font-serif); font-size: 1.65rem; font-weight: 700; color: var(--white); margin: 2.8rem 0 1rem; padding-left: 1.1rem; border-left: 3px solid var(--gold); line-height: 1.2; }
+    .post-content h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: rgba(255,255,255,0.9); margin: 2rem 0 0.6rem; }
+    .post-content p { margin-bottom: 1.4rem; }
+    .post-content blockquote { border-left: 3px solid var(--gold); padding: 0.4rem 0 0.4rem 1.5rem; margin: 2rem 0; font-style: italic; color: var(--amber); font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.6; }
+    .post-content ul, .post-content ol { margin: 0 0 1.4rem 1.8rem; color: rgba(255,255,255,0.7); }
+    .post-content li { margin-bottom: 0.5rem; }
+    .post-content strong { color: var(--white); font-weight: 500; }
+    .post-content em { font-style: italic; }
+    .post-content .callout { background: rgba(232,160,48,0.07); border: 1px solid rgba(232,160,48,0.2); border-radius: var(--radius); padding: 1rem 1.3rem; margin: 1.5rem 0; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+    .related { background: var(--dark3); padding: 4rem 2rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .related-card { background: var(--dark4); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.3s, transform 0.3s; display: block; }
+    .related-card:hover { border-color: rgba(201,146,42,0.3); transform: translateY(-4px); }
+    .related-card img { height: 150px; width: 100%; object-fit: cover; display: block; filter: grayscale(100%); }
+    .related-card-body { padding: 1.2rem; }
+    .related-cat { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .related-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; line-height: 1.3; color: var(--white); }
+    .related-date { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 0.4rem; }
+    .emergency { background: linear-gradient(135deg, #1A0800, #0A0A0A); border-top: 1px solid rgba(201,146,42,0.2); border-bottom: 1px solid rgba(201,146,42,0.2); padding: 3rem 2rem; }
+    .emergency-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .emergency-left { display: flex; align-items: center; gap: 1.5rem; }
+    .emergency-icon { width: 56px; height: 56px; background: rgba(201,146,42,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.4rem; flex-shrink: 0; }
+    .emergency-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+    .emergency-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .emergency-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .emergency-link { display: flex; align-items: center; gap: 8px; background: rgba(201,146,42,0.1); border: 1px solid rgba(201,146,42,0.25); color: var(--gold); padding: 10px 18px; border-radius: var(--radius); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: background 0.2s; }
+    .emergency-link:hover { background: rgba(201,146,42,0.2); }
+    footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; }
+    .footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand img { height: 50px; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; margin-bottom: 1.5rem; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-socials a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); font-size: 0.85rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom { max-width: var(--max); margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-policies { display: flex; gap: 1.5rem; }
+    .footer-legal-line { font-size: 0.7rem; color: rgba(255,255,255,0.18); margin-top: 3px; line-height: 1.5; }
+    .footer-newsletter { margin-top: 1.5rem; }
+    .footer-newsletter-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.6rem; display: block; }
+    .footer-newsletter-form { display: flex; }
+    .footer-newsletter-form input[type="email"] { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-right: none; border-radius: var(--radius) 0 0 var(--radius); padding: 9px 12px; color: var(--white); font-family: var(--font-sans); font-size: 0.8rem; outline: none; transition: border-color 0.2s; min-width: 0; }
+    .footer-newsletter-form input[type="email"]:focus { border-color: var(--gold); }
+    .footer-newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.22); }
+    .footer-newsletter-form button { background: var(--gold); color: var(--dark); border: none; border-radius: 0 var(--radius) var(--radius) 0; padding: 9px 14px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .footer-newsletter-form button:hover { background: var(--amber); }
+    .crisis-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: var(--bar-height); background: #150303; border-bottom: 1px solid rgba(180,40,40,0.28); display: flex; align-items: center; justify-content: center; padding: 0 3rem; }
+    .crisis-bar-text { font-size: 0.78rem; color: rgba(255,255,255,0.8); text-align: center; line-height: 1.4; }
+    .crisis-bar-text strong { color: rgba(255,255,255,0.95); font-weight: 500; }
+    .crisis-bar-text a { color: #e07878; font-weight: 500; text-decoration: none; white-space: nowrap; }
+    .crisis-bar-text a:hover { text-decoration: underline; }
+    .crisis-short { display: none; }
+    .crisis-bar-close { position: absolute; right: 0.8rem; background: none; border: none; color: rgba(255,255,255,0.35); font-size: 1.1rem; cursor: pointer; padding: 6px 8px; line-height: 1; transition: color 0.2s; }
+    .crisis-bar-close:hover { color: rgba(255,255,255,0.75); }
+    .quick-exit { position: fixed; top: calc(var(--bar-height) + 18px); right: 1.2rem; z-index: 300; background: rgba(16,16,16,0.9); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 5px 11px; font-family: var(--font-sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; backdrop-filter: blur(10px); }
+    .quick-exit:hover { background: rgba(36,36,36,0.96); color: var(--white); border-color: rgba(255,255,255,0.22); }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) { nav { padding: 0 1.2rem; } .nav-links, .nav-socials, .nav-socials-wrap { display: none; } .hamburger { display: flex; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } .emergency-inner { flex-direction: column; align-items: flex-start; } .related-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { :root { --bar-height: 64px; } .crisis-full { display: none; } .crisis-short { display: inline; } }
+
+    /* ── LIGHT CONTENT THEME ── */
+    body { background: #FAF6EF; }
+    .post-body { background: #FAF6EF; }
+    .post-content { color: #1a1008; }
+    .post-content h2 { color: #1a1008; }
+    .post-content h3 { color: #1a1008; }
+    .post-content strong { color: #1a1008; }
+    .post-content ul, .post-content ol { color: #6b5a3e; }
+    .post-content .callout { background: rgba(201,146,42,0.07); border-color: rgba(201,146,42,0.2); color: #6b5a3e; }
+    .related { background: #FAF6EF; }
+    .related-card { background: #FFFFFF; border-color: #E8DCC8; color: #1a1008; }
+    .related-card:hover { border-color: rgba(201,146,42,0.4); }
+    .related-title { color: #1a1008; }
+    .related-date { color: #6b5a3e; }
+  </style>
+</head>
+<body>
+
+  <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
+    <p class="crisis-bar-text">
+      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK free on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> &mdash; both free, 24/7.</span>
+      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;&middot;&nbsp; Samaritans: <a href="tel:116123">116 123</a></span>
+    </p>
+    <button class="crisis-bar-close" onclick="dismissCrisisBar()" aria-label="Dismiss this message">&times;</button>
+  </div>
+
+  <button class="quick-exit" onclick="quickExit()" aria-label="Quick exit">Quick Exit &#8599;</button>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="The Salik Project UK logo" />
+      <span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#work">Our Work</a></li>
+      <li class="nav-has-dropdown">
+        <a href="#" class="nav-dropdown-trigger" aria-haspopup="true">Resources <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+        <div class="nav-dropdown" role="menu">
+          <a href="#" role="menuitem">Community Resource Hub</a>
+          <a href="#" role="menuitem">Focus Groups</a>
+        </div>
+      </li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1.2rem;" class="nav-socials-wrap">
+      <div class="nav-socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <a href="../index.html#contact" style="background:var(--gold);color:var(--dark);padding:8px 20px;border-radius:99px;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Get Support</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../about.html" onclick="toggleMenu()">About</a>
+    <a href="../index.html#work" onclick="toggleMenu()">Our Work</a>
+    <button class="mobile-dropdown-trigger" onclick="toggleResourcesMobile(this)" aria-expanded="false">Resources <i class="fas fa-chevron-down mobile-dropdown-chevron"></i></button>
+    <div class="mobile-dropdown-items" id="mobileResourcesMenu">
+      <a href="#" onclick="toggleMenu()">Community Resource Hub</a>
+      <a href="#" onclick="toggleMenu()">Focus Groups</a>
+    </div>
+    <a href="../blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="../research.html" onclick="toggleMenu()">Research</a>
+    <a href="../index.html#contact" onclick="toggleMenu()">Contact</a>
+    <a href="../index.html#contact" onclick="toggleMenu()" style="color:var(--gold)">Get Support &rarr;</a>
+    <div class="mobile-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <div class="post-hero">
+    <div class="post-hero-inner">
+      <p class="post-breadcrumb"><a href="../blog.html">Blog</a> &rsaquo; Educational</p>
+      <span class="post-cat">Educational</span>
+      <h1 class="post-title">Laughing Gas and Our Communities: What Families Need to Know</h1>
+      <p class="post-meta">By <strong>Mustafa Hameed</strong> &nbsp;&middot;&nbsp; <strong>29 August 2025</strong></p>
+    </div>
+    <div class="post-img-wrap">
+      <img src="https://static.wixstatic.com/media/8c3b9b_4bbd04f8f09f40bc9840c46615361e32~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,usm_0.66_1.00_0.01/8c3b9b_4bbd04f8f09f40bc9840c46615361e32~mv2.png" alt="Laughing Gas and Our Communities: What Families Need to Know" loading="lazy" />
+    </div>
+  </div>
+
+  <section class="post-body">
+    <div class="post-content">
+      <p>If you've walked through parts of London, Birmingham or Manchester, you may have noticed the small silver canisters scattered on the ground. These are nitrous oxide canisters—commonly called <em>laughing gas</em>—and they're increasingly being used as a recreational drug. While it might look harmless, it is causing serious harm in our communities, especially among young South Asian men.</p>
+
+      <h2>What Is Nitrous Oxide?</h2>
+      <p>Nitrous oxide is a colourless gas originally used in dentistry, medicine, and the food industry (in whipped cream dispensers). Recreationally, people release the gas into a balloon and inhale it, experiencing a short high that lasts only a few minutes. Some young people see it as a cheap, fun, and "less risky" alternative to alcohol or other drugs.</p>
+
+      <h2>Why Are Young South Asian Men More Affected?</h2>
+      <p>Research by Queen Mary University of London in 2023 found that more than half of hospital patients with nerve damage from nitrous oxide were Asian or British Asian men. In East London, the figure was as high as 73%. Doctors aren't sure why, but it could be a mix of biological vulnerability and cultural or social reasons.</p>
+      <p>For example, in some families and communities where alcohol is strongly discouraged, nitrous oxide may be wrongly seen as a "safer" or more acceptable option.</p>
+
+      <h2>The Health Risks</h2>
+      <p>Although the high is short-lived, the damage can last a lifetime:</p>
+      <ul>
+        <li><strong>Nerve damage</strong>: Nitrous oxide blocks vitamin B12 in the body. This can cause numbness, weakness, and sometimes permanent damage to the spine. Some young men have ended up in wheelchairs after heavy use.</li>
+        <li><strong>Brain and memory problems</strong>: Users may feel confused, struggle with balance, or experience mood changes.</li>
+        <li><strong>Frostbite injuries</strong>: Inhaling directly from a canister (instead of a balloon) can freeze the lips, throat, or lungs.</li>
+        <li><strong>Addiction risk</strong>: While not addictive in the same way as heroin, many young people find themselves using it daily.</li>
+      </ul>
+
+      <h2>Nitrous Oxide and Driving</h2>
+      <p>One hidden danger is driving under the influence. Laughing gas slows reaction times and affects coordination. Police have reported cases of serious car accidents and deaths linked to nitrous oxide use behind the wheel.</p>
+
+      <h2>Why Families Need to Talk About This</h2>
+      <p>For many parents, laughing gas is not something they grew up around. It may not even be seen as a "real drug." But it is serious, and the health harms are becoming clearer every year. Talking openly with young people—without judgement—is one of the best ways to protect them.</p>
+    </div>
+  </section>
+
+  <section class="related">
+    <div class="container">
+      <p class="section-label">Related Reading</p>
+      <div class="related-grid">
+        <a href="laughing-gas-is-no-joke-what-uk-hospitals-are-seeing-in-2026.html" class="related-card">
+          <img src="https://static.wixstatic.com/media/8c3b9b_4404218cced3423c99c845236531ab87~mv2.jpg/v1/fill/w_899,h_1000,al_c,q_85,usm_0.66_1.00_0.01/8c3b9b_4404218cced3423c99c845236531ab87~mv2.jpg" alt="Laughing Gas Is No Joke: What UK Hospitals Are Seeing in 2026" loading="lazy" />
+          <div class="related-card-body">
+            <div class="related-cat">Educational</div>
+            <div class="related-title">Laughing Gas Is No Joke: What UK Hospitals Are Seeing in 2026</div>
+            <div class="related-date">31 January 2026</div>
+          </div>
+        </a>
+        <a href="cannabis-isn-t-as-harmless-as-many-people-think-here-s-why.html" class="related-card">
+          <img src="https://static.wixstatic.com/media/13b954e3536a428a87d0e46ffaf0eb69.jpg/v1/fill/w_1000,h_667,al_c,q_85,usm_0.66_1.00_0.01/13b954e3536a428a87d0e46ffaf0eb69.jpg" alt="Cannabis Isn't as Harmless as Many People Think — Here's Why" loading="lazy" />
+          <div class="related-card-body">
+            <div class="related-cat">Educational</div>
+            <div class="related-title">Cannabis Isn't as Harmless as Many People Think &mdash; Here's Why</div>
+            <div class="related-date">29 January 2026</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="emergency" id="emergency">
+    <div class="emergency-inner">
+      <div class="emergency-left">
+        <div class="emergency-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="emergency-title">Need urgent support?</div>
+          <div class="emergency-desc">We are not a crisis service &mdash; but help is available right now.</div>
+        </div>
+      </div>
+      <div class="emergency-links">
+        <a href="tel:116123" class="emergency-link"><i class="fas fa-phone"></i> Samaritans: 116 123</a>
+        <a href="tel:03001236600" class="emergency-link"><i class="fas fa-phone"></i> FRANK: 0300 123 6600</a>
+        <a href="tel:999" class="emergency-link" style="border-color:rgba(255,80,80,0.4);color:#FF8080;background:rgba(255,80,80,0.08)"><i class="fas fa-ambulance"></i> Emergency: 999</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../logo.png" alt="The Salik Project UK" />
+        <p>Supporting South Asian individuals in recovery and the families who walk alongside them. Reducing stigma through education, culturally informed signposting and grassroots research.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-newsletter">
+          <span class="footer-newsletter-label">Newsletter</span>
+          <form class="footer-newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+            <button type="submit">Go</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../index.html#work">Our Work</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#emergency">Emergency Contacts</a></li>
+          <li><a href="#">Referral Form</a></li>
+          <li><a href="#">Find Local Services</a></li>
+          <li><a href="#">Resources Hub</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Safeguarding Policy</a></li>
+          <li><a href="#">Equality &amp; Diversity</a></li>
+          <li><a href="#">GDPR Statement</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Complaints Procedure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>&copy; 2026 The Salik Project UK CIC. All rights reserved.</p>
+        <p class="footer-legal-line">The Salik Project UK CIC | Community Interest Company No. 16685087 | Not a registered charity.</p>
+        <p class="footer-legal-line">This project is funded by Action Together through the Rochdale Communities Fund.</p>
+      </div>
+      <div class="footer-policies">
+        <a href="#">Privacy</a>
+        <a href="#">Safeguarding</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function dismissCrisisBar() { document.getElementById('crisisBar').style.display = 'none'; document.documentElement.style.setProperty('--bar-height', '0px'); sessionStorage.setItem('crisisBarDismissed', '1'); }
+    if (sessionStorage.getItem('crisisBarDismissed')) { document.getElementById('crisisBar').style.display = 'none'; document.documentElement.style.setProperty('--bar-height', '0px'); }
+    function quickExit() { window.location.replace('https://www.google.com'); }
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function toggleResourcesMobile(btn) { const submenu = document.getElementById('mobileResourcesMenu'); const isOpen = btn.getAttribute('aria-expanded') === 'true'; btn.setAttribute('aria-expanded', String(!isOpen)); submenu.classList.toggle('open', !isOpen); }
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    window.addEventListener('scroll', () => { document.querySelector('nav').style.background = window.scrollY > 50 ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.95)'; });
+  </script>
+</body>
+</html>

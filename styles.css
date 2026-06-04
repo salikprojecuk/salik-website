@@ -1,0 +1,5 @@
+section:not(.hero):not(.dark):not(.dark-section) { color: #1a1008; }
+section:not(.hero):not(.dark):not(.dark-section) p { color: #4a3728; }
+section:not(.hero):not(.dark):not(.dark-section) h1,
+section:not(.hero):not(.dark):not(.dark-section) h2,
+section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }

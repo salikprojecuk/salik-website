@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Community-led qualitative research into addiction in South Asian communities across Rochdale and Greater Manchester — The Salik Project UK." />
+  <title>Research — The Salik Project UK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bar-height: 42px;
+      --gold: #C9922A;
+      --amber: #E8A030;
+      --orange: #D4611A;
+      --dark: #0A0A0A;
+      --dark2: #111111;
+      --dark3: #1A1A1A;
+      --dark4: #222222;
+      --offwhite: #F5F0E8;
+      --cream: #FAF6EF;
+      --white: #FFFFFF;
+      --grey: #888888;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+      --max: 1200px;
+      --radius: 4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: #1a1008;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── CRISIS BAR ── */
+    .crisis-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: var(--bar-height);
+      background: #150303;
+      border-bottom: 1px solid rgba(180,40,40,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3rem;
+    }
+
+    .crisis-bar-text {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .crisis-bar-text strong { color: rgba(255,255,255,0.95); font-weight: 500; }
+
+    .crisis-bar-text a {
+      color: #e07878;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .crisis-bar-text a:hover { text-decoration: underline; }
+
+    .crisis-short { display: none; }
+
+    .crisis-bar-close {
+      position: absolute;
+      right: 0.8rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.35);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 6px 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .crisis-bar-close:hover { color: rgba(255,255,255,0.75); }
+
+    /* ── QUICK EXIT ── */
+    .quick-exit {
+      position: fixed;
+      top: calc(var(--bar-height) + 18px);
+      right: 1.2rem;
+      z-index: 300;
+      background: rgba(16,16,16,0.9);
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 5px 11px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      backdrop-filter: blur(10px);
+    }
+
+    .quick-exit:hover {
+      background: rgba(36,36,36,0.96);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: var(--bar-height); left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 70px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-socials { display: flex; align-items: center; gap: 1rem; }
+
+    .nav-socials a {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: calc(var(--bar-height) + 70px); left: 0; right: 0;
+      background: var(--dark2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .mobile-menu a:hover { color: var(--gold); }
+
+    .mobile-socials { display: flex; gap: 1.2rem; margin-top: 0.5rem; }
+    .mobile-socials a { color: rgba(255,255,255,0.6); font-size: 1.1rem; border: none; }
+    .mobile-socials a:hover { color: var(--gold); }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-has-dropdown { position: relative; }
+
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; }
+
+    .nav-dropdown-chevron {
+      font-size: 0.55rem;
+      opacity: 0.55;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .nav-has-dropdown:hover .nav-dropdown-chevron,
+    .nav-has-dropdown:focus-within .nav-dropdown-chevron {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #111111;
+      border: 1px solid rgba(201,146,42,0.22);
+      border-radius: var(--radius);
+      padding: 0.4rem 0;
+      min-width: 210px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+      z-index: 101;
+    }
+
+    .nav-has-dropdown:hover .nav-dropdown,
+    .nav-has-dropdown:focus-within .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown a:hover { color: var(--gold); background: rgba(201,146,42,0.06); }
+
+    .mobile-dropdown-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .mobile-dropdown-trigger:hover { color: var(--gold); }
+
+    .mobile-dropdown-chevron {
+      font-size: 0.6rem;
+      opacity: 0.5;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .mobile-dropdown-trigger[aria-expanded="true"] .mobile-dropdown-chevron { transform: rotate(180deg); }
+
+    .mobile-dropdown-items {
+      display: none;
+      flex-direction: column;
+      padding: 0.3rem 0 0.5rem 1rem;
+    }
+
+    .mobile-dropdown-items.open { display: flex; }
+
+    .mobile-dropdown-items a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      padding: 0.45rem 0;
+      border-bottom: none;
+      letter-spacing: 0.06em;
+    }
+
+    .mobile-dropdown-items a:hover { color: var(--gold); background: none; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 3.5rem 2rem; }
+
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-label--center { justify-content: center; }
+    .section-label--center::before { display: none; }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #1a1008;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      color: #6b5a3e;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 12px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
+
+    .btn-outline-dark {
+      border: 1px solid rgba(26,16,8,0.25);
+      color: #1a1008;
+      padding: 12px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-outline-dark:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding-top: calc(var(--bar-height) + 70px);
+      background: linear-gradient(160deg, #0f0a00 0%, var(--dark) 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,146,42,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,146,42,0.3), transparent);
+    }
+
+    .page-hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 2rem 4.5rem;
+    }
+
+    .page-hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .page-hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .page-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #ffffff;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 400;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+
+    /* ── INTRO SECTION ── */
+    .research-intro {
+      background: var(--cream);
+      border-bottom: 1px solid #E8DCC8;
+    }
+
+    .research-intro p {
+      font-size: 1.05rem;
+      color: #4a3728;
+      line-height: 1.9;
+      max-width: 780px;
+    }
+
+    /* ── RESEARCH CARDS ── */
+    .research-section { background: var(--cream); }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .research-card {
+      background: #ffffff;
+      border: 1px solid #E8DCC8;
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .research-card:hover {
+      border-color: rgba(201,146,42,0.5);
+      box-shadow: 0 8px 32px rgba(201,146,42,0.08);
+      transform: translateY(-3px);
+    }
+
+    .research-card-accent {
+      height: 4px;
+      background: linear-gradient(to right, var(--gold), var(--amber));
+    }
+
+    .research-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .research-card-date {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .research-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1008;
+      line-height: 1.3;
+      margin-bottom: 0.85rem;
+    }
+
+    .research-card-partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .partner-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b5a3e;
+      background: #F5EFE8;
+      border: 1px solid #E8DCC8;
+      border-radius: 99px;
+      padding: 3px 10px;
+    }
+
+    .research-card-desc {
+      font-size: 0.88rem;
+      color: #4a3728;
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .research-card-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── EMERGENCY ── */
+    .emergency {
+      background: linear-gradient(135deg, #1A0800, #0A0A0A);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 2.5rem 2rem;
+    }
+
+    .emergency-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .emergency-left { display: flex; align-items: center; gap: 1.5rem; }
+
+    .emergency-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(201,146,42,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .emergency-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .emergency-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+    .emergency-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .emergency-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.25);
+      color: var(--gold);
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .emergency-link:hover { background: rgba(201,146,42,0.2); }
+
+    /* ── FUNDERS ── */
+    .funders {
+      background: var(--dark3);
+      padding: 3rem 2rem;
+    }
+
+    .funders-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .funders-inner .section-label { justify-content: center; }
+    .funders-inner .section-label::before { display: none; }
+    .funders-inner .section-title { color: var(--white); }
+
+    .funder-card {
+      background: var(--dark4);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      max-width: 760px;
+      width: 100%;
+      margin: 1.5rem auto 0;
+      transition: border-color 0.3s;
+      text-align: left;
+    }
+
+    .funder-card:hover { border-color: rgba(201,146,42,0.5); }
+
+    .funder-logo-wrap {
+      background: linear-gradient(135deg, #1A1200, #2A1A00);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 2rem;
+      border-right: 1px solid rgba(201,146,42,0.12);
+      min-height: 160px;
+    }
+
+    .funder-logo-wrap i { font-size: 2.5rem; color: rgba(201,146,42,0.35); }
+
+    .funder-logo-wrap span {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+
+    .funder-body { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+
+    .funder-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .funder-programme {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .funder-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.8; }
+
+    .footer-legal-line { font-size: 0.7rem; color: rgba(255,255,255,0.18); margin-top: 3px; line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand img { height: 50px; margin-bottom: 1rem; }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials { display: flex; gap: 1rem; }
+
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-newsletter { margin-top: 1.5rem; }
+
+    .footer-newsletter-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .footer-newsletter-form { display: flex; }
+
+    .footer-newsletter-form input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-right: none;
+      border-radius: var(--radius) 0 0 var(--radius);
+      padding: 9px 12px;
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 0;
+    }
+
+    .footer-newsletter-form input[type="email"]:focus { border-color: var(--gold); }
+    .footer-newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.22); }
+
+    .footer-newsletter-form button {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 9px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .footer-newsletter-form button:hover { background: var(--amber); }
+
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .footer-policies { display: flex; gap: 1.5rem; }
+
+    /* ── PDF MODAL ── */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+    }
+
+    .pdf-modal.open { display: flex; align-items: center; justify-content: center; }
+
+    .pdf-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(4px);
+    }
+
+    .pdf-modal-panel {
+      position: relative;
+      z-index: 1;
+      width: 90vw;
+      max-width: 860px;
+      height: 90vh;
+      background: var(--dark2);
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .pdf-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: var(--dark3);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      flex-shrink: 0;
+    }
+
+    .pdf-modal-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50%;
+    }
+
+    .pdf-modal-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pdf-ctrl-btn {
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.25);
+      color: var(--gold);
+      width: 32px; height: 32px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      transition: background 0.2s;
+    }
+
+    .pdf-ctrl-btn:hover { background: rgba(201,146,42,0.25); }
+    .pdf-ctrl-btn:disabled { opacity: 0.3; cursor: default; }
+
+    .pdf-page-counter {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      min-width: 90px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .pdf-modal-close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .pdf-modal-close:hover { color: var(--white); }
+
+    .pdf-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: auto;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #2a2a2a;
+    }
+
+    .pdf-modal-body canvas {
+      display: block;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+      max-width: 100%;
+    }
+
+    .pdf-loading {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 3rem;
+      display: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .research-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links, .nav-socials { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 2rem 1.2rem; }
+      .page-hero-inner { padding: 2.5rem 1.2rem 3rem; }
+      .research-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-policies { flex-wrap: wrap; gap: 0.75rem; }
+      .emergency-inner { flex-direction: column; align-items: flex-start; }
+      .funder-card { grid-template-columns: 1fr; }
+      .funder-logo-wrap { border-right: none; border-bottom: 1px solid rgba(201,146,42,0.12); min-height: 80px; }
+    }
+
+    @media (max-width: 600px) {
+      :root { --bar-height: 64px; }
+      .crisis-full { display: none; }
+      .crisis-short { display: inline; }
+      .crisis-bar { height: var(--bar-height); }
+      .pdf-modal-panel { width: 100vw; height: 100vh; border-radius: 0; border: none; }
+    }
+
+    @media (max-width: 480px) {
+      .research-card-actions { flex-direction: column; }
+      .research-card-actions .btn-primary,
+      .research-card-actions .btn-outline-dark { text-align: center; justify-content: center; }
+    }
+  </style>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+
+  <!-- CRISIS BAR -->
+  <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
+    <p class="crisis-bar-text">
+      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK free on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> — both free, 24/7.</span>
+      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;·&nbsp; Samaritans: <a href="tel:116123">116 123</a></span>
+    </p>
+    <button class="crisis-bar-close" onclick="dismissCrisisBar()" aria-label="Dismiss this message">×</button>
+  </div>
+
+  <!-- QUICK EXIT -->
+  <button class="quick-exit" onclick="quickExit()" aria-label="Quick exit — leaves this page immediately">Quick Exit ↗</button>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="The Salik Project UK logo" />
+      <span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#work">Our Work</a></li>
+      <li class="nav-has-dropdown">
+        <a href="index.html#resources" class="nav-dropdown-trigger" aria-haspopup="true">
+          Resources
+          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+        </a>
+        <div class="nav-dropdown" role="menu">
+          <a href="#" role="menuitem">Community Resource Hub</a>
+          <a href="#" role="menuitem">Focus Groups</a>
+        </div>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="emergency-contacts.html" style="color:var(--amber);font-weight:500;">Emergency Contacts</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1.2rem;">
+      <div class="nav-socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <a href="get-support.html" style="background:var(--gold);color:var(--dark);padding:8px 20px;border-radius:99px;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;">Get Support</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="toggleMenu()">About</a>
+    <a href="index.html#work" onclick="toggleMenu()">Our Work</a>
+    <button class="mobile-dropdown-trigger" onclick="toggleResourcesMobile(this)" aria-expanded="false">
+      Resources
+      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+    </button>
+    <div class="mobile-dropdown-items" id="mobileResourcesMenu">
+      <a href="#" onclick="toggleMenu()">Community Resource Hub</a>
+      <a href="#" onclick="toggleMenu()">Focus Groups</a>
+    </div>
+    <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="research.html" onclick="toggleMenu()" style="color:var(--gold)">Research</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    <a href="emergency-contacts.html" onclick="toggleMenu()" style="color:var(--amber)">Emergency Contacts</a>
+    <a href="get-support.html" onclick="toggleMenu()" style="color:var(--gold)">Get Support →</a>
+    <div class="mobile-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">The Salik Project UK — Research</p>
+      <h1 class="page-hero-title">Our Research</h1>
+      <p class="page-hero-sub">Community-led qualitative research into addiction in South Asian communities across Rochdale and Greater Manchester.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="research-intro">
+    <div class="container">
+      <p>Our research is conducted through in-person focus groups with South Asian individuals, families and community leaders. All findings are qualitative and community-led. Reports are free to read and share — they belong to the community.</p>
+    </div>
+  </section>
+
+  <!-- RESEARCH REPORTS -->
+  <section class="research-section">
+    <div class="container">
+      <p class="section-label">Focus Group Reports</p>
+      <h2 class="section-title">Published Research</h2>
+      <div class="research-grid">
+
+        <!-- Report 1 -->
+        <div class="research-card">
+          <div class="research-card-accent"></div>
+          <div class="research-card-body">
+            <div class="research-card-date">October 2025</div>
+            <h3 class="research-card-title">Stigma First: Pakistani-Heritage Male Community Leaders on Addiction in Rochdale</h3>
+            <div class="research-card-partners">
+              <span class="partner-tag">High Level Northern Trust</span>
+            </div>
+            <p class="research-card-desc">Six Pakistani-heritage male community leaders discuss stigma, silence, early exposure and cultural barriers to accessing support.</p>
+            <div class="research-card-actions">
+              <button class="btn-primary" onclick="openPDFViewer('Focus Groups/Focus Group Male Leaders.pdf', 'Stigma First: Pakistani-Heritage Male Community Leaders')">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>Read Online
+              </button>
+              <a class="btn-outline-dark" href="Focus Groups/Focus Group Male Leaders.pdf" download>
+                <i class="fas fa-download"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report 2 -->
+        <div class="research-card">
+          <div class="research-card-accent"></div>
+          <div class="research-card-body">
+            <div class="research-card-date">December 2025</div>
+            <h3 class="research-card-title">"We Carry It Quietly": Stigma, Survival and the Family Cost of Addiction</h3>
+            <div class="research-card-partners">
+              <span class="partner-tag">Kashmir Youth Project</span>
+              <span class="partner-tag">High Level Northern Trust</span>
+            </div>
+            <p class="research-card-desc">South Asian women speak about the hidden burden of addiction on families, izzat, and the gendered cost of silence.</p>
+            <div class="research-card-actions">
+              <button class="btn-primary" onclick="openPDFViewer('Focus Groups/Salik KYP Women Focus Group.pdf', '&quot;We Carry It Quietly&quot;')">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>Read Online
+              </button>
+              <a class="btn-outline-dark" href="Focus Groups/Salik KYP Women Focus Group.pdf" download>
+                <i class="fas fa-download"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report 3 -->
+        <div class="research-card">
+          <div class="research-card-accent"></div>
+          <div class="research-card-body">
+            <div class="research-card-date">February 2026</div>
+            <h3 class="research-card-title">Addiction, Responsibility and Reputation: Voices from a Rochdale Focus Group</h3>
+            <div class="research-card-partners">
+              <span class="partner-tag">High Level Northern Trust</span>
+              <span class="partner-tag">BACP</span>
+            </div>
+            <p class="research-card-desc">Bangladeshi and Pakistani community members discuss responsibility, honour, visible drug activity and the role of faith in recovery.</p>
+            <div class="research-card-actions">
+              <button class="btn-primary" onclick="openPDFViewer('Focus Groups/Salik Project BACP.pdf', 'Addiction, Responsibility and Reputation')">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>Read Online
+              </button>
+              <a class="btn-outline-dark" href="Focus Groups/Salik Project BACP.pdf" download>
+                <i class="fas fa-download"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report 4 -->
+        <div class="research-card">
+          <div class="research-card-accent"></div>
+          <div class="research-card-body">
+            <div class="research-card-date">September 2025</div>
+            <h3 class="research-card-title">Stigma, Fear and Hope: South Asian Women's Perspectives on Addiction in Rochdale</h3>
+            <div class="research-card-partners">
+              <span class="partner-tag">WHAG</span>
+            </div>
+            <p class="research-card-desc">Eight South Asian women explore stigma, family pressures, barriers to help-seeking and what effective support would look like.</p>
+            <div class="research-card-actions">
+              <button class="btn-primary" onclick="openPDFViewer('Focus Groups/South Asian Female Focus Group WHAG.pdf', 'Stigma, Fear and Hope')">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>Read Online
+              </button>
+              <a class="btn-outline-dark" href="Focus Groups/South Asian Female Focus Group WHAG.pdf" download>
+                <i class="fas fa-download"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report 5 -->
+        <div class="research-card">
+          <div class="research-card-accent"></div>
+          <div class="research-card-body">
+            <div class="research-card-date">August 2025</div>
+            <h3 class="research-card-title">Breaking the Silence: Addiction Focus Group with Young Pakistani Men</h3>
+            <div class="research-card-partners">
+              <span class="partner-tag">High Level Northern Trust</span>
+              <span class="partner-tag">The Young Khadims</span>
+            </div>
+            <p class="research-card-desc">Eight young Pakistani Muslim men aged 14–40 discuss addiction, stigma, nitrous oxide, the role of mosques and crisis pathways.</p>
+            <div class="research-card-actions">
+              <button class="btn-primary" onclick="openPDFViewer('Focus Groups/The Salik Project UK Focus Group  with The Young Khadims.pdf', 'Breaking the Silence')">
+                <i class="fas fa-book-open" style="margin-right:6px;"></i>Read Online
+              </button>
+              <a class="btn-outline-dark" href="Focus Groups/The Salik Project UK Focus Group  with The Young Khadims.pdf" download>
+                <i class="fas fa-download"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <div class="emergency">
+    <div class="emergency-inner">
+      <div class="emergency-left">
+        <div class="emergency-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="emergency-title">Need urgent support?</div>
+          <div class="emergency-desc">We are not a crisis service — but help is available right now.</div>
+        </div>
+      </div>
+      <div class="emergency-links">
+        <a href="tel:116123" class="emergency-link"><i class="fas fa-phone"></i> Samaritans: 116 123</a>
+        <a href="tel:03001236600" class="emergency-link"><i class="fas fa-phone"></i> FRANK: 0300 123 6600</a>
+        <a href="tel:999" class="emergency-link" style="border-color:rgba(255,80,80,0.4);color:#FF8080;background:rgba(255,80,80,0.08)"><i class="fas fa-ambulance"></i> Emergency: 999</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUNDERS -->
+  <section class="funders">
+    <div class="funders-inner">
+      <p class="section-label section-label--center">With Thanks To</p>
+      <h2 class="section-title">Our Funders</h2>
+      <p class="section-body" style="margin:0.5rem auto 0;color:rgba(255,255,255,0.5);text-align:center;">Our research is made possible by the generous support of organisations committed to improving lives across Greater Manchester.</p>
+      <div class="funder-card">
+        <div class="funder-logo-wrap">
+          <i class="fas fa-building-columns"></i>
+          <span>Action<br />Together</span>
+        </div>
+        <div class="funder-body">
+          <h3 class="funder-name">Action Together</h3>
+          <p class="funder-programme">Rochdale Communities Fund — Drug &amp; Alcohol Diversity Programme</p>
+          <p class="funder-desc">The Salik Project is grateful to Action Together for funding this project through the Rochdale Communities Fund, Drug and Alcohol Diversity Programme. Their investment makes our community research, outreach and education work possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="The Salik Project UK" />
+        <p>Supporting South Asian individuals in recovery and the families who walk alongside them. Reducing stigma through education, culturally informed signposting and grassroots research.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-newsletter">
+          <span class="footer-newsletter-label">Newsletter</span>
+          <form class="footer-newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+            <button type="submit">Go</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#work">Our Work</a></li>
+          <li><a href="index.html#resources">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="emergency-contacts.html" style="color:var(--amber)">Emergency Contacts</a></li>
+          <li><a href="get-support.html">Get Support</a></li>
+          <li><a href="#">Referral Form</a></li>
+          <li><a href="#">Find Local Services</a></li>
+          <li><a href="#">Resources Hub</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Safeguarding Policy</a></li>
+          <li><a href="#">Equality &amp; Diversity</a></li>
+          <li><a href="#">GDPR Statement</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Complaints Procedure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>© 2026 The Salik Project UK CIC. All rights reserved.</p>
+        <p class="footer-legal-line">The Salik Project UK CIC | Community Interest Company No. 16685087 | Not a registered charity.</p>
+        <p class="footer-legal-line">This project is funded by Action Together through the Rochdale Communities Fund.</p>
+      </div>
+      <div class="footer-policies">
+        <a href="#">Privacy</a>
+        <a href="#">Safeguarding</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PDF MODAL -->
+  <div id="pdfModal" class="pdf-modal" role="dialog" aria-modal="true" aria-label="PDF Viewer">
+    <div class="pdf-modal-overlay" onclick="closePDFViewer()"></div>
+    <div class="pdf-modal-panel">
+      <div class="pdf-modal-header">
+        <span class="pdf-modal-title" id="pdfModalTitle"></span>
+        <div class="pdf-modal-controls">
+          <button class="pdf-ctrl-btn" id="prevBtn" onclick="prevPage()" aria-label="Previous page" disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <span class="pdf-page-counter" id="pageCounter">Loading…</span>
+          <button class="pdf-ctrl-btn" id="nextBtn" onclick="nextPage()" aria-label="Next page" disabled>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <button class="pdf-modal-close" onclick="closePDFViewer()" aria-label="Close PDF viewer">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="pdf-modal-body" id="pdfModalBody">
+        <div class="pdf-loading" id="pdfLoading" style="display:block;">
+          <i class="fas fa-spinner fa-spin" style="font-size:1.5rem;color:var(--gold);margin-bottom:0.75rem;display:block;"></i>
+          Loading PDF…
+        </div>
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let pdfDoc = null;
+    let currentPage = 1;
+    let totalPages = 0;
+    let rendering = false;
+
+    function openPDFViewer(path, title) {
+      const modal = document.getElementById('pdfModal');
+      document.getElementById('pdfModalTitle').textContent = title;
+      document.getElementById('pdfCanvas').style.display = 'none';
+      document.getElementById('pdfLoading').style.display = 'block';
+      document.getElementById('pageCounter').textContent = 'Loading…';
+      document.getElementById('prevBtn').disabled = true;
+      document.getElementById('nextBtn').disabled = true;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      pdfjsLib.getDocument(encodeURI(path)).promise.then(pdf => {
+        pdfDoc = pdf;
+        totalPages = pdf.numPages;
+        currentPage = 1;
+        document.getElementById('pdfLoading').style.display = 'none';
+        document.getElementById('pdfCanvas').style.display = 'block';
+        renderPage(currentPage);
+      }).catch(() => {
+        document.getElementById('pdfLoading').innerHTML =
+          '<i class="fas fa-exclamation-circle" style="font-size:1.5rem;color:#e07878;margin-bottom:0.75rem;display:block;"></i>Could not load PDF. Please use the Download button instead.';
+      });
+    }
+
+    function closePDFViewer() {
+      document.getElementById('pdfModal').classList.remove('open');
+      document.body.style.overflow = '';
+      pdfDoc = null;
+      currentPage = 1;
+      totalPages = 0;
+    }
+
+    function renderPage(num) {
+      if (!pdfDoc || rendering) return;
+      rendering = true;
+      pdfDoc.getPage(num).then(page => {
+        const canvas = document.getElementById('pdfCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('pdfModalBody');
+        const containerWidth = container.clientWidth - 48;
+        const baseViewport = page.getViewport({ scale: 1 });
+        const scale = Math.min(containerWidth / baseViewport.width, 2);
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        page.render({ canvasContext: ctx, viewport }).promise.then(() => {
+          rendering = false;
+          updateControls();
+          container.scrollTop = 0;
+        });
+      });
+    }
+
+    function updateControls() {
+      document.getElementById('pageCounter').textContent =
+        'Page ' + currentPage + ' of ' + totalPages;
+      document.getElementById('prevBtn').disabled = currentPage <= 1;
+      document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+    }
+
+    function prevPage() {
+      if (currentPage > 1 && !rendering) {
+        currentPage--;
+        renderPage(currentPage);
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages && !rendering) {
+        currentPage++;
+        renderPage(currentPage);
+      }
+    }
+
+    document.getElementById('pdfModal').addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePDFViewer();
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'ArrowLeft') prevPage();
+    });
+
+    function dismissCrisisBar() {
+      document.getElementById('crisisBar').style.display = 'none';
+      document.documentElement.style.setProperty('--bar-height', '0px');
+      sessionStorage.setItem('crisisBarDismissed', '1');
+    }
+
+    if (sessionStorage.getItem('crisisBarDismissed')) {
+      document.getElementById('crisisBar').style.display = 'none';
+      document.documentElement.style.setProperty('--bar-height', '0px');
+    }
+
+    function quickExit() { window.location.replace('https://www.google.com'); }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function toggleResourcesMobile(btn) {
+      const submenu = document.getElementById('mobileResourcesMenu');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      submenu.classList.toggle('open', !isOpen);
+    }
+
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.background =
+        window.scrollY > 50 ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.95)';
+    });
+  </script>
+</body>
+</html>

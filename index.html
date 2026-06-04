@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Salik Project UK supports South Asian individuals in recovery from addiction and their families. Reducing stigma, improving access through education and culturally informed support." />
+  <title>The Salik Project UK — Supporting Families, Strengthening Recovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bar-height: 42px;
+      --gold: #C9922A;
+      --amber: #E8A030;
+      --orange: #D4611A;
+      --dark: #0A0A0A;
+      --dark2: #111111;
+      --dark3: #1A1A1A;
+      --dark4: #222222;
+      --offwhite: #F5F0E8;
+      --white: #FFFFFF;
+      --grey: #888888;
+      --lightgrey: #EEEEEE;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+      --max: 1200px;
+      --radius: 4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: var(--bar-height); left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 70px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      transition: background 0.3s, top 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-socials a {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 8px 20px;
+      border-radius: 99px;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--amber) !important; color: var(--dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--dark2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .mobile-menu a:hover { color: var(--gold); }
+
+    .mobile-socials {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .mobile-socials a { color: rgba(255,255,255,0.6); font-size: 1.1rem; border: none; }
+    .mobile-socials a:hover { color: var(--gold); }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-has-dropdown { position: relative; }
+
+    .nav-dropdown-trigger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-dropdown-chevron {
+      font-size: 0.55rem;
+      opacity: 0.55;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .nav-has-dropdown:hover .nav-dropdown-chevron,
+    .nav-has-dropdown:focus-within .nav-dropdown-chevron {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #111111;
+      border: 1px solid rgba(201,146,42,0.22);
+      border-radius: var(--radius);
+      padding: 0.4rem 0;
+      min-width: 210px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+      z-index: 101;
+    }
+
+    .nav-has-dropdown:hover .nav-dropdown,
+    .nav-has-dropdown:focus-within .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown a:hover { color: var(--gold); background: rgba(201,146,42,0.06); }
+
+    /* Mobile dropdown */
+    .mobile-dropdown-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .mobile-dropdown-trigger:hover { color: var(--gold); }
+
+    .mobile-dropdown-chevron {
+      font-size: 0.6rem;
+      opacity: 0.5;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .mobile-dropdown-trigger[aria-expanded="true"] .mobile-dropdown-chevron {
+      transform: rotate(180deg);
+    }
+
+    .mobile-dropdown-items {
+      display: none;
+      flex-direction: column;
+      padding: 0.3rem 0 0.5rem 1rem;
+    }
+
+    .mobile-dropdown-items.open { display: flex; }
+
+    .mobile-dropdown-items a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      padding: 0.45rem 0;
+      border-bottom: none;
+      letter-spacing: 0.06em;
+    }
+
+    .mobile-dropdown-items a:hover { color: var(--gold); background: none; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: auto;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: calc(var(--bar-height) + 70px);
+      overflow: hidden;
+    }
+
+    .hero-image-panel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        #0A0A0A 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 20%;
+      filter: none;
+      display: block;
+    }
+
+    .hero-text-panel {
+      background: #0A0A0A;
+      display: flex;
+      align-items: center;
+      padding: 2.5rem 4rem 2.5rem 5rem;
+    }
+
+    .hero-right { width: 100%; }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subline {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-style: italic;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .hero-body {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .hero-actions .btn-primary {
+      font-size: 0.85rem;
+      padding: 14px 28px;
+      font-weight: 600;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-stats > div {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 3rem 2rem; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--dark2); padding-top: 3rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .value-card {
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .value-card:hover {
+      border-color: var(--gold);
+      background: rgba(201,146,42,0.04);
+    }
+
+    .value-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .value-card-img {
+      margin: -1.5rem -1.5rem 1rem;
+      height: 150px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .value-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .value-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .value-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .about-right .motto {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .about-right p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── OUR WORK ── */
+    .our-work { background: var(--dark3); }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .work-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--dark4);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .work-card:hover { transform: translateY(-6px); border-color: rgba(201,146,42,0.3); }
+
+    .work-card-img {
+      height: 200px;
+      background: linear-gradient(135deg, #1A1200, #2A1800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card-img i {
+      font-size: 3rem;
+      color: rgba(201,146,42,0.3);
+    }
+
+    .work-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .work-card-tag {
+      position: absolute;
+      bottom: 1rem; left: 1rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .work-card-body { padding: 1.5rem; }
+
+    .work-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .work-card-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ── IMPACT ── */
+    .impact { background: var(--dark); }
+
+    .impact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .impact-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .impact-num {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+    }
+
+    .impact-num-val {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .impact-num-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── PARTNERS ── */
+    .partners {
+      background: var(--dark2);
+      padding: 3rem 2rem;
+    }
+
+    .partners-header { text-align: center; margin-bottom: 1.5rem; }
+    .partners-header .section-label { justify-content: center; }
+    .partners-header .section-label::before { display: none; }
+
+    .partners-ticker-wrap {
+      position: relative;
+      overflow: hidden;
+      margin: 0 -2rem;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .partners-ticker {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      width: max-content;
+      animation: partners-scroll 55s linear infinite;
+    }
+
+    .partners-ticker-wrap:hover .partners-ticker {
+      animation-play-state: paused;
+    }
+
+    @keyframes partners-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid rgba(201, 146, 42, 0.3);
+      border-radius: 99px;
+      background: rgba(201, 146, 42, 0.04);
+      color: rgba(255,255,255,0.72);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: default;
+    }
+
+    .partner-badge:hover {
+      border-color: var(--gold);
+      color: var(--white);
+      background: rgba(201, 146, 42, 0.08);
+    }
+
+    .partner-sep {
+      color: var(--gold);
+      opacity: 0.35;
+      font-size: 0.55rem;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .partner-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2rem;
+      background: transparent;
+      border: none;
+      height: 100px;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .partner-logo-badge:hover { opacity: 0.7; }
+
+    .partner-logo-badge img {
+      height: 80px;
+      max-width: 220px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .partner-logo-badge:hover img { }
+
+    @media (prefers-reduced-motion: reduce) {
+      .partners-ticker { animation: none; }
+    }
+
+    /* ── YOUTUBE SHORTS ── */
+    .shorts { background: var(--dark3); }
+
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .short-card {
+      background: var(--dark4);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .short-placeholder {
+      aspect-ratio: 9/16;
+      background: linear-gradient(135deg, #1A1200, #2A1800);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .short-play {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,0,0,0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    .short-card:hover .short-play { transform: scale(1.1); }
+
+    .short-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .short-info { padding: 1rem; }
+
+    .short-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+
+    .short-meta {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── BLOG ── */
+    .blog { background: var(--dark); }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .blog-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .blog-card:hover { border-color: rgba(201,146,42,0.3); transform: translateY(-4px); }
+
+    .blog-card-img {
+      background: linear-gradient(135deg, #1A1200, #2A1A00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(201,146,42,0.25);
+    }
+
+    .blog-card:first-child .blog-card-img { height: 260px; font-size: 4rem; }
+    .blog-card:not(:first-child) .blog-card-img { height: 160px; font-size: 2.5rem; }
+
+    .blog-card-body { padding: 1.5rem; }
+
+    .blog-card-cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card:first-child .blog-card-title { font-size: 1.5rem; }
+
+    .blog-card-excerpt {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .blog-card-meta {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── EMERGENCY ── */
+    .emergency {
+      background: linear-gradient(135deg, #1A0800, #0A0A0A);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 3rem 2rem;
+    }
+
+    .emergency-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .emergency-left { display: flex; align-items: center; gap: 1.5rem; }
+
+    .emergency-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(201,146,42,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .emergency-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .emergency-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 2px;
+    }
+
+    .emergency-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .emergency-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.25);
+      color: var(--gold);
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .emergency-link:hover { background: rgba(201,146,42,0.2); }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--dark2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+
+    .form-group textarea { height: 120px; resize: vertical; }
+
+    .form-group select option { background: var(--dark2); }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: var(--dark2);
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(201,146,42,0.12);
+      border-bottom: 1px solid rgba(201,146,42,0.12);
+    }
+
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .newsletter-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-right: none;
+      border-radius: var(--radius) 0 0 var(--radius);
+      padding: 14px 18px;
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input[type="email"]:focus { border-color: var(--gold); }
+    .newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.3); }
+
+    .newsletter-form button {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover { background: var(--amber); }
+
+    /* Footer newsletter mini-form */
+    .footer-newsletter { margin-top: 1.5rem; }
+
+    .footer-newsletter-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .footer-newsletter-form { display: flex; }
+
+    .footer-newsletter-form input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-right: none;
+      border-radius: var(--radius) 0 0 var(--radius);
+      padding: 9px 12px;
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 0;
+    }
+
+    .footer-newsletter-form input[type="email"]:focus { border-color: var(--gold); }
+    .footer-newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.22); }
+
+    .footer-newsletter-form button {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 9px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .footer-newsletter-form button:hover { background: var(--amber); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand img { height: 50px; margin-bottom: 1rem; }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li { margin-bottom: 0.6rem; }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .footer-policies {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    /* ── CRISIS BAR ── */
+    .crisis-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: var(--bar-height);
+      background: #150303;
+      border-bottom: 1px solid rgba(180,40,40,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .crisis-bar-text {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .crisis-bar-text strong { color: rgba(255,255,255,0.95); font-weight: 500; }
+
+    .crisis-bar-text a {
+      color: #e07878;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .crisis-bar-text a:hover { text-decoration: underline; }
+
+    .crisis-short { display: none; }
+
+    .crisis-bar-close {
+      position: absolute;
+      right: 0.8rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.35);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 6px 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .crisis-bar-close:hover { color: rgba(255,255,255,0.75); }
+
+    /* ── QUICK EXIT ── */
+    .quick-exit {
+      position: fixed;
+      top: calc(var(--bar-height) + 18px);
+      right: 1.2rem;
+      z-index: 300;
+      background: rgba(16,16,16,0.9);
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 5px 11px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s, top 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .quick-exit:hover {
+      background: rgba(36,36,36,0.96);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* ── FUNDERS ── */
+    .funders { background: var(--dark3); }
+
+    .funders-header { margin-bottom: 1.5rem; }
+
+    .section-label--center { justify-content: center; }
+    .section-label--center::before { display: none; }
+
+    .funders-grid { display: flex; justify-content: center; }
+
+    .funder-card {
+      background: var(--dark4);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      max-width: 760px;
+      width: 100%;
+      transition: border-color 0.3s;
+    }
+
+    .funder-card:hover { border-color: rgba(201,146,42,0.5); }
+
+    .funder-logo-wrap {
+      background: linear-gradient(135deg, #1A1200, #2A1A00);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 2rem;
+      border-right: 1px solid rgba(201,146,42,0.12);
+      min-height: 180px;
+    }
+
+    .funder-logo-wrap i {
+      font-size: 2.8rem;
+      color: rgba(201,146,42,0.35);
+    }
+
+    .funder-logo-wrap span {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+
+    .funder-body {
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .funder-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .funder-programme {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .funder-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER LEGAL ── */
+    .footer-legal-line {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.18);
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .work-cards { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      :root { --bar-height: 64px; }
+      .crisis-full { display: none; }
+      .crisis-short { display: inline; }
+      .crisis-bar { height: var(--bar-height); align-items: center; }
+      .funder-card { grid-template-columns: 1fr; }
+      .funder-logo-wrap { border-right: none; border-bottom: 1px solid rgba(201,146,42,0.12); min-height: 100px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 2rem 1.2rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; height: auto; }
+      .hero-image-panel { height: 55vh; min-height: 300px; }
+      .hero-text-panel { padding: 3rem 1.5rem; }
+      .hero-right { padding-left: 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-values { grid-template-columns: 1fr 1fr; }
+      .work-cards { grid-template-columns: 1fr; }
+      .impact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .impact-numbers { grid-template-columns: 1fr 1fr; }
+      .shorts-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-policies { flex-wrap: wrap; gap: 0.75rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .about-values { grid-template-columns: 1fr; }
+      .shorts-grid { grid-template-columns: 1fr; }
+      .impact-numbers { grid-template-columns: 1fr; }
+      .emergency-inner { flex-direction: column; align-items: flex-start; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline { width: 100%; text-align: center; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input[type="email"] {
+        border-right: 1px solid rgba(255,255,255,0.12);
+        border-bottom: none;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+      .newsletter-form button { border-radius: 0 0 var(--radius) var(--radius); }
+    }
+
+    /* ── LIGHT CONTENT THEME ── */
+    body { background: #FAF6EF; color: #1a1008; }
+    .about, .our-work, .impact, .partners, .shorts, .blog, .contact, .funders { background: #FAF6EF; }
+    .newsletter { background: #FAF6EF; border-top-color: #E8DCC8; border-bottom-color: #E8DCC8; }
+    .section-title { color: #1a1008; }
+    .section-body { color: #6b5a3e; }
+    /* About */
+    .about-right p { color: #6b5a3e; }
+    .value-card { background: #FFFFFF; border-color: #E8DCC8; }
+    .value-card:hover { background: #FFFFFF; border-color: var(--gold); }
+    .value-title { color: #1a1008; }
+    .value-desc { color: #6b5a3e; }
+    .about .btn-outline, .impact .btn-outline { border-color: rgba(26,16,8,0.25); color: #1a1008; }
+    .about .btn-outline:hover, .impact .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    /* Our Work */
+    .work-card { background: #FFFFFF; border-color: #E8DCC8; color: #1a1008; }
+    .work-card:hover { border-color: rgba(201,146,42,0.5); }
+    .work-card-img { background: linear-gradient(135deg, #F0E8D8, #E8DCC8); }
+    .work-card-img i { color: rgba(201,146,42,0.5); }
+    .work-card-title { color: #1a1008; }
+    .work-card-desc { color: #6b5a3e; }
+    /* Impact */
+    .impact-num-label { color: #6b5a3e; }
+    /* Partners — logos display in original colours */
+    /* Shorts */
+    .short-card { background: #FFFFFF; border-color: #E8DCC8; }
+    .short-placeholder { background: linear-gradient(135deg, #F0E8D8, #E8DCC8); }
+    .short-label { color: #6b5a3e; }
+    .short-title { color: #1a1008; }
+    .short-meta { color: #6b5a3e; }
+    /* Blog */
+    .blog-card { background: #FFFFFF; border-color: #E8DCC8; color: #1a1008; }
+    .blog-card:hover { border-color: rgba(201,146,42,0.5); }
+    .blog-card-img { background: linear-gradient(135deg, #F0E8D8, #E8DCC8); color: rgba(201,146,42,0.4); }
+    .blog-card-title { color: #1a1008; }
+    .blog-card-excerpt { color: #6b5a3e; }
+    .blog-card-meta { color: #6b5a3e; }
+    /* Contact */
+    .form-group label { color: #6b5a3e; }
+    .form-group input, .form-group select, .form-group textarea { background: #F5EFE8; border-color: #E8DCC8; color: #1a1008; }
+    .form-group select option { background: #FAF6EF; color: #1a1008; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #a08060; }
+    /* Newsletter */
+    .newsletter-title { color: #1a1008; }
+    .newsletter-sub { color: #6b5a3e; }
+    .newsletter-form input[type="email"] { background: #F5EFE8; border-color: #E8DCC8; color: #1a1008; }
+    .newsletter-form input[type="email"]::placeholder { color: #a08060; }
+    /* Funders */
+    .funder-card { background: #FFFFFF; border-color: #E8DCC8; }
+    .funder-logo-wrap { background: #F5EFE8; border-right-color: #E8DCC8; }
+    .funder-logo-wrap span { color: #6b5a3e; }
+    .funder-logo-wrap i { color: rgba(201,146,42,0.5); }
+    .funder-name { color: #1a1008; }
+    .funder-desc { color: #6b5a3e; }
+  </style>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+
+  <!-- CRISIS BAR -->
+  <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
+    <p class="crisis-bar-text">
+      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK free on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> — both free, 24/7.</span>
+      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;·&nbsp; Samaritans: <a href="tel:116123">116 123</a></span>
+    </p>
+    <button class="crisis-bar-close" onclick="dismissCrisisBar()" aria-label="Dismiss this message">×</button>
+  </div>
+
+  <!-- QUICK EXIT -->
+  <button class="quick-exit" onclick="quickExit()" aria-label="Quick exit — leaves this page immediately">Quick Exit ↗</button>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="The Salik Project UK logo" />
+      <span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li class="nav-has-dropdown">
+        <a href="#resources" class="nav-dropdown-trigger" aria-haspopup="true">
+          Resources
+          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+        </a>
+        <div class="nav-dropdown" role="menu">
+          <a href="#" role="menuitem">Community Resource Hub</a>
+          <a href="#" role="menuitem">Focus Groups</a>
+        </div>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="emergency-contacts.html" style="color:var(--amber);font-weight:500;">Emergency Contacts</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1.2rem;" class="nav-socials-wrap">
+      <div class="nav-socials">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <a href="get-support.html#pathways" class="nav-links a nav-cta" style="background:var(--gold);color:var(--dark);padding:8px 20px;border-radius:99px;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;">Get Support</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="toggleMenu()">About</a>
+    <a href="#work" onclick="toggleMenu()">Our Work</a>
+    <button class="mobile-dropdown-trigger" onclick="toggleResourcesMobile(this)" aria-expanded="false">
+      Resources
+      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+    </button>
+    <div class="mobile-dropdown-items" id="mobileResourcesMenu">
+      <a href="#" onclick="toggleMenu()">Community Resource Hub</a>
+      <a href="#" onclick="toggleMenu()">Focus Groups</a>
+    </div>
+    <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="research.html" onclick="toggleMenu()">Research</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="emergency-contacts.html" onclick="toggleMenu()" style="color:var(--amber)">Emergency Contacts</a>
+    <a href="get-support.html#pathways" onclick="toggleMenu()" style="color:var(--gold)">Get Support →</a>
+    <div class="mobile-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-panel">
+      <img src="images/community%20focus%20group%201.png" alt="Community focus group" class="hero-img" />
+    </div>
+    <div class="hero-text-panel">
+      <div class="hero-right fade-up">
+        <p class="hero-eyebrow">Rochdale, Greater Manchester</p>
+        <h1 class="hero-headline">
+          Breaking the Silence.<br />Supporting Recovery in<br /><em>South Asian Communities.</em>
+        </h1>
+        <p class="hero-subline">Recovery is possible. You are not alone.</p>
+        <p class="hero-body">
+          Addiction thrives in silence. We're changing that. We work with South Asian communities across Greater Manchester — listening, researching and co-producing resources that challenge stigma and make recovery services truly inclusive. Our mission is twofold: to break the silence around addiction in South Asian communities, and to push services to be more culturally responsive to the people they serve. We are not a treatment provider. We are community advocates — educating, signposting and making sure no family faces this alone.
+        </p>
+        <div class="hero-actions">
+          <a href="get-support.html#pathways" class="btn-primary">Get Support</a>
+          <a href="#about" class="btn-outline">Our Mission</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-up">
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-title">Grassroots.<br />Community-led.<br />Culturally informed.</h2>
+          <div class="about-values">
+            <div class="value-card">
+              <div class="value-card-img"><img src="images/support.png" alt="Support" /></div>
+              <div class="value-title">Support</div>
+              <div class="value-desc">Walking alongside individuals and families at every stage of recovery.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-card-img"><img src="images/educate.png" alt="Educate" /></div>
+              <div class="value-title">Educate</div>
+              <div class="value-desc">Building awareness through culturally sensitive resources and campaigns.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-card-img"><img src="images/refer.png" alt="Refer" /></div>
+              <div class="value-title">Refer</div>
+              <div class="value-desc">Connecting people to the right services — NHS, commissioned providers and beyond.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-card-img"><img src="images/voice%20and%20empower.png" alt="Voice and Empower" /></div>
+              <div class="value-title">Voice & Empower</div>
+              <div class="value-desc">Amplifying lived experience and ensuring communities shape their own solutions.</div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up" style="transition-delay:0.2s">
+          <p class="motto">"To Serve<br />Not Judge."</p>
+          <p>The Salik Project UK is a Community Interest Company based in Rochdale, Greater Manchester. We work with South Asian individuals affected by addiction — and the families who love them.</p>
+          <p>We believe recovery isn't a solo journey. It requires informed families, trusted community support, and early, sustained engagement from services that understand culture, faith and language.</p>
+          <p>Our work spans community research, focus groups, bilingual resources in English, Urdu and Bengali, and partnerships with NHS and commissioned drug and alcohol services.</p>
+          <a href="#work" class="btn-primary" style="margin-top:1rem;display:inline-block;">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section class="our-work" id="work">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title">Our Work<br />in the Community</h2>
+        </div>
+        <p class="section-body">From awareness campaigns in mosques and community centres, to structured focus groups and bilingual resources — everything we do is shaped by the communities we serve.</p>
+      </div>
+      <div class="work-cards">
+        <a href="#" class="work-card fade-up">
+          <div class="work-card-img">
+            <img src="images/community%20focus%20group%201.png" alt="Community Focus Groups" />
+            <span class="work-card-tag">Research</span>
+          </div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">Community Focus Groups</h3>
+            <p class="work-card-desc">Listening to South Asian individuals and families across Rochdale to shape culturally informed resources and policy recommendations.</p>
+          </div>
+        </a>
+        <a href="#" class="work-card fade-up" style="transition-delay:0.1s">
+          <div class="work-card-img">
+            <img src="images/awareness%20campaigns.png" alt="Awareness Campaigns" />
+            <span class="work-card-tag">Campaigns</span>
+          </div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">Awareness Campaigns</h3>
+            <p class="work-card-desc">Running outreach events, dissemination stalls and social media campaigns to break the stigma of addiction in South Asian communities.</p>
+          </div>
+        </a>
+        <a href="#" class="work-card fade-up" style="transition-delay:0.2s">
+          <div class="work-card-img">
+            <img src="images/partnerships.png" alt="Partnerships and Collaboration" />
+            <span class="work-card-tag">Partnerships</span>
+          </div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">Partnerships & Collaboration</h3>
+            <p class="work-card-desc">Working alongside Turning Point, Action Together, BACP, Rochdale Council Public Health and others to strengthen early intervention.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact" id="impact">
+    <div class="container">
+      <div class="impact-inner">
+        <div class="fade-up">
+          <p class="section-label">Our Impact</p>
+          <h2 class="section-title">Making a difference<br />one family at a time.</h2>
+          <p class="section-body" style="margin-top:1rem;">Funded by Action Together through the Rochdale Communities Fund Drug & Alcohol Diversity Programme, our 2026–27 project is already building evidence and strengthening connections.</p>
+          <a href="#contact" class="btn-outline" style="margin-top:2rem;display:inline-block;">Partner With Us</a>
+        </div>
+        <div class="impact-numbers fade-up" style="transition-delay:0.2s">
+          <div class="impact-num">
+            <div class="impact-num-val">10</div>
+            <div class="impact-num-label">Focus groups planned across Rochdale</div>
+          </div>
+          <div class="impact-num">
+            <div class="impact-num-val">150</div>
+            <div class="impact-num-label">Community participants targeted</div>
+          </div>
+          <div class="impact-num">
+            <div class="impact-num-val">3–5</div>
+            <div class="impact-num-label">Bilingual resources to be produced</div>
+          </div>
+          <div class="impact-num">
+            <div class="impact-num-val">3</div>
+            <div class="impact-num-label">Languages: English, Urdu, Bengali</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners" id="partners">
+    <div class="container">
+      <div class="partners-header fade-up">
+        <p class="section-label">Who We Work With</p>
+        <h2 class="section-title">Our Partners &amp; Collaborators</h2>
+        <p class="section-body" style="margin:0.5rem auto 2.5rem;text-align:center;">We work alongside organisations who share our commitment to reducing harm and improving lives.</p>
+      </div>
+    </div>
+    <div class="partners-ticker-wrap">
+      <div class="partners-ticker" role="list" aria-label="Partner organisations">
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Rochdale_Recovery_Communities_Logo.png" alt="Rochdale Recovery Communities" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Early-Break-Logo.webp" alt="Early Break" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/whag_logo.png" alt="WHAG" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Action_Together_logo.jpg" alt="Action Together" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/The_Young_Khadims_Logo.jpg" alt="The Young Khadims" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Rochdale_Council_of_Mosques_logo.jpg" alt="Rochdale Council of Mosques" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/High_Level_Northern_Trust_Logo.jpg" alt="High Level Northern Trust" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/kyp_logo.png" alt="KYP" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/National_Zakat_Foundation.png" alt="National Zakat Foundation" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Turning_Point_UK_Logo.png" alt="Turning Point UK" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" role="listitem"><img src="images/partners/Rochdale-Council-Logo.jpg" alt="Rochdale Council" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <!-- duplicate set for seamless infinite loop -->
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Rochdale_Recovery_Communities_Logo.png" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Early-Break-Logo.webp" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/whag_logo.png" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Action_Together_logo.jpg" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/The_Young_Khadims_Logo.jpg" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Rochdale_Council_of_Mosques_logo.jpg" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/High_Level_Northern_Trust_Logo.jpg" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/kyp_logo.png" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/National_Zakat_Foundation.png" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Turning_Point_UK_Logo.png" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+        <a href="partners.html" class="partner-logo-badge" aria-hidden="true"><img src="images/partners/Rochdale-Council-Logo.jpg" alt="" /></a>
+        <span class="partner-sep" aria-hidden="true">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE SHORTS -->
+  <section class="shorts" id="media">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <p class="section-label">Watch &amp; Listen</p>
+          <h2 class="section-title">Podcasts &amp;<br />Short Films</h2>
+        </div>
+        <a href="https://www.youtube.com/@salikprojectuk" target="_blank" rel="noopener" class="btn-outline" style="white-space:nowrap">
+          <i class="fab fa-youtube" style="color:#FF0000;margin-right:6px"></i> View on YouTube
+        </a>
+      </div>
+      <div class="shorts-grid">
+        <div class="short-card fade-up">
+          <div class="short-placeholder">
+            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
+            <span class="short-label">YouTube Short</span>
+          </div>
+          <div class="short-info">
+            <div class="short-title">Episode coming soon</div>
+            <div class="short-meta">Add your YouTube Short embed here</div>
+          </div>
+        </div>
+        <div class="short-card fade-up" style="transition-delay:0.1s">
+          <div class="short-placeholder">
+            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
+            <span class="short-label">YouTube Short</span>
+          </div>
+          <div class="short-info">
+            <div class="short-title">Episode coming soon</div>
+            <div class="short-meta">Add your YouTube Short embed here</div>
+          </div>
+        </div>
+        <div class="short-card fade-up" style="transition-delay:0.2s">
+          <div class="short-placeholder">
+            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
+            <span class="short-label">YouTube Short</span>
+          </div>
+          <div class="short-info">
+            <div class="short-title">Episode coming soon</div>
+            <div class="short-meta">Add your YouTube Short embed here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <p class="section-label">Latest</p>
+          <h2 class="section-title">News &amp; Insights</h2>
+        </div>
+        <a href="#" class="btn-outline">All Articles →</a>
+      </div>
+      <div class="blog-grid">
+        <a href="#" class="blog-card fade-up">
+          <div class="blog-card-img"><i class="fas fa-newspaper"></i></div>
+          <div class="blog-card-body">
+            <p class="blog-card-cat">Feature</p>
+            <h3 class="blog-card-title">Why addiction remains a hidden crisis in South Asian communities</h3>
+            <p class="blog-card-excerpt">Stigma, shame and silence. We explore the cultural barriers that prevent South Asian families from seeking help — and what needs to change.</p>
+            <p class="blog-card-meta">Coming soon · The Salik Project UK</p>
+          </div>
+        </a>
+        <a href="#" class="blog-card fade-up" style="transition-delay:0.1s">
+          <div class="blog-card-img"><i class="fas fa-pen-nib"></i></div>
+          <div class="blog-card-body">
+            <p class="blog-card-cat">Research</p>
+            <h3 class="blog-card-title">What our focus groups are telling us</h3>
+            <p class="blog-card-excerpt">Early findings from our community listening sessions across Rochdale.</p>
+            <p class="blog-card-meta">Coming soon</p>
+          </div>
+        </a>
+        <a href="#" class="blog-card fade-up" style="transition-delay:0.2s">
+          <div class="blog-card-img"><i class="fas fa-hands-helping"></i></div>
+          <div class="blog-card-body">
+            <p class="blog-card-cat">Community</p>
+            <h3 class="blog-card-title">Naloxone training: saving lives in our community</h3>
+            <p class="blog-card-excerpt">Our partnership with Turning Point on Naloxone awareness.</p>
+            <p class="blog-card-meta">Coming soon</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY CONTACTS -->
+  <div class="emergency" id="emergency">
+    <div class="emergency-inner">
+      <div class="emergency-left">
+        <div class="emergency-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="emergency-title">Need urgent support?</div>
+          <div class="emergency-desc">We are not a crisis service — but help is available right now.</div>
+        </div>
+      </div>
+      <div class="emergency-links">
+        <a href="tel:116123" class="emergency-link"><i class="fas fa-phone"></i> Samaritans: 116 123</a>
+        <a href="tel:03001236600" class="emergency-link"><i class="fas fa-phone"></i> FRANK: 0300 123 6600</a>
+        <a href="tel:999" class="emergency-link" style="border-color:rgba(255,80,80,0.4);color:#FF8080;background:rgba(255,80,80,0.08)"><i class="fas fa-ambulance"></i> Emergency: 999</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="fade-up">
+          <p class="section-label">Get In Touch</p>
+          <h2 class="section-title">We're here<br />to help.</h2>
+          <p style="color:#1a1008;font-size:0.9rem;margin:1.5rem 0;line-height:1.8;">Whether you're an individual, a family member, a health professional or a funder — we'd love to hear from you. We respond to all enquiries within 2 working days.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,146,42,0.1);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#6b5a3e;margin-bottom:2px;">Email</div>
+                <a href="mailto:info@salikprojectuk.org" style="color:var(--gold);text-decoration:none;font-size:0.9rem;">info@salikprojectuk.org</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,146,42,0.1);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#6b5a3e;margin-bottom:2px;">Based in</div>
+                <span style="font-size:0.9rem;color:#1a1008;">Rochdale, Greater Manchester</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up" style="transition-delay:0.2s">
+          <form class="contact-form" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First name</label>
+                <input type="text" id="fname" placeholder="Mustafa" />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last name</label>
+                <input type="text" id="lname" placeholder="Hameed" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="reason">Reason for contact</label>
+              <select id="reason">
+                <option value="">Select one...</option>
+                <option>I need support / signposting</option>
+                <option>I'm a family member seeking advice</option>
+                <option>I'm a professional / referrer</option>
+                <option>Partnership enquiry</option>
+                <option>Funding / commissioning</option>
+                <option>Media enquiry</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us how we can help..."></textarea>
+            </div>
+            <div class="form-group" style="flex-direction:row;align-items:flex-start;gap:10px;">
+              <input type="checkbox" id="consent" style="margin-top:4px;accent-color:var(--gold);width:auto;" />
+              <label for="consent" style="font-size:0.78rem;color:#6b5a3e;letter-spacing:0;text-transform:none;line-height:1.5;">I consent to The Salik Project UK storing my details to respond to this enquiry, in line with our Privacy Policy.</label>
+            </div>
+            <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:var(--font-sans);">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-inner fade-up">
+      <h2 class="newsletter-title">Stay informed — join our newsletter.</h2>
+      <p class="newsletter-sub">Updates on our work, resources and community news. No spam, ever.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FUNDERS -->
+  <section class="funders" id="funders">
+    <div class="container">
+      <div class="funders-header fade-up" style="text-align:center;">
+        <p class="section-label section-label--center">With Thanks To</p>
+        <h2 class="section-title">Our Funders</h2>
+        <p class="section-body" style="margin:0.75rem auto 0;">Our work is made possible by the generous support of organisations committed to improving lives in communities across Greater Manchester.</p>
+      </div>
+      <div class="funders-grid" style="margin-top:1.5rem;">
+        <div class="funder-card fade-up">
+          <div class="funder-logo-wrap">
+            <i class="fas fa-building-columns"></i>
+            <span>Action<br />Together</span>
+          </div>
+          <div class="funder-body">
+            <h3 class="funder-name">Action Together</h3>
+            <p class="funder-programme">Rochdale Communities Fund — Drug &amp; Alcohol Diversity Programme</p>
+            <p class="funder-desc">The Salik Project is grateful to Action Together for funding this project through the Rochdale Communities Fund, Drug and Alcohol Diversity Programme. Their investment makes our community research, outreach and education work possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="The Salik Project UK" />
+        <p>Supporting South Asian individuals in recovery and the families who walk alongside them. Reducing stigma through education, culturally informed signposting and grassroots research.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-newsletter">
+          <span class="footer-newsletter-label">Newsletter</span>
+          <form class="footer-newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+            <button type="submit">Go</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="emergency-contacts.html" style="color:var(--amber)">Emergency Contacts</a></li>
+          <li><a href="get-support.html#pathways">Get Support</a></li>
+          <li><a href="#">Referral Form</a></li>
+          <li><a href="#">Find Local Services</a></li>
+          <li><a href="#">Resources Hub</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Organisation</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Safeguarding Policy</a></li>
+          <li><a href="#">Equality & Diversity</a></li>
+          <li><a href="#">GDPR Statement</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Complaints Procedure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>© 2026 The Salik Project UK CIC. All rights reserved.</p>
+        <p class="footer-legal-line">The Salik Project UK CIC | Community Interest Company No. 16685087 | Not a registered charity.</p>
+        <p class="footer-legal-line">This project is funded by Action Together through the Rochdale Communities Fund.</p>
+      </div>
+      <div class="footer-policies">
+        <a href="#">Privacy</a>
+        <a href="#">Safeguarding</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Crisis bar
+    function dismissCrisisBar() {
+      document.getElementById('crisisBar').style.display = 'none';
+      document.documentElement.style.setProperty('--bar-height', '0px');
+      sessionStorage.setItem('crisisBarDismissed', '1');
+    }
+
+    if (sessionStorage.getItem('crisisBarDismissed')) {
+      document.getElementById('crisisBar').style.display = 'none';
+      document.documentElement.style.setProperty('--bar-height', '0px');
+    }
+
+    // Quick exit — replace history entry so back button doesn't return here
+    function quickExit() {
+      window.location.replace('https://www.google.com');
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Mobile Resources sub-menu toggle
+    function toggleResourcesMobile(btn) {
+      const submenu = document.getElementById('mobileResourcesMenu');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      submenu.classList.toggle('open', !isOpen);
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.background =
+        window.scrollY > 50 ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.95)';
+    });
+  </script>
+</body>
+</html>
