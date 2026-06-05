@@ -14,6 +14,7 @@
 
     :root {
       --bar-height: 42px;
+      --topbar-height: 28px;
       --gold: #C9922A;
       --amber: #E8A030;
       --orange: #D4611A;
@@ -45,7 +46,7 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: var(--bar-height); left: 0; right: 0;
+      top: calc(var(--topbar-height) + var(--bar-height)); left: 0; right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -151,7 +152,7 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 70px; left: 0; right: 0;
+      top: calc(var(--topbar-height) + var(--bar-height) + 70px); left: 0; right: 0;
       background: var(--dark2);
       border-bottom: 1px solid rgba(201,146,42,0.2);
       padding: 1.5rem 2rem;
@@ -309,7 +310,7 @@
       inset: 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding-top: calc(var(--bar-height) + 70px);
+      padding-top: calc(var(--topbar-height) + var(--bar-height) + 70px);
       opacity: 0;
       transition: opacity 0.85s ease;
       pointer-events: none;
@@ -1325,7 +1326,7 @@
     /* ── CRISIS BAR ── */
     .crisis-bar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--topbar-height); left: 0; right: 0;
       z-index: 200;
       height: var(--bar-height);
       background: #150303;
@@ -1375,7 +1376,7 @@
     /* ── QUICK EXIT ── */
     .quick-exit {
       position: fixed;
-      top: calc(var(--bar-height) + 18px);
+      top: calc(var(--topbar-height) + var(--bar-height) + 18px);
       right: 1.2rem;
       z-index: 300;
       background: rgba(16,16,16,0.9);
@@ -1616,6 +1617,14 @@
 </head>
 <body>
 
+  <div style="background:#111;padding:4px 24px 4px 24px;padding-right:80px;display:flex;justify-content:flex-end;align-items:center;gap:16px;position:fixed;top:0;left:0;right:0;z-index:250;">
+    <a href="https://www.instagram.com/salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.tiktok.com/@salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.linkedin.com/company/salik-project-uk" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.youtube.com/@salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-youtube"></i></a>
+  </div>
+
   <!-- CRISIS BAR -->
   <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
     <p class="crisis-bar-text">
@@ -1716,16 +1725,6 @@
       <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-  </div>
-
-  <!-- SOCIAL BAR -->
-  <div style="background:#1a1a1a;padding:8px 24px;display:flex;justify-content:flex-end;align-items:center;gap:20px;border-bottom:1px solid #2a2a2a;">
-    <span style="color:#888;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-right:8px;">Follow Us</span>
-    <a href="https://www.instagram.com/salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1.1rem;"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1.1rem;"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.tiktok.com/@salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1.1rem;"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.linkedin.com/company/salik-project-uk" target="_blank" style="color:#C9A84C;font-size:1.1rem;"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://www.youtube.com/@salikprojectuk" target="_blank" style="color:#C9A84C;font-size:1.1rem;"><i class="fab fa-youtube"></i></a>
   </div>
 
   <!-- HERO SLIDER -->
