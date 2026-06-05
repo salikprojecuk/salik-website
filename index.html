@@ -105,6 +105,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-shrink: 0;
     }
 
     .nav-socials a {
@@ -1495,6 +1496,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
+      .hamburger { display: flex; }
+
       .work-cards { grid-template-columns: 1fr 1fr; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1510,9 +1515,6 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 1.2rem; }
-      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
-      .hamburger { display: flex; }
       section { padding: 2rem 1.2rem; }
       .hero { height: auto; overflow: visible; }
       .hero-slide { position: relative; inset: auto; grid-template-columns: 1fr; display: none; opacity: 1; transition: none; pointer-events: none; z-index: auto; }

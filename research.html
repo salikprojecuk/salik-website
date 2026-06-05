@@ -174,7 +174,7 @@
     .nav-links a:hover { color: var(--gold); }
     .nav-links a.active { color: var(--gold); }
 
-    .nav-socials { display: flex; align-items: center; gap: 1rem; }
+    .nav-socials { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
 
     .nav-socials a {
       color: rgba(255,255,255,0.6);
@@ -986,14 +986,15 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
+      .hamburger { display: flex; }
+
       .research-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 1.2rem; }
-      .nav-links, .nav-socials { display: none; }
-      .hamburger { display: flex; }
       section { padding: 2rem 1.2rem; }
       .page-hero-inner { padding: 2.5rem 1.2rem 3rem; }
       .research-grid { grid-template-columns: 1fr; }

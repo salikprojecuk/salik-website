@@ -186,6 +186,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-shrink: 0;
     }
 
     .nav-socials a {
@@ -922,10 +923,13 @@
       .crisis-bar { height: var(--bar-height); align-items: center; }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       nav { padding: 0 1.2rem; }
       .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
       .hamburger { display: flex; }
+    }
+
+    @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-policies { flex-wrap: wrap; gap: 0.75rem; }
       .contacts-grid { grid-template-columns: 1fr; }

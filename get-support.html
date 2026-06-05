@@ -176,6 +176,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-shrink: 0;
     }
 
     .nav-socials a {
@@ -992,10 +993,13 @@
       .crisis-short { display: inline; }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       nav { padding: 0 1.2rem; }
-      .nav-links, .nav-socials, .nav-socials-wrap { display: none; }
+      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
       .hamburger { display: flex; }
+    }
+
+    @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-policies { flex-wrap: wrap; gap: 0.75rem; }
       .pathway-cards { grid-template-columns: 1fr; }
