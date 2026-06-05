@@ -293,14 +293,61 @@
 
     .mobile-dropdown-items a:hover { color: var(--gold); background: none; }
 
-    /* ── HERO ── */
+    /* ── HERO SLIDER ── */
     .hero {
-      min-height: auto;
+      position: relative;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding-top: calc(var(--bar-height) + 70px);
-      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.85s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.65rem;
+      z-index: 10;
+    }
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.18);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, transform 0.25s, border-color 0.25s;
+    }
+
+    .hero-dot.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.35);
+    }
+
+    .hero-dot:hover:not(.active) {
+      background: rgba(255,255,255,0.5);
+      border-color: rgba(255,255,255,0.5);
     }
 
     .hero-image-panel {
@@ -1462,10 +1509,13 @@
       .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
       .hamburger { display: flex; }
       section { padding: 2rem 1.2rem; }
-      .hero { grid-template-columns: 1fr; min-height: auto; height: auto; }
+      .hero { height: auto; overflow: visible; }
+      .hero-slide { position: relative; inset: auto; grid-template-columns: 1fr; display: none; opacity: 1; transition: none; pointer-events: none; z-index: auto; }
+      .hero-slide.active { display: grid; pointer-events: auto; }
       .hero-image-panel { height: 55vh; min-height: 300px; }
       .hero-text-panel { padding: 3rem 1.5rem; }
       .hero-right { padding-left: 0; }
+      .hero-dots { position: relative; bottom: auto; left: auto; transform: none; justify-content: center; padding: 1.2rem 0 1.5rem; background: #0A0A0A; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-values { grid-template-columns: 1fr 1fr; }
       .work-cards { grid-template-columns: 1fr; }
@@ -1588,6 +1638,7 @@
         </div>
       </li>
       <li><a href="blog.html">Blog</a></li>
+      <li><a href="events.html">Events</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="emergency-contacts.html" style="color:var(--amber);font-weight:500;">Emergency Contacts</a></li>
@@ -1620,6 +1671,7 @@
       <a href="#" onclick="toggleMenu()">Focus Groups</a>
     </div>
     <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="events.html" onclick="toggleMenu()">Events</a>
     <a href="research.html" onclick="toggleMenu()">Research</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
     <a href="emergency-contacts.html" onclick="toggleMenu()" style="color:var(--amber)">Emergency Contacts</a>
@@ -1633,27 +1685,85 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-image-panel">
-      <img src="images/community%20focus%20group%201.png" alt="Community focus group" class="hero-img" />
-    </div>
-    <div class="hero-text-panel">
-      <div class="hero-right fade-up">
-        <p class="hero-eyebrow">Rochdale, Greater Manchester</p>
-        <h1 class="hero-headline">
-          Breaking the Silence.<br />Supporting Recovery in<br /><em>South Asian Communities.</em>
-        </h1>
-        <p class="hero-subline">Recovery is possible. You are not alone.</p>
-        <p class="hero-body">
-          Addiction thrives in silence. We're changing that. We work with South Asian communities across Greater Manchester — listening, researching and co-producing resources that challenge stigma and make recovery services truly inclusive. Our mission is twofold: to break the silence around addiction in South Asian communities, and to push services to be more culturally responsive to the people they serve. We are not a treatment provider. We are community advocates — educating, signposting and making sure no family faces this alone.
-        </p>
-        <div class="hero-actions">
-          <a href="get-support.html#pathways" class="btn-primary">Get Support</a>
-          <a href="#about" class="btn-outline">Our Mission</a>
+  <!-- HERO SLIDER -->
+  <section class="hero" id="heroSlider" aria-label="Featured content">
+
+    <!-- Slide 1: Mission -->
+    <div class="hero-slide active" data-slide="0" role="group" aria-label="Slide 1 of 3: Our Mission">
+      <div class="hero-image-panel">
+        <img src="images/community%20focus%20group%201.png" alt="Community focus group" class="hero-img" />
+      </div>
+      <div class="hero-text-panel">
+        <div class="hero-right fade-up">
+          <p class="hero-eyebrow">Rochdale, Greater Manchester</p>
+          <h1 class="hero-headline">
+            Breaking the Silence.<br />Supporting Recovery in<br /><em>South Asian Communities.</em>
+          </h1>
+          <p class="hero-subline">Recovery is possible. You are not alone.</p>
+          <p class="hero-body">
+            Addiction thrives in silence. We're changing that. We work with South Asian communities across Greater Manchester — listening, researching and co-producing resources that challenge stigma and make recovery services truly inclusive.
+          </p>
+          <div class="hero-actions">
+            <a href="get-support.html#pathways" class="btn-primary">Get Support</a>
+            <a href="#about" class="btn-outline">Our Mission</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Slide 2: Latest Blog Post -->
+    <div class="hero-slide" data-slide="1" role="group" aria-label="Slide 2 of 3: Latest Blog Post">
+      <div class="hero-image-panel">
+        <img src="images/awareness%20campaigns.png" alt="Awareness campaigns" class="hero-img" />
+      </div>
+      <div class="hero-text-panel">
+        <div class="hero-right">
+          <p class="hero-eyebrow">Latest From The Blog</p>
+          <h2 class="hero-headline">
+            Addiction in South Asian Communities:<br /><em>We Need to Talk.</em>
+          </h2>
+          <p class="hero-subline">Education &amp; Awareness · June 2025</p>
+          <p class="hero-body">
+            Despite lower reported rates of alcohol use, drug misuse and hidden dependency are rising in South Asian communities across Greater Manchester. We explore the cultural barriers that keep this crisis hidden — and why the conversation must start now.
+          </p>
+          <div class="hero-actions">
+            <a href="blog.html" class="btn-primary">Read More →</a>
+            <a href="blog.html" class="btn-outline">All Articles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Upcoming Event -->
+    <div class="hero-slide" data-slide="2" role="group" aria-label="Slide 3 of 3: Upcoming Events">
+      <div class="hero-image-panel">
+        <img src="images/partnerships.png" alt="Community partnerships" class="hero-img" />
+      </div>
+      <div class="hero-text-panel">
+        <div class="hero-right">
+          <p class="hero-eyebrow">Coming Up</p>
+          <h2 class="hero-headline">
+            Community Awareness<br />&amp; <em>Listening Session.</em>
+          </h2>
+          <p class="hero-subline">Rochdale, Greater Manchester · Date TBC 2026</p>
+          <p class="hero-body">
+            A free, open session for South Asian community members to talk about addiction, recovery and available support — delivered in English and Urdu. No referral needed. All are welcome.
+          </p>
+          <div class="hero-actions">
+            <a href="events.html" class="btn-primary">View All Events →</a>
+            <a href="#contact" class="btn-outline">Register Interest</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="hero-dots" role="tablist" aria-label="Slide navigation">
+      <button class="hero-dot active" data-target="0" role="tab" aria-label="Slide 1: Our Mission" aria-selected="true"></button>
+      <button class="hero-dot" data-target="1" role="tab" aria-label="Slide 2: Latest Blog Post" aria-selected="false"></button>
+      <button class="hero-dot" data-target="2" role="tab" aria-label="Slide 3: Upcoming Events" aria-selected="false"></button>
+    </div>
+
   </section>
 
   <!-- ABOUT -->
@@ -2074,6 +2184,7 @@
           <li><a href="#work">Our Work</a></li>
           <li><a href="#resources">Resources</a></li>
           <li><a href="#blog">Blog</a></li>
+          <li><a href="events.html">Events</a></li>
           <li><a href="#media">Media</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -2164,6 +2275,51 @@
       document.querySelector('nav').style.background =
         window.scrollY > 50 ? 'rgba(10,10,10,0.98)' : 'rgba(10,10,10,0.95)';
     });
+
+    // Hero slider
+    (function () {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots   = document.querySelectorAll('.hero-dot');
+      const INTERVAL = 5000;
+      let current = 0;
+      let timer = null;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        dots[current].setAttribute('aria-selected', 'false');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+
+      function startTimer() {
+        timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+      }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+      });
+
+      // Pause on hover so users can read
+      const hero = document.getElementById('heroSlider');
+      hero.addEventListener('mouseenter', function () { clearInterval(timer); });
+      hero.addEventListener('mouseleave', startTimer);
+
+      // Keyboard arrow support
+      hero.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { goTo(current + 1); resetTimer(); }
+        if (e.key === 'ArrowLeft')  { goTo(current - 1); resetTimer(); }
+      });
+
+      startTimer();
+    }());
   </script>
 </body>
 </html>
