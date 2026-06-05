@@ -1007,17 +1007,25 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-has-dropdown">
+        <a href="get-support.html" class="nav-dropdown-trigger" aria-haspopup="true">
+          Get Help
+          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+        </a>
+        <div class="nav-dropdown" role="menu">
+          <a href="get-support.html#individual" role="menuitem">Help for Myself</a>
+          <a href="get-support.html#family" role="menuitem">Help for a Family Member</a>
+          <a href="get-support.html#professional" role="menuitem">Help for a Professional</a>
+        </div>
+      </li>
     </ul>
-    <div style="display:flex;align-items:center;gap:1.2rem;" class="nav-socials-wrap">
-      <div class="nav-socials">
+        <div class="nav-socials">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
-      <a href="get-support.html" style="background:var(--gold);color:var(--dark);padding:8px 20px;border-radius:99px;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;">Get Support</a>
-    </div>
     <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -1039,7 +1047,15 @@
     <a href="events.html" onclick="toggleMenu()">Events</a>
     <a href="research.html" onclick="toggleMenu()">Research</a>
     <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
-    <a href="get-support.html" onclick="toggleMenu()" style="color:var(--gold)">Get Support →</a>
+    <button class="mobile-dropdown-trigger" onclick="toggleGetHelpMobile(this)" aria-expanded="false">
+      Get Help
+      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+    </button>
+    <div class="mobile-dropdown-items" id="mobileGetHelpMenu">
+      <a href="get-support.html#individual" onclick="toggleMenu()">Help for Myself</a>
+      <a href="get-support.html#family" onclick="toggleMenu()">Help for a Family Member</a>
+      <a href="get-support.html#professional" onclick="toggleMenu()">Help for a Professional</a>
+    </div>
     <div class="mobile-socials">
       <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -1395,6 +1411,13 @@
 
     function toggleResourcesMobile(btn) {
       const submenu = document.getElementById('mobileResourcesMenu');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      submenu.classList.toggle('open', !isOpen);
+    }
+    // Mobile Get Help sub-menu toggle
+    function toggleGetHelpMobile(btn) {
+      const submenu = document.getElementById('mobileGetHelpMenu');
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!isOpen));
       submenu.classList.toggle('open', !isOpen);
