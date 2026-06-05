@@ -372,7 +372,8 @@
       z-index: 2;
     }
 
-    .hero-img {
+    .hero-img,
+    .hero-video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1725,7 +1726,9 @@
     <!-- Slide 1: Mission -->
     <div class="hero-slide active" data-slide="0" role="group" aria-label="Slide 1 of 3: Our Mission">
       <div class="hero-image-panel">
-        <img src="images/community%20focus%20group%201.png" alt="Community focus group" class="hero-img" />
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="images/distress%20man.mp4" type="video/mp4" />
+        </video>
       </div>
       <div class="hero-text-panel">
         <div class="hero-right fade-up">
@@ -2320,7 +2323,7 @@
     (function () {
       const slides = document.querySelectorAll('.hero-slide');
       const dots   = document.querySelectorAll('.hero-dot');
-      const INTERVAL = 5000;
+      const INTERVAL = 6000;
       let current = 0;
       let timer = null;
 
