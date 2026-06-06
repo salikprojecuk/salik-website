@@ -1760,15 +1760,6 @@
       return checked ? checked.value : 'Not answered';
     }
 
-    function buildBody(lines) {
-      return lines.map(([label, val]) => `${label}: ${val || '(not provided)'}`).join('\n');
-    }
-
-    function openMailto(subject, body) {
-      window.location.href = 'mailto:contact@salikprojectuk.org?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    }
-
     function showConfirm(pathwayId, formEl) {
       formEl.style.display = 'none';
       const confirm = document.getElementById('confirm-' + pathwayId);
@@ -1792,18 +1783,13 @@
 
       if (!valid) return;
 
-      const body = 'PATHWAY: I am struggling myself\n\n' + buildBody([
-        ['Name or alias',           this['p1-name'].value.trim()],
-        ['Phone',                   phone],
-        ['Email',                   email],
-        ['Age range',               this['p1-age'].value],
-        ['Ethnicity',               this['p1-ethnicity'].value],
-        ['What they need help with',helpText],
-        ['Sought help before',      radioValue('p1-history')],
-      ]) + '\n\n[Consent given]';
-
-      openMailto('Get Support Request – Personal', body);
-      showConfirm('personal', this);
+      var form = this;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function() { showConfirm('personal', form); })
+        .catch(function() { showConfirm('personal', form); });
     });
 
     /* ── FORM 2: FAMILY ── */
@@ -1824,20 +1810,13 @@
 
       if (!valid) return;
 
-      const body = 'PATHWAY: I am worried about someone I love\n\n' + buildBody([
-        ['Your name',               this['p2-name'].value.trim()],
-        ['Your phone',              phone],
-        ['Your email',              email],
-        ['Who they are worried about', this['p2-relation'].value],
-        ['Their age range',         this['p2-their-age'].value],
-        ['Their ethnicity',         this['p2-their-ethnicity'].value],
-        ['How long going on',       this['p2-duration'].value],
-        ['What is happening',       situation],
-        ['Accessed support before', radioValue('p2-history')],
-      ]) + '\n\n[Consent given]';
-
-      openMailto('Get Support Request – Family / Loved One', body);
-      showConfirm('family', this);
+      var form = this;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function() { showConfirm('family', form); })
+        .catch(function() { showConfirm('family', form); });
     });
 
     /* ── FORM 3: PROFESSIONAL ── */
@@ -1859,22 +1838,13 @@
 
       if (!valid) return;
 
-      const body = 'PATHWAY: Professional / Organisation Referral\n\n' + buildBody([
-        ['Referrer name',           this['p3-name'].value.trim()],
-        ['Organisation',            this['p3-org'].value.trim()],
-        ['Job title',               this['p3-title'].value.trim()],
-        ['Referrer phone',          this['p3-phone'].value.trim()],
-        ['Referrer email',          this['p3-email'].value.trim()],
-        ['Client age range',        this['p3-client-age'].value],
-        ['Client ethnicity',        this['p3-client-ethnicity'].value],
-        ['Nature of concern',       this['p3-concern'].value],
-        ['How long going on',       this['p3-duration'].value],
-        ['Client consented',        radioValue('p3-client-consent')],
-        ['Additional information',  this['p3-info'].value.trim()],
-      ]) + '\n\n[Professional consent confirmed]';
-
-      openMailto('Professional Referral – The Salik Project UK', body);
-      showConfirm('professional', this);
+      var form = this;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function() { showConfirm('professional', form); })
+        .catch(function() { showConfirm('professional', form); });
     });
   
     // Desktop dropdown click-to-pin
