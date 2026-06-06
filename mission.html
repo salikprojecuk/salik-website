@@ -427,10 +427,29 @@
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
     /* ── MISSION STATEMENT SECTION ── */
-    .mission-statement { background: #FAF6EF; }
+    .mission-statement { background: #FAF6EF; padding: 20px 2rem; }
+
+    .mission-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    .mission-image-col {
+      min-height: 320px;
+    }
+
+    .mission-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
 
     .mission-body {
-      max-width: 780px;
+      max-width: 100%;
     }
 
     .mission-body p {
@@ -851,8 +870,11 @@
 
     @media (max-width: 768px) {
       section { padding: 28px 1.2rem; }
+      .mission-statement { padding: 20px 1.2rem; }
       .tagline-banner { padding: 40px 1.2rem; }
       .page-hero-inner { padding: 28px 1.2rem; }
+      .mission-two-col { grid-template-columns: 1fr; }
+      .mission-image-col { min-height: 220px; }
       .values-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-policies { flex-wrap: wrap; gap: 0.75rem; }
@@ -995,12 +1017,19 @@
   <!-- MISSION STATEMENT -->
   <section class="mission-statement">
     <div class="container">
-      <p class="section-label">Who We Are</p>
-      <h2 class="section-title">What we stand for.</h2>
-      <div class="mission-body" style="margin-top:1.5rem;">
-        <p>Salik Project UK supports South Asian individuals in recovery from addiction, and the families and friends who walk alongside them. We believe recovery isn't a solo journey — it requires informed families, trusted community support, and early, sustained engagement.</p>
-        <p>Our focus is to reduce stigma and improve access to support within South Asian communities in the UK through education, culturally informed signposting, and grassroots research (community listening and focus groups). This helps ensure prevention, engagement, and recovery approaches are grounded in lived experience and responsive to changing patterns of harm.</p>
-        <p>We are not a treatment provider. We work alongside existing services to strengthen early intervention, reduce isolation for families, and support engagement and re-engagement — contributing to a more connected and effective recovery system.</p>
+      <div class="mission-two-col">
+        <div class="mission-text-col">
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-title">What we stand for.</h2>
+          <div class="mission-body" style="margin-top:1.5rem;">
+            <p>Salik Project UK supports South Asian individuals in recovery from addiction, and the families and friends who walk alongside them. We believe recovery isn't a solo journey — it requires informed families, trusted community support, and early, sustained engagement.</p>
+            <p>Our focus is to reduce stigma and improve access to support within South Asian communities in the UK through education, culturally informed signposting, and grassroots research (community listening and focus groups). This helps ensure prevention, engagement, and recovery approaches are grounded in lived experience and responsive to changing patterns of harm.</p>
+            <p>We are not a treatment provider. We work alongside existing services to strengthen early intervention, reduce isolation for families, and support engagement and re-engagement — contributing to a more connected and effective recovery system.</p>
+          </div>
+        </div>
+        <div class="mission-image-col">
+          <img src="images/community%20focus%20group%201.png" alt="Community focus group session" />
+        </div>
       </div>
     </div>
   </section>
