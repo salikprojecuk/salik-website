@@ -562,20 +562,24 @@
       line-height: 1.8;
     }
 
-    /* ── ABOUT / WHAT WE ARE ── */
-    .about-what { background: var(--dark2); padding: 5rem 2rem; border-bottom: 1px solid rgba(201,146,42,0.1); }
-    .about-what-inner { max-width: var(--max); margin: 0 auto; }
-    .about-what-heading { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: #ffffff; line-height: 1.15; margin: 1rem 0 1.3rem; }
-    .about-what-body { font-size: 0.97rem; color: rgba(255,255,255,0.58); line-height: 1.85; max-width: 820px; margin-bottom: 3rem; }
-    .about-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.07); }
-    .about-col-title { font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.2rem; }
-    .about-col--dont { border-left: 2px solid rgba(201,146,42,0.35); padding-left: 1.6rem; }
-    .about-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .about-list li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.88rem; color: rgba(255,255,255,0.58); line-height: 1.65; }
-    .about-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-family: var(--font-serif); }
-    .about-emergency-link { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    /* ── ABOUT / TWO-COLUMN ── */
+    .about-what { display: flex; max-width: var(--max); margin: 0 auto; }
+    .about-col-left { flex: 1; background: #FAF6EF; color: #1a1a1a; padding: 40px; }
+    .about-col-right { flex: 1; background: #1a1a1a; padding: 40px; }
+    .about-col-label { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .about-col-heading { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.4rem; }
+    .about-col-left .about-col-heading { color: #1a1a1a; }
+    .about-col-right .about-col-heading { color: #ffffff; }
+    .about-col-body { font-size: 0.88rem; color: #e0e0e0; line-height: 1.75; margin-bottom: 1.4rem; }
+    .about-do-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .about-do-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.87rem; color: #4a3a28; line-height: 1.6; }
+    .about-do-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .about-not-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.6rem; }
+    .about-not-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.87rem; color: #cccccc; line-height: 1.6; }
+    .about-not-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .about-emergency-link { color: var(--gold); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; display: inline-block; }
     .about-emergency-link:hover { color: var(--amber); }
-    .about-tagline { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
+    @media (max-width: 768px) { .about-what { flex-direction: column; } }
 
     /* ── OUR WORK ── */
     .our-work { background: var(--dark3); }
@@ -1740,56 +1744,35 @@
 
   </section>
 
-  <!-- ABOUT / WHAT WE ARE -->
+  <!-- ABOUT / TWO-COLUMN -->
   <section class="about-what" id="about">
-    <div class="about-what-inner">
 
-      <div class="fade-up">
-        <p class="section-label">About Us</p>
-        <h2 class="about-what-heading" style="color:#ffffff;">We are not your average recovery service.</h2>
-        <p class="about-what-body">The Salik Project UK is a Community Interest Company based in Rochdale, Greater Manchester. We have no physical base and we are not a treatment provider. We are a grassroots, community-led organisation that works alongside recovery services, public health, and communities to reduce stigma, improve cultural understanding, and make sure the right support reaches the right people.</p>
-      </div>
-
-      <div class="about-cols fade-up" style="transition-delay:0.15s">
-
-        <div class="about-col">
-          <h3 class="about-col-title">What we do</h3>
-          <ul class="about-list">
-            <li>Signpost and connect individuals and families to local recovery services</li>
-            <li>Help recovery services navigate the cultural needs of South Asian communities</li>
-            <li>Carry out community research and share findings with Public Health</li>
-            <li>Challenge stigma and raise awareness around addiction</li>
-            <li>Co-produce bilingual resources in English, Urdu, Bengali and Arabic</li>
-          </ul>
-        </div>
-
-        <div class="about-col about-col--dont">
-          <h3 class="about-col-title">What we don't do</h3>
-          <ul class="about-list">
-            <li>We are not a counselling or clinical service</li>
-            <li>We do not provide treatment or therapy</li>
-            <li>We do not have a physical drop-in centre</li>
-            <li>We are not a crisis or emergency service</li>
-            <li><a href="emergency-contacts.html" class="about-emergency-link">If you need urgent help right now, please visit our Emergency Contacts page</a></li>
-          </ul>
-        </div>
-
-        <div class="about-col">
-          <h3 class="about-col-title">Who we work with</h3>
-          <ul class="about-list">
-            <li>Individuals and families affected by addiction</li>
-            <li>Drug and alcohol recovery services</li>
-            <li>GPs, NHS and health commissioners</li>
-            <li>Mosques, faith leaders and community groups</li>
-            <li>Public Health and local authority partners</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="about-tagline fade-up" style="transition-delay:0.3s">Grassroots. Community-led. Culturally informed.</p>
-
+    <!-- LEFT: What we do (cream) -->
+    <div class="about-col-left fade-up">
+      <span class="about-col-label">What We Do</span>
+      <h2 class="about-col-heading">We signpost, connect and empower.</h2>
+      <ul class="about-do-list">
+        <li>Signpost individuals and families to local recovery services</li>
+        <li>Help services navigate cultural needs of South Asian communities</li>
+        <li>Carry out community research and inform Public Health</li>
+        <li>Challenge stigma and raise awareness around addiction</li>
+        <li>Co-produce bilingual resources in English, Urdu, Bengali and Arabic</li>
+      </ul>
     </div>
+
+    <!-- RIGHT: What we are not (dark) -->
+    <div class="about-col-right fade-up" style="transition-delay:0.15s">
+      <span class="about-col-label">What We Are Not</span>
+      <h2 class="about-col-heading">Not a treatment provider.</h2>
+      <p class="about-col-body">We have no physical base and we do not offer counselling, therapy or clinical services. We are not a crisis or emergency service.</p>
+      <ul class="about-not-list">
+        <li>No drop-in centre</li>
+        <li>No clinical or therapeutic services</li>
+        <li>No crisis intervention</li>
+      </ul>
+      <a href="emergency-contacts.html" class="about-emergency-link">Need urgent help? Visit our Emergency Contacts &rarr;</a>
+    </div>
+
   </section>
 
   <!-- OUR WORK -->
