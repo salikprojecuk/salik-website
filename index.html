@@ -2364,29 +2364,32 @@
       }
 
       var url = 'https://www.googleapis.com/youtube/v3/search'
-              + '?part=snippet'
+              + '?key='       + API_KEY
               + '&channelId=' + CHANNEL_ID
-              + '&maxResults=' + MAX
+              + '&part=snippet'
               + '&order=date'
-              + '&type=video'
-              + '&key=' + API_KEY;
+              + '&maxResults=' + MAX
+              + '&type=video';
 
       console.log('[YouTube] fetching:', url);
 
       fetch(url)
         .then(function (res) {
-          console.log('[YouTube] HTTP status:', res.status);
-          return res.json().then(function (body) {
+          console.log('[YouTube] HTTP status:', res.status, res.statusText);
+          return res.text().then(function (raw) {
+            console.log('[YouTube] raw response:', raw);
+            var body;
+            try { body = JSON.parse(raw); } catch (e) { throw new Error('Non-JSON response: ' + raw.slice(0, 200)); }
             if (!res.ok) {
               var msg = (body.error && body.error.message) || ('HTTP ' + res.status);
-              console.error('[YouTube] API error:', msg, body);
+              console.error('[YouTube] API error body:', body);
               throw new Error(msg);
             }
             return body;
           });
         })
         .then(function (data) {
-          console.log('[YouTube] response:', data);
+          console.log('[YouTube] items:', data.items ? data.items.length : 0, data);
           if (data.items && data.items.length) {
             renderCards(data.items);
           } else {
@@ -2394,6 +2397,7 @@
           }
         })
         .catch(function (err) {
+          console.error('[YouTube] catch:', err);
           renderFallback(err.message || String(err));
         });
     }());
