@@ -562,24 +562,24 @@
       line-height: 1.8;
     }
 
-    /* ── ABOUT / TWO-COLUMN ── */
-    .about-what { display: flex; max-width: var(--max); margin: 0 auto; }
-    .about-col-left { flex: 1; background: #FAF6EF; color: #1a1a1a; padding: 40px; }
-    .about-col-right { flex: 1; background: #1a1a1a; padding: 40px; }
-    .about-col-label { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
-    .about-col-heading { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.4rem; }
-    .about-col-left .about-col-heading { color: #1a1a1a; }
-    .about-col-right .about-col-heading { color: #ffffff; }
-    .about-col-body { font-size: 0.88rem; color: #e0e0e0; line-height: 1.75; margin-bottom: 1.4rem; }
-    .about-do-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .about-do-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.87rem; color: #4a3a28; line-height: 1.6; }
-    .about-do-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
-    .about-not-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.6rem; }
-    .about-not-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.87rem; color: #cccccc; line-height: 1.6; }
-    .about-not-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
-    .about-emergency-link { color: var(--gold); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; display: inline-block; }
-    .about-emergency-link:hover { color: var(--amber); }
-    @media (max-width: 768px) { .about-what { flex-direction: column; } }
+    /* ── ABOUT / TABBED ── */
+    .about-tabs-section { background: #FAF6EF; padding: 60px 24px; }
+    .about-tabs-inner { max-width: var(--max); margin: 0 auto; }
+    .about-tabs-heading { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: #1a1008; line-height: 1.2; margin-bottom: 2rem; }
+    .about-tab-nav { display: flex; gap: 0; border-bottom: 2px solid #E8DCC8; margin-bottom: 2rem; }
+    .about-tab-btn { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; color: #9a8a72; background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; padding: 0.6rem 1.4rem 0.65rem; cursor: pointer; transition: color 0.2s, border-color 0.2s; letter-spacing: 0.02em; }
+    .about-tab-btn:hover { color: #1a1008; }
+    .about-tab-btn.active { color: #1a1008; border-bottom-color: var(--gold); }
+    .about-tab-panel { display: none; animation: tabFade 0.22s ease; }
+    .about-tab-panel.active { display: block; }
+    @keyframes tabFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .about-tab-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .about-tab-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: #4a3a28; line-height: 1.65; }
+    .about-tab-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .about-tab-intro { font-size: 0.9rem; color: #6b5a3e; line-height: 1.75; margin-bottom: 1.2rem; }
+    .about-tab-emergency { color: var(--gold); text-decoration: none; font-size: 0.87rem; font-weight: 500; display: inline-block; margin-top: 1.2rem; transition: color 0.2s; }
+    .about-tab-emergency:hover { color: var(--amber); }
+    @media (max-width: 600px) { .about-tab-btn { padding: 0.6rem 0.9rem 0.65rem; font-size: 0.8rem; } }
 
     /* ── OUR WORK ── */
     .our-work { background: var(--dark3); }
@@ -1744,36 +1744,71 @@
 
   </section>
 
-  <!-- ABOUT / TWO-COLUMN -->
-  <section class="about-what" id="about">
+  <!-- ABOUT / TABBED -->
+  <section class="about-tabs-section" id="about">
+    <div class="about-tabs-inner fade-up">
 
-    <!-- LEFT: What we do (cream) -->
-    <div class="about-col-left fade-up">
-      <span class="about-col-label">What We Do</span>
-      <h2 class="about-col-heading">We signpost, connect and empower.</h2>
-      <ul class="about-do-list">
-        <li>Signpost individuals and families to local recovery services</li>
-        <li>Help services navigate cultural needs of South Asian communities</li>
-        <li>Carry out community research and inform Public Health</li>
-        <li>Challenge stigma and raise awareness around addiction</li>
-        <li>Co-produce bilingual resources in English, Urdu, Bengali and Arabic</li>
-      </ul>
+      <h2 class="about-tabs-heading">We are not your average recovery service.</h2>
+
+      <!-- Tab nav -->
+      <nav class="about-tab-nav" role="tablist" aria-label="About us">
+        <button class="about-tab-btn active" role="tab" aria-selected="true" aria-controls="tab-do" id="btn-do">What We Do</button>
+        <button class="about-tab-btn" role="tab" aria-selected="false" aria-controls="tab-not" id="btn-not">What We&rsquo;re Not</button>
+        <button class="about-tab-btn" role="tab" aria-selected="false" aria-controls="tab-who" id="btn-who">Who We Work With</button>
+      </nav>
+
+      <!-- Tab 1: What We Do -->
+      <div class="about-tab-panel active" id="tab-do" role="tabpanel" aria-labelledby="btn-do">
+        <ul class="about-tab-list">
+          <li>Signpost individuals and families to local recovery services</li>
+          <li>Help services navigate the cultural needs of South Asian communities</li>
+          <li>Carry out community research and inform Public Health</li>
+          <li>Challenge stigma and raise awareness around addiction</li>
+          <li>Co-produce bilingual resources in English, Urdu, Bengali and Arabic</li>
+        </ul>
+      </div>
+
+      <!-- Tab 2: What We're Not -->
+      <div class="about-tab-panel" id="tab-not" role="tabpanel" aria-labelledby="btn-not">
+        <p class="about-tab-intro">We are a Community Interest Company with no physical base. We are not a treatment provider or crisis service.</p>
+        <ul class="about-tab-list">
+          <li>We do not offer counselling, therapy or clinical services</li>
+          <li>We do not have a drop-in centre</li>
+          <li>We are not a crisis or emergency service</li>
+        </ul>
+        <a href="emergency-contacts.html" class="about-tab-emergency">Need urgent help? Visit our Emergency Contacts &rarr;</a>
+      </div>
+
+      <!-- Tab 3: Who We Work With -->
+      <div class="about-tab-panel" id="tab-who" role="tabpanel" aria-labelledby="btn-who">
+        <ul class="about-tab-list">
+          <li>Individuals and families affected by addiction</li>
+          <li>Drug and alcohol recovery services</li>
+          <li>GPs, NHS and health commissioners</li>
+          <li>Mosques, faith leaders and community groups</li>
+          <li>Public Health and local authority partners</li>
+          <li>Schools, youth services and housing providers</li>
+        </ul>
+      </div>
+
     </div>
-
-    <!-- RIGHT: What we are not (dark) -->
-    <div class="about-col-right fade-up" style="transition-delay:0.15s">
-      <span class="about-col-label">What We Are Not</span>
-      <h2 class="about-col-heading">Not a treatment provider.</h2>
-      <p class="about-col-body">We have no physical base and we do not offer counselling, therapy or clinical services. We are not a crisis or emergency service.</p>
-      <ul class="about-not-list">
-        <li>No drop-in centre</li>
-        <li>No clinical or therapeutic services</li>
-        <li>No crisis intervention</li>
-      </ul>
-      <a href="emergency-contacts.html" class="about-emergency-link">Need urgent help? Visit our Emergency Contacts &rarr;</a>
-    </div>
-
   </section>
+
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.about-tab-btn');
+      var panels = document.querySelectorAll('.about-tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+        });
+      });
+    })();
+  </script>
 
   <!-- OUR WORK -->
   <section class="our-work" id="work">
