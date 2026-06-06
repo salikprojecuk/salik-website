@@ -1875,36 +1875,11 @@
           <i class="fab fa-youtube" style="color:#FF0000;margin-right:6px"></i> View on YouTube
         </a>
       </div>
-      <div class="shorts-grid">
-        <div class="short-card fade-up">
-          <div class="short-placeholder">
-            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
-            <span class="short-label">YouTube Short</span>
-          </div>
-          <div class="short-info">
-            <div class="short-title">Episode coming soon</div>
-            <div class="short-meta">Add your YouTube Short embed here</div>
-          </div>
-        </div>
-        <div class="short-card fade-up" style="transition-delay:0.1s">
-          <div class="short-placeholder">
-            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
-            <span class="short-label">YouTube Short</span>
-          </div>
-          <div class="short-info">
-            <div class="short-title">Episode coming soon</div>
-            <div class="short-meta">Add your YouTube Short embed here</div>
-          </div>
-        </div>
-        <div class="short-card fade-up" style="transition-delay:0.2s">
-          <div class="short-placeholder">
-            <div class="short-play"><i class="fas fa-play" style="margin-left:4px"></i></div>
-            <span class="short-label">YouTube Short</span>
-          </div>
-          <div class="short-info">
-            <div class="short-title">Episode coming soon</div>
-            <div class="short-meta">Add your YouTube Short embed here</div>
-          </div>
+      <div class="shorts-grid" id="youtubeGrid">
+        <!-- populated by fetchYouTubeVideos() -->
+        <div class="short-card fade-up" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;padding:2rem;">
+          <div class="short-play" style="margin-right:1rem;flex-shrink:0"><i class="fas fa-circle-notch fa-spin"></i></div>
+          <span style="color:rgba(255,255,255,0.4);font-size:0.85rem;">Loading latest videos…</span>
         </div>
       </div>
     </div>
@@ -2249,6 +2224,85 @@
       startTimer();
     }());
   
+    // YouTube latest videos
+    (function () {
+      var CHANNEL_ID = 'UCJMVZ4truyYIL5g4emLjJwA';
+      var API_KEY    = 'AIzaSyDp2wqPsEPQ-INomrznEUog4DmqBWKBi3Y';
+      var MAX        = 6;
+      var CHANNEL_URL = 'https://www.youtube.com/@SalikProjectUK';
+      var grid = document.getElementById('youtubeGrid');
+
+      function truncate(str, n) {
+        return str.length > n ? str.slice(0, n - 1) + '…' : str;
+      }
+
+      function renderCards(items) {
+        grid.innerHTML = '';
+        items.forEach(function (item, i) {
+          var videoId = item.id.videoId;
+          var title   = item.snippet.title;
+          var thumb   = item.snippet.thumbnails.medium
+                        ? item.snippet.thumbnails.medium.url
+                        : item.snippet.thumbnails.default.url;
+          var delay   = (i * 0.1).toFixed(1);
+
+          var card = document.createElement('div');
+          card.className = 'short-card fade-up';
+          card.style.transitionDelay = delay + 's';
+
+          card.innerHTML =
+            '<a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank" rel="noopener" style="display:block;text-decoration:none;">' +
+              '<div class="short-placeholder" style="aspect-ratio:16/9;position:relative;overflow:hidden;">' +
+                '<img src="' + thumb + '" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />' +
+                '<div class="short-play" style="position:relative;z-index:1;"><i class="fas fa-play" style="margin-left:4px"></i></div>' +
+              '</div>' +
+            '</a>' +
+            '<div class="short-info">' +
+              '<div class="short-title">' + truncate(title, 80) + '</div>' +
+              '<div class="short-meta">The Salik Project UK</div>' +
+            '</div>';
+
+          grid.appendChild(card);
+        });
+
+        // re-observe new cards for fade-up animation
+        grid.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
+      }
+
+      function renderFallback() {
+        grid.innerHTML =
+          '<div class="short-card fade-up" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:2.5rem;text-align:center;">' +
+            '<i class="fab fa-youtube" style="font-size:2.5rem;color:#FF0000;"></i>' +
+            '<p style="color:rgba(255,255,255,0.55);font-size:0.9rem;max-width:420px;">Visit our YouTube channel for the latest videos.</p>' +
+            '<a href="' + CHANNEL_URL + '" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.8rem;">View YouTube Channel</a>' +
+          '</div>';
+      }
+
+      var url = 'https://www.googleapis.com/youtube/v3/search'
+              + '?part=snippet'
+              + '&channelId=' + CHANNEL_ID
+              + '&maxResults=' + MAX
+              + '&order=date'
+              + '&type=video'
+              + '&key=' + API_KEY;
+
+      fetch(url)
+        .then(function (res) {
+          if (!res.ok) throw new Error('API error ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (data.items && data.items.length) {
+            renderCards(data.items);
+          } else {
+            renderFallback();
+          }
+        })
+        .catch(function () {
+          renderFallback();
+        });
+    }());
+
     // Desktop dropdown click-to-pin
     (function () {
       var triggers = document.querySelectorAll('.nav-links .nav-dropdown-trigger');
