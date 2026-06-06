@@ -562,83 +562,20 @@
       line-height: 1.8;
     }
 
-    /* ── ABOUT ── */
-    .about { background: var(--dark2); padding-top: 3rem; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .value-card {
-      border: 1px solid rgba(201,146,42,0.2);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: border-color 0.3s, background 0.3s;
-    }
-
-    .value-card:hover {
-      border-color: var(--gold);
-      background: rgba(201,146,42,0.04);
-    }
-
-    .value-icon {
-      font-size: 1.4rem;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .value-card-img {
-      margin: -1.5rem -1.5rem 1rem;
-      height: 150px;
-      overflow: hidden;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    .value-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .value-title {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .value-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-    }
-
-    .about-right .motto {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-style: italic;
-      color: var(--gold);
-      line-height: 1.2;
-      margin-bottom: 2rem;
-    }
-
-    .about-right p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
+    /* ── ABOUT / WHAT WE ARE ── */
+    .about-what { background: var(--dark2); padding: 5rem 2rem; border-bottom: 1px solid rgba(201,146,42,0.1); }
+    .about-what-inner { max-width: var(--max); margin: 0 auto; }
+    .about-what-heading { font-family: var(--font-serif); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.15; margin: 1rem 0 1.3rem; }
+    .about-what-body { font-size: 0.97rem; color: rgba(255,255,255,0.58); line-height: 1.85; max-width: 820px; margin-bottom: 3rem; }
+    .about-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.07); }
+    .about-col-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; color: var(--gold); margin-bottom: 1.2rem; }
+    .about-col--dont { border-left: 2px solid rgba(201,146,42,0.35); padding-left: 1.6rem; }
+    .about-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-list li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.88rem; color: rgba(255,255,255,0.58); line-height: 1.65; }
+    .about-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-family: var(--font-serif); }
+    .about-emergency-link { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .about-emergency-link:hover { color: var(--amber); }
+    .about-tagline { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
 
     /* ── OUR WORK ── */
     .our-work { background: var(--dark3); }
@@ -1527,8 +1464,8 @@
       .hero-text-panel { padding: 3rem 1.5rem; }
       .hero-right { padding-left: 0; }
       .hero-dots { position: relative; bottom: auto; left: auto; transform: none; justify-content: center; padding: 1.2rem 0 1.5rem; background: #0A0A0A; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-values { grid-template-columns: 1fr 1fr; }
+      .about-cols { grid-template-columns: 1fr; }
+      .about-col--dont { border-left: none; padding-left: 0; border-top: 2px solid rgba(201,146,42,0.35); padding-top: 1.2rem; }
       .work-cards { grid-template-columns: 1fr; }
       .impact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .impact-numbers { grid-template-columns: 1fr 1fr; }
@@ -1542,7 +1479,6 @@
     }
 
     @media (max-width: 480px) {
-      .about-values { grid-template-columns: 1fr; }
       .shorts-grid { grid-template-columns: 1fr; }
       .impact-numbers { grid-template-columns: 1fr; }
       .emergency-inner { flex-direction: column; align-items: flex-start; }
@@ -1560,18 +1496,12 @@
 
     /* ── LIGHT CONTENT THEME ── */
     body { background: #FAF6EF; color: #1a1008; }
-    .about, .our-work, .impact, .partners, .shorts, .blog, .contact, .funders { background: #FAF6EF; }
+    .our-work, .impact, .partners, .shorts, .blog, .contact, .funders { background: #FAF6EF; }
     .newsletter { background: #FAF6EF; border-top-color: #E8DCC8; border-bottom-color: #E8DCC8; }
     .section-title { color: #1a1008; }
     .section-body { color: #6b5a3e; }
-    /* About */
-    .about-right p { color: #6b5a3e; }
-    .value-card { background: #FFFFFF; border-color: #E8DCC8; }
-    .value-card:hover { background: #FFFFFF; border-color: var(--gold); }
-    .value-title { color: #1a1008; }
-    .value-desc { color: #6b5a3e; }
-    .about .btn-outline, .impact .btn-outline { border-color: rgba(26,16,8,0.25); color: #1a1008; }
-    .about .btn-outline:hover, .impact .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .impact .btn-outline { border-color: rgba(26,16,8,0.25); color: #1a1008; }
+    .impact .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
     /* Our Work */
     .work-card { background: #FFFFFF; border-color: #E8DCC8; color: #1a1008; }
     .work-card:hover { border-color: rgba(201,146,42,0.5); }
@@ -1810,44 +1740,55 @@
 
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="fade-up">
-          <p class="section-label">Who We Are</p>
-          <h2 class="section-title">Grassroots.<br />Community-led.<br />Culturally informed.</h2>
-          <div class="about-values">
-            <div class="value-card">
-              <div class="value-card-img"><img src="images/support.png" alt="Support" /></div>
-              <div class="value-title">Support</div>
-              <div class="value-desc">Walking alongside individuals and families at every stage of recovery.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-card-img"><img src="images/educate.png" alt="Educate" /></div>
-              <div class="value-title">Educate</div>
-              <div class="value-desc">Building awareness through culturally sensitive resources and campaigns.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-card-img"><img src="images/refer.png" alt="Refer" /></div>
-              <div class="value-title">Refer</div>
-              <div class="value-desc">Connecting people to the right services — NHS, commissioned providers and beyond.</div>
-            </div>
-            <div class="value-card">
-              <div class="value-card-img"><img src="images/voice%20and%20empower.png" alt="Voice and Empower" /></div>
-              <div class="value-title">Voice & Empower</div>
-              <div class="value-desc">Amplifying lived experience and ensuring communities shape their own solutions.</div>
-            </div>
-          </div>
-        </div>
-        <div class="fade-up" style="transition-delay:0.2s">
-          <blockquote style="font-family:Georgia,serif;font-size:1.4rem;font-style:italic;color:#C9A84C;margin:0 0 24px 0;padding:0;border:none;">"To Serve Not Judge."</blockquote>
-          <p style="margin:0 0 16px 0;">The Salik Project UK is a Community Interest Company based in Rochdale, Greater Manchester — working with South Asian individuals and families affected by addiction.</p>
-          <p style="margin:0 0 16px 0;">We believe recovery isn't a solo journey. It takes informed families, trusted community support, and services that understand culture, faith and language.</p>
-          <p style="margin:0 0 24px 0;">Our work spans community research, focus groups, and bilingual resources in English, Urdu and Bengali — built with communities, not for them.</p>
-          <a href="#work" class="btn-primary" style="margin-top:1rem;display:inline-block;">See Our Work</a>
-        </div>
+  <!-- ABOUT / WHAT WE ARE -->
+  <section class="about-what" id="about">
+    <div class="about-what-inner">
+
+      <div class="fade-up">
+        <p class="section-label">About Us</p>
+        <h2 class="about-what-heading">We are not your average recovery service.</h2>
+        <p class="about-what-body">The Salik Project UK is a Community Interest Company based in Rochdale, Greater Manchester. We have no physical base and we are not a treatment provider. We are a grassroots, community-led organisation that works alongside recovery services, public health, and communities to reduce stigma, improve cultural understanding, and make sure the right support reaches the right people.</p>
       </div>
+
+      <div class="about-cols fade-up" style="transition-delay:0.15s">
+
+        <div class="about-col">
+          <h3 class="about-col-title">What we do</h3>
+          <ul class="about-list">
+            <li>Signpost and connect individuals and families to local recovery services</li>
+            <li>Help recovery services navigate the cultural needs of South Asian communities</li>
+            <li>Carry out community research and share findings with Public Health</li>
+            <li>Challenge stigma and raise awareness around addiction</li>
+            <li>Co-produce bilingual resources in English, Urdu, Bengali and Arabic</li>
+          </ul>
+        </div>
+
+        <div class="about-col about-col--dont">
+          <h3 class="about-col-title">What we don't do</h3>
+          <ul class="about-list">
+            <li>We are not a counselling or clinical service</li>
+            <li>We do not provide treatment or therapy</li>
+            <li>We do not have a physical drop-in centre</li>
+            <li>We are not a crisis or emergency service</li>
+            <li><a href="emergency-contacts.html" class="about-emergency-link">If you need urgent help right now, please visit our Emergency Contacts page</a></li>
+          </ul>
+        </div>
+
+        <div class="about-col">
+          <h3 class="about-col-title">Who we work with</h3>
+          <ul class="about-list">
+            <li>Individuals and families affected by addiction</li>
+            <li>Drug and alcohol recovery services</li>
+            <li>GPs, NHS and health commissioners</li>
+            <li>Mosques, faith leaders and community groups</li>
+            <li>Public Health and local authority partners</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="about-tagline fade-up" style="transition-delay:0.3s">Grassroots. Community-led. Culturally informed.</p>
+
     </div>
   </section>
 
