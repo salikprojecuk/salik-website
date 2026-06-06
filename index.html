@@ -783,18 +783,19 @@
 
     .shorts-carousel-wrap {
       position: relative;
-      margin-top: 1.5rem;
+      margin: 1.5rem auto 0;
+      max-width: 636px; /* 3×180px cards + 2×24px gaps + 2×22px arrow overhang */
     }
 
     .shorts-carousel {
-      display: flex;
-      gap: 1.5rem;
-      overflow: hidden;          /* track clips here */
+      overflow: hidden;
+      width: 588px; /* 3×180 + 2×24 — explicit so track % calcs are definite */
+      margin: 0 auto;
     }
 
     .shorts-track {
       display: flex;
-      gap: 1.5rem;
+      gap: 24px;
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform;
     }
@@ -804,8 +805,8 @@
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.05);
-      flex: 0 0 calc((100% - 3rem) / 3); /* 3 visible at a time */
-      min-width: 0;
+      flex: 0 0 180px;
+      width: 180px;
       transition: border-color 0.2s;
     }
 
@@ -881,14 +882,21 @@
       font-size: 0.88rem;
     }
 
-    @media (max-width: 768px) {
-      .short-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
-      .carousel-btn-prev { left: -12px; }
-      .carousel-btn-next { right: -12px; }
+    @media (max-width: 680px) {
+      /* 2 cards visible */
+      .shorts-carousel-wrap { max-width: 428px; } /* 2×180 + 1×24 + 2×22 */
+      .shorts-carousel { width: 384px; }           /* 2×180 + 24 */
+      .carousel-btn-prev { left: -16px; }
+      .carousel-btn-next { right: -16px; }
     }
 
-    @media (max-width: 480px) {
-      .short-card { flex: 0 0 85%; }
+    @media (max-width: 440px) {
+      /* 1 card, fills available width */
+      .shorts-carousel-wrap { max-width: 100%; }
+      .shorts-carousel { width: 100%; }
+      .short-card { flex: 0 0 180px; width: 180px; }
+      .carousel-btn-prev { left: 0; }
+      .carousel-btn-next { right: 0; }
     }
 
     /* ── BLOG ── */
@@ -1916,7 +1924,7 @@
       <div class="work-header">
         <div>
           <p class="section-label">Watch &amp; Listen</p>
-          <h2 class="section-title">Podcasts &amp;<br />Short Films</h2>
+          <h2 class="section-title">YouTube Shorts</h2>
         </div>
         <a href="https://www.youtube.com/@SalikProjectUK/shorts" target="_blank" rel="noopener" class="btn-outline" style="white-space:nowrap">
           <i class="fab fa-youtube" style="color:#FF0000;margin-right:6px"></i> View on YouTube
