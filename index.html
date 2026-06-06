@@ -778,14 +778,25 @@
       .partners-ticker { animation: none; }
     }
 
-    /* ── YOUTUBE SHORTS ── */
+    /* ── YOUTUBE SHORTS CAROUSEL ── */
     .shorts { background: var(--dark3); }
 
-    .shorts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+    .shorts-carousel-wrap {
+      position: relative;
       margin-top: 1.5rem;
+    }
+
+    .shorts-carousel {
+      display: flex;
+      gap: 1.5rem;
+      overflow: hidden;          /* track clips here */
+    }
+
+    .shorts-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
     }
 
     .short-card {
@@ -793,55 +804,91 @@
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.05);
+      flex: 0 0 calc((100% - 3rem) / 3); /* 3 visible at a time */
+      min-width: 0;
+      transition: border-color 0.2s;
     }
 
-    .short-placeholder {
-      aspect-ratio: 9/16;
-      background: linear-gradient(135deg, #1A1200, #2A1800);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      cursor: pointer;
-      position: relative;
+    .short-card:hover { border-color: rgba(201,146,42,0.35); }
+
+    .short-embed {
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      display: block;
+      background: #0a0a0a;
     }
 
-    .short-play {
-      width: 56px;
-      height: 56px;
-      background: rgba(255,0,0,0.85);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: white;
-      transition: transform 0.2s;
+    .short-embed iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
     }
 
-    .short-card:hover .short-play { transform: scale(1.1); }
-
-    .short-label {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .short-info { padding: 1rem; }
+    .short-info { padding: 0.9rem 1rem; }
 
     .short-title {
       font-family: var(--font-serif);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 0.3rem;
+      line-height: 1.35;
+      margin-bottom: 0.25rem;
+      color: var(--white);
     }
 
     .short-meta {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: rgba(255,255,255,0.35);
+    }
+
+    /* Arrow buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .carousel-btn:hover { background: var(--amber); transform: translateY(-50%) scale(1.08); }
+    .carousel-btn:disabled { background: rgba(201,146,42,0.3); cursor: default; transform: translateY(-50%); }
+
+    .carousel-btn-prev { left: -22px; }
+    .carousel-btn-next { right: -22px; }
+
+    /* Loading / fallback states */
+    .shorts-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 768px) {
+      .short-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
+      .carousel-btn-prev { left: -12px; }
+      .carousel-btn-next { right: -12px; }
+    }
+
+    @media (max-width: 480px) {
+      .short-card { flex: 0 0 85%; }
     }
 
     /* ── BLOG ── */
@@ -1875,12 +1922,22 @@
           <i class="fab fa-youtube" style="color:#FF0000;margin-right:6px"></i> View on YouTube
         </a>
       </div>
-      <div class="shorts-grid" id="youtubeGrid">
-        <!-- populated by fetchYouTubeVideos() -->
-        <div class="short-card fade-up" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;padding:2rem;">
-          <div class="short-play" style="margin-right:1rem;flex-shrink:0"><i class="fas fa-circle-notch fa-spin"></i></div>
-          <span style="color:rgba(255,255,255,0.4);font-size:0.85rem;">Loading latest videos…</span>
+      <div class="shorts-carousel-wrap">
+        <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous videos" disabled>
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="shorts-carousel">
+          <div class="shorts-track" id="shortsTrack">
+            <!-- populated by JS -->
+            <div class="shorts-status" style="width:100%;">
+              <i class="fas fa-circle-notch fa-spin" style="font-size:1.6rem;color:var(--gold);"></i>
+              <span>Loading latest videos…</span>
+            </div>
+          </div>
         </div>
+        <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next videos" disabled>
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -2224,59 +2281,85 @@
       startTimer();
     }());
   
-    // YouTube latest videos
+    // YouTube Shorts carousel
     (function () {
       var CHANNEL_ID  = 'UCJMVZ4truyYIL5g4emLjJwA';
       var API_KEY     = 'AIzaSyDp2wqPsEPQ-INomrznEUog4DmqBWKBi3Y';
-      var MAX         = 6;
+      var MAX         = 9;
       var CHANNEL_URL = 'https://www.youtube.com/@SalikProjectUK';
-      var grid        = document.getElementById('youtubeGrid');
+      var VISIBLE     = 3; // cards shown at once on desktop
+
+      var track   = document.getElementById('shortsTrack');
+      var btnPrev = document.getElementById('carouselPrev');
+      var btnNext = document.getElementById('carouselNext');
+      var current = 0;
+      var total   = 0;
 
       function truncate(str, n) {
         return str.length > n ? str.slice(0, n - 1) + '…' : str;
       }
 
+      function visibleCount() {
+        return window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : VISIBLE;
+      }
+
+      function updateButtons() {
+        btnPrev.disabled = current === 0;
+        btnNext.disabled = current >= total - visibleCount();
+      }
+
+      function moveTo(index) {
+        current = Math.max(0, Math.min(index, total - visibleCount()));
+        var cardWidth = track.children[0].getBoundingClientRect().width;
+        var gap = parseFloat(getComputedStyle(track).gap) || 24;
+        track.style.transform = 'translateX(-' + (current * (cardWidth + gap)) + 'px)';
+        updateButtons();
+      }
+
       function renderCards(items) {
-        grid.innerHTML = '';
-        items.forEach(function (item, i) {
+        track.innerHTML = '';
+        total = items.length;
+
+        items.forEach(function (item) {
           var videoId = item.id && item.id.videoId;
-          if (!videoId) {
-            console.warn('[YouTube] item missing videoId:', item);
-            return;
-          }
+          if (!videoId) { console.warn('[YouTube] missing videoId:', item); return; }
+
           var title = item.snippet.title;
-          var thumbs = item.snippet.thumbnails;
-          var thumb  = (thumbs.medium || thumbs.high || thumbs.default || {}).url || '';
-          var delay  = (i * 0.1).toFixed(1);
 
           var card = document.createElement('div');
-          card.className = 'short-card fade-up visible'; // force visible — cards arrive after observer pass
-          card.style.transitionDelay = delay + 's';
+          card.className = 'short-card';
 
           card.innerHTML =
-            '<a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank" rel="noopener" style="display:block;text-decoration:none;">' +
-              '<div class="short-placeholder" style="aspect-ratio:16/9;position:relative;overflow:hidden;">' +
-                (thumb ? '<img src="' + thumb + '" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />' : '') +
-                '<div class="short-play" style="position:relative;z-index:1;"><i class="fas fa-play" style="margin-left:4px"></i></div>' +
-              '</div>' +
-            '</a>' +
+            '<div class="short-embed">' +
+              '<iframe src="https://www.youtube.com/embed/' + videoId + '?rel=0&modestbranding=1"' +
+              ' title="' + title.replace(/"/g, '&quot;') + '"' +
+              ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"' +
+              ' allowfullscreen loading="lazy"></iframe>' +
+            '</div>' +
             '<div class="short-info">' +
-              '<div class="short-title">' + truncate(title, 80) + '</div>' +
+              '<div class="short-title">' + truncate(title, 72) + '</div>' +
               '<div class="short-meta">The Salik Project UK</div>' +
             '</div>';
 
-          grid.appendChild(card);
+          track.appendChild(card);
         });
-        console.log('[YouTube] rendered', grid.children.length, 'cards');
+
+        console.log('[YouTube] rendered', total, 'cards');
+        current = 0;
+        track.style.transform = 'translateX(0)';
+        updateButtons();
+
+        btnPrev.addEventListener('click', function () { moveTo(current - 1); });
+        btnNext.addEventListener('click', function () { moveTo(current + 1); });
+        window.addEventListener('resize', function () { moveTo(current); });
       }
 
       function renderFallback(reason) {
-        console.error('[YouTube] showing fallback —', reason || 'unknown reason');
-        grid.innerHTML =
-          '<div class="short-card" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:2.5rem;text-align:center;">' +
-            '<i class="fab fa-youtube" style="font-size:2.5rem;color:#FF0000;"></i>' +
-            '<p style="color:rgba(255,255,255,0.55);font-size:0.9rem;max-width:420px;">Loading videos failed — visit us on YouTube.</p>' +
-            '<a href="' + CHANNEL_URL + '" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.8rem;">Visit our YouTube channel</a>' +
+        console.error('[YouTube] fallback —', reason || 'unknown');
+        track.innerHTML =
+          '<div class="shorts-status" style="width:100%;">' +
+            '<i class="fab fa-youtube" style="font-size:2.2rem;color:#FF0000;"></i>' +
+            '<p>Loading videos failed — <a href="' + CHANNEL_URL + '" target="_blank" rel="noopener" style="color:var(--gold);">visit us on YouTube</a>.</p>' +
           '</div>';
       }
 
@@ -2293,7 +2376,6 @@
       fetch(url)
         .then(function (res) {
           console.log('[YouTube] HTTP status:', res.status);
-          // Read the body regardless of status so we can log the error detail
           return res.json().then(function (body) {
             if (!res.ok) {
               var msg = (body.error && body.error.message) || ('HTTP ' + res.status);
@@ -2308,7 +2390,7 @@
           if (data.items && data.items.length) {
             renderCards(data.items);
           } else {
-            renderFallback('API returned 0 items');
+            renderFallback('0 items returned');
           }
         })
         .catch(function (err) {
