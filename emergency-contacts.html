@@ -944,6 +944,105 @@
       .ccard-number { font-size: 2rem; }
     }
 
+    /* ── KEY CONTACTS SECTION ── */
+    .ec-section {
+      background: var(--dark2) !important;
+      padding: 3rem 2rem 3.5rem;
+      border-bottom: 1px solid rgba(201,146,42,0.12);
+    }
+
+    .ec-disclaimer {
+      max-width: var(--max);
+      margin: 0 auto 2rem;
+      background: rgba(201,146,42,0.07);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.6rem;
+    }
+
+    .ec-disclaimer p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65;
+    }
+
+    .ec-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .ec-card {
+      background: #1c1c1c;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.4rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .ec-card:hover {
+      border-color: rgba(201,146,42,0.4);
+      transform: translateY(-2px);
+    }
+
+    .ec-card-org {
+      font-size: 0.67rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.32);
+    }
+
+    .ec-card-num {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin: 0.2rem 0 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .ec-card-what {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .ec-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+
+    .ec-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(201,146,42,0.8);
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 99px;
+      padding: 2px 9px;
+    }
+
+    @media (max-width: 820px) {
+      .ec-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .ec-grid { grid-template-columns: 1fr; }
+      .ec-section { padding: 2.5rem 1.2rem; }
+    }
+
     /* ── LIGHT CONTENT THEME ── */
     body { background: #FAF6EF; }
     /* All contact sections become cream except the urgent red section */
@@ -1116,6 +1215,72 @@
 
     </div>
   </div>
+
+  <!-- ── KEY CONTACTS: QUICK REFERENCE ── -->
+  <section class="ec-section">
+    <div class="ec-disclaimer fade-up">
+      <p>The Salik Project UK is not a crisis or treatment service. If you are in immediate danger, or need to speak to someone right now, please call one of the numbers below.</p>
+    </div>
+    <div class="ec-grid fade-up">
+
+      <a href="tel:999" class="ec-card">
+        <div class="ec-card-org">Emergency Services</div>
+        <div class="ec-card-num">999</div>
+        <div class="ec-card-what">Police, ambulance or fire. Always call in a life-threatening emergency.</div>
+        <div class="ec-card-tags"><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:111" class="ec-card">
+        <div class="ec-card-org">NHS</div>
+        <div class="ec-card-num">111</div>
+        <div class="ec-card-what">Urgent medical advice. Not for life-threatening emergencies.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:116123" class="ec-card">
+        <div class="ec-card-org">Samaritans</div>
+        <div class="ec-card-num">116 123</div>
+        <div class="ec-card-what">If you're struggling and need to talk.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:08000149995" class="ec-card">
+        <div class="ec-card-org">Pennine Care NHS</div>
+        <div class="ec-card-num">0800 014 9995</div>
+        <div class="ec-card-what">Mental health crisis support for Greater Manchester.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:08009530285" class="ec-card">
+        <div class="ec-card-org">Greater Manchester Mental Health</div>
+        <div class="ec-card-num">0800 953 0285</div>
+        <div class="ec-card-what">Mental health crisis line for Greater Manchester.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:03001236600" class="ec-card">
+        <div class="ec-card-org">Talk to Frank</div>
+        <div class="ec-card-num">0300 123 6600</div>
+        <div class="ec-card-what">Drugs information and support.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span><span class="ec-tag">24/7</span></div>
+      </a>
+
+      <a href="tel:03009991212" class="ec-card">
+        <div class="ec-card-org">Narcotics Anonymous</div>
+        <div class="ec-card-num">0300 999 1212</div>
+        <div class="ec-card-what">Peer support for people with drug problems.</div>
+        <div class="ec-card-tags"></div>
+      </a>
+
+      <a href="tel:08009177650" class="ec-card">
+        <div class="ec-card-org">Alcoholics Anonymous</div>
+        <div class="ec-card-num">0800 9177 650</div>
+        <div class="ec-card-what">Peer support for people with alcohol problems.</div>
+        <div class="ec-card-tags"><span class="ec-tag">Free</span></div>
+      </a>
+
+    </div>
+  </section>
 
   <!-- ── SECTION 1: IMMEDIATE DANGER ── -->
   <section class="contacts-section contacts-section--urgent" id="immediate">
