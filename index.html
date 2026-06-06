@@ -2034,8 +2034,9 @@
           </div>
         </div>
         <div class="fade-up" style="transition-delay:0.2s">
-          <form class="contact-form" name="contact-form" method="POST" action="/success.html" data-netlify="true">
+          <form class="contact-form" name="contact-form" method="POST" action="/success.html" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact-form" />
+            <input type="text" name="bot-field" style="display:none" autocomplete="off" />
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First name</label>
@@ -2083,8 +2084,9 @@
     <div class="newsletter-inner fade-up">
       <h2 class="newsletter-title">Stay informed — join our newsletter.</h2>
       <p class="newsletter-sub">Updates on our work, resources and community news. No spam, ever.</p>
-      <form class="newsletter-form" name="newsletter-homepage" method="POST" action="/success.html" data-netlify="true">
+      <form class="newsletter-form" name="newsletter-homepage" method="POST" action="/success.html" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="newsletter-homepage" />
+        <input type="text" name="bot-field" style="display:none" autocomplete="off" />
         <input type="email" name="email" placeholder="Your email address" aria-label="Email address" />
         <button type="submit">Subscribe</button>
       </form>
@@ -2129,8 +2131,9 @@
         </div>
         <div class="footer-newsletter">
           <span class="footer-newsletter-label">Newsletter</span>
-          <form class="footer-newsletter-form" name="newsletter-footer" method="POST" action="/success.html" data-netlify="true">
+          <form class="footer-newsletter-form" name="newsletter-footer" method="POST" action="/success.html" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="newsletter-footer" />
+            <input type="text" name="bot-field" style="display:none" autocomplete="off" />
             <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" />
             <button type="submit">Go</button>
           </form>
