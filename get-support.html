@@ -1244,8 +1244,8 @@
         <p class="gs-form-subtitle">Your information is confidential. Fields marked with * are required.</p>
       </div>
 
-      <form class="gs-form" id="gs-form-personal" method="POST" data-netlify="true" novalidate>
-        <input type="hidden" name="form-name" value="get-support" />
+      <form class="gs-form" id="gs-form-personal" method="POST" action="/success.html" data-netlify="true">
+        <input type="hidden" name="form-name" value="gs-form-personal" />
 
         <div class="form-group">
           <label for="p1-name">Name or alias <span class="label-note">(optional — use whatever feels safe)</span></label>
@@ -1326,11 +1326,6 @@
 
       </form>
 
-      <div class="gs-confirm" id="confirm-personal">
-        <div class="gs-confirm-icon"><i class="fas fa-check"></i></div>
-        <h3 class="gs-confirm-title">Thank you for reaching out.</h3>
-        <p class="gs-confirm-body">Someone from our team will be in touch within 1–2 working days.<br /><br />If you need urgent help right now, please visit our <a href="emergency-contacts.html">Emergency Contacts page</a>.</p>
-      </div>
     </div>
 
     <!-- FORM 2: Family -->
@@ -1343,8 +1338,8 @@
         <p class="gs-form-subtitle">Your information is confidential. Fields marked with * are required.</p>
       </div>
 
-      <form class="gs-form" id="gs-form-family" method="POST" data-netlify="true" novalidate>
-        <input type="hidden" name="form-name" value="get-support" />
+      <form class="gs-form" id="gs-form-family" method="POST" action="/success.html" data-netlify="true">
+        <input type="hidden" name="form-name" value="gs-form-family" />
 
         <div class="form-group">
           <label for="p2-name">Your name <span class="label-note">(optional)</span></label>
@@ -1451,11 +1446,6 @@
 
       </form>
 
-      <div class="gs-confirm" id="confirm-family">
-        <div class="gs-confirm-icon"><i class="fas fa-check"></i></div>
-        <h3 class="gs-confirm-title">Thank you for reaching out.</h3>
-        <p class="gs-confirm-body">Someone from our team will be in touch within 1–2 working days.<br /><br />If you need urgent help right now, please visit our <a href="emergency-contacts.html">Emergency Contacts page</a>.</p>
-      </div>
     </div>
 
     <!-- FORM 3: Professional -->
@@ -1468,8 +1458,8 @@
         <p class="gs-form-subtitle">Professional referral or enquiry. All fields marked with * are required.</p>
       </div>
 
-      <form class="gs-form" id="gs-form-professional" method="POST" data-netlify="true" novalidate>
-        <input type="hidden" name="form-name" value="get-support" />
+      <form class="gs-form" id="gs-form-professional" method="POST" action="/success.html" data-netlify="true">
+        <input type="hidden" name="form-name" value="gs-form-professional" />
 
         <div class="form-row">
           <div class="form-group">
@@ -1589,11 +1579,6 @@
 
       </form>
 
-      <div class="gs-confirm" id="confirm-professional">
-        <div class="gs-confirm-icon"><i class="fas fa-check"></i></div>
-        <h3 class="gs-confirm-title">Thank you for reaching out.</h3>
-        <p class="gs-confirm-body">Someone from our team will be in touch within 1–2 working days.<br /><br />If your client is in immediate need, please direct them to our <a href="emergency-contacts.html">Emergency Contacts page</a>.</p>
-      </div>
     </div>
 
   </div><!-- /gs-forms -->
@@ -1751,102 +1736,6 @@
       document.getElementById('pathways').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    /* ── HELPERS ── */
-    function showError(id) { document.getElementById(id).classList.add('show'); }
-    function hideError(id) { document.getElementById(id).classList.remove('show'); }
-
-    function radioValue(name) {
-      const checked = document.querySelector(`input[name="${name}"]:checked`);
-      return checked ? checked.value : 'Not answered';
-    }
-
-    function showConfirm(pathwayId, formEl) {
-      formEl.style.display = 'none';
-      const confirm = document.getElementById('confirm-' + pathwayId);
-      confirm.classList.add('show');
-      confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    /* ── FORM 1: PERSONAL ── */
-    document.getElementById('gs-form-personal').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-
-      const phone = this['p1-phone'].value.trim();
-      const email = this['p1-email'].value.trim();
-      if (!phone && !email) { showError('p1-contact-error'); valid = false; } else { hideError('p1-contact-error'); }
-
-      const helpText = this['p1-help'].value.trim();
-      if (!helpText) { showError('p1-help-error'); valid = false; } else { hideError('p1-help-error'); }
-
-      if (!this['p1-consent'].checked) { showError('p1-consent-error'); valid = false; } else { hideError('p1-consent-error'); }
-
-      if (!valid) return;
-
-      var form = this;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function() { showConfirm('personal', form); })
-        .catch(function() { showConfirm('personal', form); });
-    });
-
-    /* ── FORM 2: FAMILY ── */
-    document.getElementById('gs-form-family').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-
-      const phone = this['p2-phone'].value.trim();
-      const email = this['p2-email'].value.trim();
-      if (!phone && !email) { showError('p2-contact-error'); valid = false; } else { hideError('p2-contact-error'); }
-
-      if (!this['p2-relation'].value) { showError('p2-relation-error'); valid = false; } else { hideError('p2-relation-error'); }
-
-      const situation = this['p2-situation'].value.trim();
-      if (!situation) { showError('p2-situation-error'); valid = false; } else { hideError('p2-situation-error'); }
-
-      if (!this['p2-consent'].checked) { showError('p2-consent-error'); valid = false; } else { hideError('p2-consent-error'); }
-
-      if (!valid) return;
-
-      var form = this;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function() { showConfirm('family', form); })
-        .catch(function() { showConfirm('family', form); });
-    });
-
-    /* ── FORM 3: PROFESSIONAL ── */
-    document.getElementById('gs-form-professional').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-
-      if (!this['p3-name'].value.trim())   { showError('p3-name-error');   valid = false; } else { hideError('p3-name-error'); }
-      if (!this['p3-org'].value.trim())    { showError('p3-org-error');    valid = false; } else { hideError('p3-org-error'); }
-      if (!this['p3-title'].value.trim())  { showError('p3-title-error');  valid = false; } else { hideError('p3-title-error'); }
-      if (!this['p3-phone'].value.trim())  { showError('p3-phone-error');  valid = false; } else { hideError('p3-phone-error'); }
-      if (!this['p3-email'].value.trim())  { showError('p3-email-error');  valid = false; } else { hideError('p3-email-error'); }
-      if (!this['p3-client-age'].value)    { showError('p3-client-age-error'); valid = false; } else { hideError('p3-client-age-error'); }
-      if (!this['p3-concern'].value)       { showError('p3-concern-error'); valid = false; } else { hideError('p3-concern-error'); }
-      if (!radioValue('p3-client-consent') || radioValue('p3-client-consent') === 'Not answered') {
-        showError('p3-client-consent-error'); valid = false;
-      } else { hideError('p3-client-consent-error'); }
-      if (!this['p3-consent'].checked)     { showError('p3-consent-error'); valid = false; } else { hideError('p3-consent-error'); }
-
-      if (!valid) return;
-
-      var form = this;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function() { showConfirm('professional', form); })
-        .catch(function() { showConfirm('professional', form); });
-    });
-  
     // Desktop dropdown click-to-pin
     (function () {
       var triggers = document.querySelectorAll('.nav-links .nav-dropdown-trigger');
