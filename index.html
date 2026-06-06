@@ -783,19 +783,16 @@
 
     .shorts-carousel-wrap {
       position: relative;
-      margin: 1.5rem auto 0;
-      max-width: 636px; /* 3×180px cards + 2×24px gaps + 2×22px arrow overhang */
+      margin: 1.5rem 0 0;
     }
 
     .shorts-carousel {
       overflow: hidden;
-      width: 588px; /* 3×180 + 2×24 — explicit so track % calcs are definite */
-      margin: 0 auto;
     }
 
     .shorts-track {
       display: flex;
-      gap: 24px;
+      gap: 1.5rem;
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform;
     }
@@ -805,8 +802,8 @@
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.05);
-      flex: 0 0 180px;
-      width: 180px;
+      flex: 0 0 calc((100% - 3rem) / 3);
+      min-width: 0;
       transition: border-color 0.2s;
     }
 
@@ -869,6 +866,12 @@
     .carousel-btn-prev { left: -22px; }
     .carousel-btn-next { right: -22px; }
 
+    @media (max-width: 880px) {
+      /* section padding shrinks — keep arrows inside safe zone */
+      .carousel-btn-prev { left: -16px; }
+      .carousel-btn-next { right: -16px; }
+    }
+
     /* Loading / fallback states */
     .shorts-status {
       display: flex;
@@ -884,19 +887,14 @@
 
     @media (max-width: 680px) {
       /* 2 cards visible */
-      .shorts-carousel-wrap { max-width: 428px; } /* 2×180 + 1×24 + 2×22 */
-      .shorts-carousel { width: 384px; }           /* 2×180 + 24 */
-      .carousel-btn-prev { left: -16px; }
-      .carousel-btn-next { right: -16px; }
+      .short-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
     }
 
     @media (max-width: 440px) {
-      /* 1 card, fills available width */
-      .shorts-carousel-wrap { max-width: 100%; }
-      .shorts-carousel { width: 100%; }
-      .short-card { flex: 0 0 180px; width: 180px; }
-      .carousel-btn-prev { left: 0; }
-      .carousel-btn-next { right: 0; }
+      /* 1 card, full width */
+      .short-card { flex: 0 0 100%; }
+      .carousel-btn-prev { left: -14px; }
+      .carousel-btn-next { right: -14px; }
     }
 
     /* ── BLOG ── */
