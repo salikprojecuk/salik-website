@@ -25,6 +25,7 @@
     .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
     .nav-logo-text { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); line-height: 1.2; }
     .nav-logo-text span { color: var(--gold); }
+    .nav-logo-tagline { font-family: var(--font-sans); font-size: 11px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; margin-top: 2px; display: block; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
@@ -180,7 +181,7 @@
   <nav>
     <a href="../index.html" class="nav-logo">
       <img src="../logo.png" alt="The Salik Project UK logo" />
-      <span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span>
+      <div class="nav-logo-text-wrap"><span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span><span class="nav-logo-tagline">Fighting Addiction Together</span></div>
     </a>
     <ul class="nav-links">
       <li><a href="../about.html">About</a></li>
