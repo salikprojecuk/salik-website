@@ -344,7 +344,8 @@
       <!-- RIGHT: form -->
       <div class="split-right fade-up" style="transition-delay:0.15s">
         <h2 class="split-form-heading">Work with us</h2>
-        <form id="partnerForm" onsubmit="handleFormSubmit(event)" novalidate>
+        <form id="partnerForm" name="partner-enquiry" method="POST" action="/success.html" data-netlify="true">
+          <input type="hidden" name="form-name" value="partner-enquiry" />
           <div class="split-form-fields">
 
             <div class="split-form-row">
@@ -540,8 +541,9 @@
         </div>
         <div class="footer-newsletter">
           <span class="footer-newsletter-label">Newsletter</span>
-          <form class="footer-newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+          <form class="footer-newsletter-form" name="newsletter-signup" method="POST" action="/success.html" data-netlify="true">
+            <input type="hidden" name="form-name" value="newsletter-signup" />
+            <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" />
             <button type="submit">Go</button>
           </form>
         </div>

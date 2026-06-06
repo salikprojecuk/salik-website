@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -316,8 +316,9 @@
         </div>
         <div class="footer-newsletter">
           <span class="footer-newsletter-label">Newsletter</span>
-          <form class="footer-newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+          <form class="footer-newsletter-form" name="newsletter-signup" method="POST" action="/success.html" data-netlify="true">
+            <input type="hidden" name="form-name" value="newsletter-signup" />
+            <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" />
             <button type="submit">Go</button>
           </form>
         </div>

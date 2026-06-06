@@ -2121,24 +2121,25 @@
           </div>
         </div>
         <div class="fade-up" style="transition-delay:0.2s">
-          <form class="contact-form" onsubmit="return false;">
+          <form class="contact-form" name="contact-form" method="POST" action="/success.html" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-form" />
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First name</label>
-                <input type="text" id="fname" placeholder="Mustafa" />
+                <input type="text" id="fname" name="fname" placeholder="Mustafa" />
               </div>
               <div class="form-group">
                 <label for="lname">Last name</label>
-                <input type="text" id="lname" placeholder="Hameed" />
+                <input type="text" id="lname" name="lname" placeholder="Hameed" />
               </div>
             </div>
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" id="email" placeholder="you@example.com" />
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
             </div>
             <div class="form-group">
               <label for="reason">Reason for contact</label>
-              <select id="reason">
+              <select id="reason" name="reason">
                 <option value="">Select one...</option>
                 <option>I need support / signposting</option>
                 <option>I'm a family member seeking advice</option>
@@ -2151,10 +2152,10 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" placeholder="Tell us how we can help..."></textarea>
+              <textarea id="message" name="message" placeholder="Tell us how we can help..."></textarea>
             </div>
             <div class="form-group" style="flex-direction:row;align-items:flex-start;gap:10px;">
-              <input type="checkbox" id="consent" style="margin-top:4px;accent-color:var(--gold);width:auto;" />
+              <input type="checkbox" id="consent" name="consent" style="margin-top:4px;accent-color:var(--gold);width:auto;" />
               <label for="consent" style="font-size:0.78rem;color:#6b5a3e;letter-spacing:0;text-transform:none;line-height:1.5;">I consent to The Salik Project UK storing my details to respond to this enquiry, in line with our Privacy Policy.</label>
             </div>
             <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:var(--font-sans);">Send Message</button>
@@ -2169,8 +2170,9 @@
     <div class="newsletter-inner fade-up">
       <h2 class="newsletter-title">Stay informed — join our newsletter.</h2>
       <p class="newsletter-sub">Updates on our work, resources and community news. No spam, ever.</p>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address" aria-label="Email address" />
+      <form class="newsletter-form" name="newsletter-signup" method="POST" action="/success.html" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter-signup" />
+        <input type="email" name="email" placeholder="Your email address" aria-label="Email address" />
         <button type="submit">Subscribe</button>
       </form>
     </div>
@@ -2214,8 +2216,9 @@
         </div>
         <div class="footer-newsletter">
           <span class="footer-newsletter-label">Newsletter</span>
-          <form class="footer-newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="your@email.com" aria-label="Email address" />
+          <form class="footer-newsletter-form" name="newsletter-signup" method="POST" action="/success.html" data-netlify="true">
+            <input type="hidden" name="form-name" value="newsletter-signup" />
+            <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" />
             <button type="submit">Go</button>
           </form>
         </div>
