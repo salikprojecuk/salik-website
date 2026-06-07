@@ -302,7 +302,7 @@
     /* ── HERO SLIDER ── */
     .hero {
       position: relative;
-      height: 85vh;
+      height: 92vh;
       overflow: hidden;
     }
 
@@ -359,6 +359,7 @@
     .hero-image-panel {
       position: relative;
       overflow: hidden;
+      order: 2;
     }
 
     .hero-image-panel::after {
@@ -366,7 +367,7 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to right,
+        to left,
         rgba(10,10,10,0.1) 0%,
         rgba(10,10,10,0.15) 50%,
         rgba(10,10,10,0.7) 82%,
@@ -390,7 +391,8 @@
       background: #0A0A0A;
       display: flex;
       align-items: center;
-      padding: 2.5rem 4rem 2.5rem 5rem;
+      padding: 2.5rem 5rem 2.5rem 4rem;
+      order: 1;
     }
 
     .hero-right { width: 100%; }
