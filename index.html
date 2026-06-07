@@ -2371,11 +2371,35 @@
 
       function renderFallback(reason) {
         console.error('[YouTube] fallback —', reason || 'unknown');
-        track.innerHTML =
-          '<div class="shorts-status" style="width:100%;">' +
-            '<i class="fab fa-youtube" style="font-size:2.2rem;color:#FF0000;"></i>' +
-            '<p>Loading videos failed — <a href="' + CHANNEL_URL + '" target="_blank" rel="noopener" style="color:var(--gold);">visit us on YouTube</a>.</p>' +
-          '</div>';
+        var fallbackVideos = [
+          { id: 'LcSMgk2Su1E', title: 'Nitazene Concerns In UK' },
+          { id: 'MtXu0iRSv14', title: 'Punjabi Drinking Culture' },
+          { id: '58K6Axa-1s0', title: 'Drinking and Trying to Fit In' }
+        ];
+        track.innerHTML = '';
+        total = fallbackVideos.length;
+        fallbackVideos.forEach(function (v) {
+          var card = document.createElement('div');
+          card.className = 'short-card';
+          card.innerHTML =
+            '<div class="short-embed">' +
+              '<iframe src="https://www.youtube.com/embed/' + v.id + '?rel=0&modestbranding=1"' +
+              ' title="' + v.title.replace(/"/g, '&quot;') + '"' +
+              ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"' +
+              ' allowfullscreen loading="lazy"></iframe>' +
+            '</div>' +
+            '<div class="short-info">' +
+              '<div class="short-title">' + truncate(v.title, 72) + '</div>' +
+              '<div class="short-meta">The Salik Project UK</div>' +
+            '</div>';
+          track.appendChild(card);
+        });
+        current = 0;
+        track.style.transform = 'translateX(0)';
+        updateButtons();
+        btnPrev.addEventListener('click', function () { moveTo(current - 1); });
+        btnNext.addEventListener('click', function () { moveTo(current + 1); });
+        window.addEventListener('resize', function () { moveTo(current); });
       }
 
       var url = 'https://www.googleapis.com/youtube/v3/search'
