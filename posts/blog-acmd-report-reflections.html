@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mustafa Hameed reflects on the ACMD's first dedicated review of drug use in ethnic minority communities — and what it means for South Asian families in Rochdale." />
+  <title>If There Is No Door to Walk Through, Don't Expect Anyone to Come Forward — The Salik Project UK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #8B6914;
+      --amber: #E8A030;
+      --dark: #0A0A0A;
+      --dark2: #111111;
+      --dark3: #1A1A1A;
+      --dark4: #222222;
+      --offwhite: #F5F0E8;
+      --cream: #FAF6EF;
+      --white: #FFFFFF;
+      --grey: #888888;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+      --max: 760px;
+      --radius: 4px;
+      --bar-height: 42px;
+      --topbar-height: 28px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: #1a1008; font-family: var(--font-sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    /* ── TOPBAR ── */
+    .topbar { background: #111; padding: 4px 24px; padding-right: 80px; display: flex; justify-content: flex-end; align-items: center; gap: 16px; position: fixed; top: 0; left: 0; right: 0; z-index: 250; height: var(--topbar-height); }
+    .topbar a { color: #C9A84C; font-size: 1rem; }
+    .topbar a:hover { color: var(--amber); }
+
+    /* ── CRISIS BAR ── */
+    .crisis-bar { position: fixed; top: var(--topbar-height); left: 0; right: 0; z-index: 200; height: var(--bar-height); background: #150303; border-bottom: 1px solid rgba(180,40,40,0.28); display: flex; align-items: center; justify-content: center; padding: 0 3rem; }
+    .crisis-bar-text { font-size: 0.78rem; color: rgba(255,255,255,0.8); text-align: center; }
+    .crisis-bar-text strong { color: rgba(255,255,255,0.95); font-weight: 500; }
+    .crisis-bar-text a { color: #e07878; font-weight: 500; text-decoration: none; }
+    .crisis-bar-text a:hover { text-decoration: underline; }
+    .crisis-bar-close { position: absolute; right: 0.8rem; background: none; border: none; color: rgba(255,255,255,0.35); font-size: 1.1rem; cursor: pointer; padding: 6px 8px; }
+    .crisis-bar-close:hover { color: rgba(255,255,255,0.75); }
+    .crisis-short { display: none; }
+    @media (max-width: 600px) { :root { --bar-height: 64px; } .crisis-full { display: none; } .crisis-short { display: inline; } }
+
+    /* ── QUICK EXIT ── */
+    .quick-exit { position: fixed; top: calc(var(--topbar-height) + var(--bar-height) + 18px); right: 1.2rem; z-index: 300; background: rgba(16,16,16,0.9); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 5px 11px; font-family: var(--font-sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(10px); }
+    .quick-exit:hover { background: rgba(36,36,36,0.96); color: #fff; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: calc(var(--topbar-height) + var(--bar-height)); left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 70px; background: #000; border-bottom: 1px solid rgba(201,146,42,0.15); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 55px; width: 55px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; color: #fff; line-height: 1.2; }
+    .nav-logo-text span { color: #C9A84C; }
+    .nav-logo-tagline { font-family: var(--font-sans); font-size: 11px; color: var(--gold); letter-spacing: 0.04em; display: block; margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--dark) !important; padding: 8px 20px; border-radius: 99px; font-size: 0.75rem !important; font-weight: 500 !important; }
+    .nav-cta:hover { background: var(--amber) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; }
+    .mobile-menu { display: none; position: fixed; top: calc(var(--topbar-height) + var(--bar-height) + 70px); left: 0; right: 0; background: var(--dark2); border-bottom: 1px solid rgba(201,146,42,0.2); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-socials { display: flex; gap: 1.2rem; margin-top: 0.5rem; }
+    .mobile-socials a { color: rgba(255,255,255,0.6); font-size: 1.1rem; border: none; }
+    @media (max-width: 768px) { .nav-links, .nav-cta-wrap { display: none; } .hamburger { display: flex; } }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown-chevron { font-size: 0.55rem; opacity: 0.55; transition: transform 0.2s; }
+    .nav-has-dropdown:hover .nav-dropdown-chevron { transform: rotate(180deg); opacity: 1; }
+    .nav-dropdown { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: #111; border: 1px solid rgba(201,146,42,0.22); border-radius: var(--radius); padding: 0.4rem 0; min-width: 210px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.18s ease 0.25s, transform 0.18s ease 0.25s, visibility 0.18s ease 0.25s; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 101; }
+    .nav-has-dropdown:hover .nav-dropdown, .nav-has-dropdown:focus-within .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); transition-delay: 0s; }
+    .nav-dropdown a { display: block; padding: 0.65rem 1.2rem; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s, background 0.15s; }
+    .nav-dropdown a:hover { color: var(--gold); background: rgba(201,146,42,0.06); }
+
+    /* ── POST LAYOUT ── */
+    .post-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: calc(var(--topbar-height) + var(--bar-height) + 70px + 3rem) 1.5rem 4rem;
+    }
+
+    .post-breadcrumb {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b5a3e;
+      margin-bottom: 1.5rem;
+    }
+    .post-breadcrumb a { color: var(--gold); text-decoration: none; }
+    .post-breadcrumb a:hover { text-decoration: underline; }
+    .post-breadcrumb span { margin: 0 0.4rem; opacity: 0.5; }
+
+    .post-cat {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(139,105,20,0.35);
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .post-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #1a1008;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #6b5a3e;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: #6b5a3e;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #E8DCC8;
+    }
+    .post-meta strong { color: #1a1008; font-weight: 500; }
+    .post-meta-dot { opacity: 0.4; }
+
+    .post-hero-img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .post-body { font-size: 1rem; line-height: 1.85; color: #2a1e0e; }
+    .post-body p { margin-bottom: 1.4rem; }
+    .post-body h2 {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1a1008;
+      margin: 2.5rem 0 1rem;
+      line-height: 1.2;
+    }
+    .post-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a1008;
+      margin: 2rem 0 0.75rem;
+    }
+    .post-body blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 0.75rem 1.5rem;
+      margin: 2rem 0;
+      background: rgba(139,105,20,0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .post-body blockquote p {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #3a2a10;
+      margin: 0;
+    }
+    .post-body a { color: var(--gold); text-decoration: underline; }
+    .post-body a:hover { color: var(--amber); }
+    .post-body ul, .post-body ol { margin: 0 0 1.4rem 1.5rem; }
+    .post-body li { margin-bottom: 0.4rem; }
+
+    /* ── AUTHOR BOX ── */
+    .post-author {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #E8DCC8;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .post-author-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(139,105,20,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .post-author-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: #1a1008; margin-bottom: 3px; }
+    .post-author-role { font-size: 0.8rem; color: #6b5a3e; }
+
+    /* ── RELATED POSTS ── */
+    .post-related { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid #E8DCC8; }
+    .post-related-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
+    .post-related-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+    .post-related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .post-related-card { background: #fff; border: 1px solid #E8DCC8; border-radius: var(--radius); padding: 1.2rem; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .post-related-card:hover { border-color: rgba(139,105,20,0.4); }
+    .post-related-cat { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .post-related-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: #1a1008; line-height: 1.3; margin-bottom: 0.3rem; }
+    .post-related-date { font-size: 0.75rem; color: #6b5a3e; }
+    @media (max-width: 540px) { .post-related-grid { grid-template-columns: 1fr; } }
+
+    /* ── EMERGENCY STRIP ── */
+    .emergency { background: #1a0a0a; border-top: 1px solid rgba(180,40,40,0.2); border-bottom: 1px solid rgba(180,40,40,0.2); padding: 1.2rem 2rem; }
+    .emergency-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .emergency-left { display: flex; align-items: center; gap: 1rem; }
+    .emergency-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(220,60,60,0.12); display: flex; align-items: center; justify-content: center; color: #e07878; flex-shrink: 0; }
+    .emergency-title { font-size: 0.9rem; font-weight: 500; color: #fff; }
+    .emergency-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .emergency-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .emergency-link { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 8px 14px; font-size: 0.8rem; color: rgba(255,255,255,0.8); text-decoration: none; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+    .emergency-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { background: #0A0A0A; color: rgba(255,255,255,0.6); padding: 3rem 2rem 1.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand img { height: 55px; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 280px; }
+    .footer-col h4 { font-family: var(--font-serif); font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); line-height: 1.6; }
+    .footer-policies { display: flex; gap: 1.5rem; }
+    .footer-policies a { font-size: 0.72rem; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.06em; }
+    .footer-policies a:hover { color: var(--gold); }
+    .footer-newsletter { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-newsletter-text h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 0.2rem; }
+    .footer-newsletter-text p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .newsletter-form { display: flex; }
+    .newsletter-form input[type="email"] { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-right: none; border-radius: var(--radius) 0 0 var(--radius); padding: 10px 16px; color: #fff; font-size: 0.82rem; width: 220px; outline: none; }
+    .newsletter-form button { background: var(--gold); border: none; padding: 10px 18px; border-radius: 0 var(--radius) var(--radius) 0; color: var(--dark); font-size: 0.8rem; font-weight: 500; cursor: pointer; letter-spacing: 0.06em; }
+    .newsletter-form button:hover { background: var(--amber); }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <a href="https://www.instagram.com/salikprojectuk?igsh=bTh0cjhuMXA4YjUy&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/salikprojectuk" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.tiktok.com/@salikprojectuk?_r=1&_t=ZT-96y74IeOo17" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.linkedin.com/company/the-salik-project-uk/?viewAsMember=true" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.youtube.com/@SalikProjectUK/shorts" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <!-- CRISIS BAR -->
+  <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
+    <p class="crisis-bar-text">
+      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK free on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> — both free, 24/7.</span>
+      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;·&nbsp; Samaritans: <a href="tel:116123">116 123</a></span>
+    </p>
+    <button class="crisis-bar-close" onclick="this.closest('.crisis-bar').style.display='none'" aria-label="Dismiss">×</button>
+  </div>
+
+  <!-- QUICK EXIT -->
+  <button class="quick-exit" onclick="window.location.replace('https://www.google.com')" aria-label="Quick exit">Quick Exit ↗</button>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo.png" alt="The Salik Project UK logo" />
+      <div>
+        <span class="nav-logo-text">THE <span>SALIK</span> PROJECT UK</span>
+        <span class="nav-logo-tagline">Fighting Addiction Together</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-has-dropdown">
+        <a href="../about.html" class="nav-dropdown-trigger" aria-haspopup="true">About <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+        <div class="nav-dropdown" role="menu">
+          <a href="../mission.html" role="menuitem">Our Mission</a>
+          <a href="../about.html#team" role="menuitem">Our Team</a>
+          <a href="../index.html#work" role="menuitem">Our Work</a>
+          <a href="../partners-collaborate.html" role="menuitem">Partner With Us</a>
+        </div>
+      </li>
+      <li class="nav-has-dropdown">
+        <a href="../get-support.html" class="nav-dropdown-trigger" aria-haspopup="true">Get Help <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+        <div class="nav-dropdown" role="menu">
+          <a href="../get-support.html#individual" role="menuitem">Help for Myself</a>
+          <a href="../get-support.html#family" role="menuitem">Help for a Family Member</a>
+          <a href="../get-support.html#professional" role="menuitem">Help for a Professional</a>
+        </div>
+      </li>
+      <li class="nav-has-dropdown">
+        <a href="#" class="nav-dropdown-trigger" aria-haspopup="true">Resources <i class="fas fa-chevron-down nav-dropdown-chevron"></i></a>
+        <div class="nav-dropdown" role="menu">
+          <a href="../research.html" role="menuitem">Our Research</a>
+          <a href="#" role="menuitem">Resource Hub</a>
+          <a href="#" role="menuitem">Newsletters</a>
+        </div>
+      </li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../events.html">Events</a></li>
+      <li><a href="../emergency-contacts.html" style="color:var(--amber);font-weight:500;">Emergency Contacts</a></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="../get-support.html" class="nav-links a nav-cta">Get Support</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../about.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+    <a href="../get-support.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Get Help</a>
+    <a href="../research.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Resources</a>
+    <a href="../blog.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Blog</a>
+    <a href="../events.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Events</a>
+    <a href="../emergency-contacts.html" onclick="document.getElementById('mobileMenu').classList.remove('open')" style="color:var(--amber)">Emergency Contacts</a>
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/salikprojectuk" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/salikprojectuk" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@salikprojectuk" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/company/the-salik-project-uk" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/@SalikProjectUK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- POST CONTENT -->
+  <main>
+    <div class="post-wrap">
+
+      <p class="post-breadcrumb">
+        <a href="../blog.html">Blog</a>
+        <span>›</span>
+        Research &amp; Policy
+      </p>
+
+      <span class="post-cat">Research &amp; Policy</span>
+
+      <h1 class="post-title">If There Is No Door to Walk Through, Don't Expect Anyone to Come Forward</h1>
+      <p class="post-subtitle">Reflections on the ACMD Report on Drug Use in Ethnic Minority Groups</p>
+
+      <div class="post-meta">
+        <span>By <strong>Mustafa Hameed</strong></span>
+        <span class="post-meta-dot">·</span>
+        <span>Co-founder, The Salik Project UK CIC</span>
+        <span class="post-meta-dot">·</span>
+        <span>June 2026</span>
+      </div>
+
+      <article class="post-body">
+
+        <p>In May 2026, the Advisory Council on the Misuse of Drugs published its first dedicated review of drug use in ethnic minority communities. It was long overdue. For those of us working inside these communities, the absence of a serious, evidence-based national examination of this issue has itself been part of the challenge — making it easier to overlook, easier to underfund, easier to deprioritise.</p>
+
+        <p>The ACMD is the government's independent expert body on drug-related issues. When it produces a report of this nature, commissioners, policymakers and service providers take notice. But the report is also honest about its own limitations. Getting a clear and reliable picture of drug use in ethnic minority communities is genuinely difficult. Data is incomplete. Survey participation is uneven. Even the way ethnicity is recorded varies from one dataset to the next. Under-reporting is likely, though its true extent remains unknown. We are working with an incomplete picture. And incomplete pictures have consequences.</p>
+
+        <h2>What the report finds</h2>
+
+        <p>Reported drug use among South Asians is the lowest of any ethnic group in England. The report itself questions what that means. It acknowledges uncertainty about whether low figures reflect higher abstinence, under-reporting, or barriers that prevent people from seeking treatment in the first place. It states plainly:</p>
+
+        <blockquote><p>"A limited presence of minority ethnic groups in treatment data should not necessarily be understood as a lack of need."</p></blockquote>
+
+        <p>Low figures in a dataset do not mean low need. They may simply mean no door.</p>
+
+        <p>The report documents stigma operating across three levels simultaneously — structural, community and individual. For South Asian communities specifically, concepts of <em>izzat</em> and <em>sharam</em> shape how addiction is experienced, disclosed and responded to. Substance use is pushed underground. The report cites research finding that stigma and shame can lead to denial and exacerbate adverse impacts of substance use on health, finances and relationships.</p>
+
+        <p>These are not abstract sociological observations. They describe real people making calculated decisions about what is safe to disclose and to whom.</p>
+
+        <p>Beyond stigma, the report documents systemic failures. Recovery services lack cultural awareness. Outreach into South Asian communities is minimal. Representation within the drug and alcohol workforce is poor — 90% of staff in the independent sector and 84% in the voluntary sector identified as White or White British. Peer-led recovery models that reflect South Asian lived experience are almost entirely absent, barring a few case studies mentioned in the review.</p>
+
+        <p>The result is a system that, even where it functions well for other populations, does not function well for ethnic minorities in Britain.</p>
+
+        <h2>The challenge is two-fold</h2>
+
+        <p>It would be easy to frame this entirely as a service failure. The honest picture is more complex.</p>
+
+        <p>Recovery services were not shaped in a vacuum. They were built by and for particular communities, reflecting particular cultural assumptions about how people seek help, talk about illness and relate to family and authority. That is not a criticism — it is simply how services come to exist. But it does mean that asking South Asian communities to engage with those services as they currently stand is asking them to fit into something not designed with them in mind.</p>
+
+        <p>At the same time, our communities must also look inward. We need South Asian families, community organisations and faith institutions to stop treating addiction as something to be managed in silence or outsourced to recovery services. Part of what drives that silence is the belief — rarely spoken but widely held — that addiction reflects a failure of character, of faith, of family. It does not. Addiction is an illness in need of professional intervention, no different in that regard from any other. Until our communities internalise that, the silence will persist regardless of what services are on offer. More culturally responsive services and more honest communities must happen simultaneously. Progress on one without the other will not be enough.</p>
+
+        <p>Extending the reach of recovery services into South Asian communities is not a demand for something extra. It is an expansion that carries a net benefit for society as a whole. Early intervention means reaching individuals and families before crisis point — reducing long-term demand on NHS services, reducing the social costs of untreated addiction, and strengthening communities.</p>
+
+        <h2>What we are finding in Rochdale</h2>
+
+        <p>Last year, The Salik Project began conducting a series of focus groups across Rochdale, initially without any formal funding. Local grassroots community organisations kindly opened their doors to us for honest conversations about addiction. Our goal was simple: to listen. Four focus groups later, the continuation of this work was made possible by support from Action Together. We are still at an early stage, but what we are hearing already affirms much of what the ACMD review documents — and in some areas goes further.</p>
+
+        <p>Families describe addiction as a deeply isolating experience, for the individual and for those around them. The silence is real. The shame is real. The absence of services that feel relevant, safe and trustworthy is real. People do not know where to turn. When they do seek help, they find services that do not understand their context, their family dynamics, their faith or their language.</p>
+
+        <p>Our focus groups with women have surfaced something that deserves particular attention. Women spoke about witnessing open drug dealing on their streets. They described regularly smelling cannabis and living alongside the anti-social behaviours that accompany drug use in their neighbourhoods. These experiences had significantly damaged their trust in the authorities — leaving them feeling unsafe, unheard and with nowhere to turn.</p>
+
+        <p>This matters beyond the individual. Substance misuse that goes unaddressed does not stay hidden within families. It shapes the streets that women walk, the environments that children grow up in, the communities that everyone shares. Drug-related criminality in South Asian communities is another subject buried under communal silence. It too deserves an honest conversation.</p>
+
+        <h2>Faith and recovery</h2>
+
+        <p>One finding that the ACMD report touches on but does not fully explore is the role of faith in recovery. In our conversations with people from South Asian communities, we have met many individuals for whom faith has been a profound source of strength in their recovery journey. This is not a marginal observation. It comes up time and again. For many people, faith provided the framework, the community and the hope that formal services alone could not offer. Yet existing recovery services have largely not engaged with this. Some operate on an explicitly secular basis. Others acknowledge they simply do not know how to incorporate faith into their practice. That gap is not a criticism — it is an invitation. There is work to be done together.</p>
+
+        <p>If faith or spirituality is a resource in recovery, then the mosque — at the centre of Muslim community life in Rochdale — is one of the most underused assets we have in addressing addiction.</p>
+
+        <p>Last year, The Salik Project approached the Rochdale Council of Mosques with the idea of a coordinated day of action against addiction. In February this year, during the month of Ramadan, seven mosques participated — each delivering a sermon on the subject during Friday prayers. It was a significant ask. The imams rose to it. That willingness matters. It signals that faith institutions are ready to be part of this conversation — and that with the right support and resources, they can play a central role in it.</p>
+
+        <p>But our interactions with imams and local religious leaders have also produced very frank conversations. They have told us, honestly, that they do not know enough about addiction — about street drugs, about where to send people who come to them in crisis — and that they need more training and resources to respond well. That honesty deserves respect. And a practical response.</p>
+
+        <p>We are currently working with mosques in Rochdale to develop clear referral pathways between faith institutions and local recovery services, and to open lines of communication between two institutions that have rarely spoken to each other directly. The mosque sees what services don't see. Recovery services have knowledge and capacity that mosques currently lack. Connecting the two is not complicated in principle. But it requires investment, coordination and sustained commitment from both sides.</p>
+
+        <p>At grassroots level, progress is being made. Working in partnership with Turning Point UK, we are currently coordinating naloxone training sessions in mosques and community centres across Rochdale. Initiatives like this are long overdue. They save lives by reaching communities where they are, they open conversations, and they generate the kind of qualitative insight from within communities that will help shape public health agendas.</p>
+
+        <h2>The families</h2>
+
+        <p>There is a group that this report, and the wider conversation around addiction, does not adequately address: the families.</p>
+
+        <p>Behind every person navigating addiction in a South Asian community, there is a family carrying that weight in silence — managing, covering, protecting, exhausted and without support. They are not in the data. They are not in treatment. They are not being reached by outreach. And yet they are often the first and only point of contact for a person in addiction, making decisions daily without knowledge, without guidance and without anyone asking how they are.</p>
+
+        <blockquote><p>The addict is only as strong as the family they are embedded in, and that family in turn is only as strong as the network of community relations it is embedded in.</p></blockquote>
+
+        <p>More education and dedicated support for families is not a secondary consideration. It is central to any serious response to addiction in these communities. In our focus groups, mothers, fathers, sons and daughters have all told us the same thing: they want to help but they do not know how. That gap between love and knowledge is where education needs to sit. But that education does not deliver itself. It requires skilled people, sustained presence and proper funding.</p>
+
+        <h2>As awareness grows, provision must follow</h2>
+
+        <p>As outreach and education work succeeds — as silence reduces and people feel safer coming forward — more people will present for support. That is the intended outcome. But it raises an urgent question for commissioners: what is waiting for them when they do?</p>
+
+        <p>A meaningful and tangible offer must exist. Not just information. Not just a helpline number. Accessible, brick-and-mortar, culturally informed support that meets people where they are. The awareness must lead somewhere real. Raising hope without the capacity to meet it is not a solution — it is a setback that will only deepen the cynicism that already pervades communities with long experience of health disparities and broken promises.</p>
+
+        <h2>Lost in cultural translation</h2>
+
+        <p>The absence of honest conversations about addiction in South Asian communities is not accidental. It is inherited — passed down from generation to generation, normalised through silence until the silence itself becomes invisible. Families do not talk about these things not because they do not care, but because nobody before them did either.</p>
+
+        <p>The Salik Project cannot do this alone — and we are not pretending otherwise. The groundwork required within South Asian communities before anyone walks through a service door is substantial, and it is work that is currently largely unfunded and unrecognised. It requires collaboration, trust and every organisation willing to open their networks and relationships in service of a shared goal.</p>
+
+        <p>In our focus groups we are already encountering something that rarely gets discussed. When we explore concepts like trauma, we find that although the word may exist in translation, it is rarely spoken within these communities. When services present themselves as trauma-informed, they may be speaking a language that some communities have no conceptual framework to engage with. That is not a failing of the community or of service providers. It is a gap that both must acknowledge and address together — and it starts with understanding that building shared language is itself a form of intervention, one that takes time, trust and sustained presence.</p>
+
+        <h2>On isolation</h2>
+
+        <p>Anyone who works with people in addiction will tell you that one of the things that makes recovery hardest — sometimes impossible — is isolation.</p>
+
+        <p>For South Asian individuals and families navigating addiction, isolation is not incidental. It is structural. On one side there is the shame — the weight of <em>izzat</em> and <em>sharam</em>, the fear of community judgement, the silence that protects but also traps. On the other, there is the absence of services that understand any of that. The result is a particular kind of loneliness. People suffering without language for it. Families enduring without support for it. A system that, in not seeing them, confirms their fear that there is nowhere to turn.</p>
+
+        <p>The ACMD report is a start. It names the problem, documents the gaps and makes recommendations that, if acted upon, could begin to shift things. But reports do not sit with families in crisis. Reports do not build trust inside communities that have learned, over generations, to keep their pain private. That work is human, local and relational. It requires organisations, services, mosques and communities to move toward each other — and it requires the resources to make that movement possible.</p>
+
+        <p>Recovery requires connection. It requires the knowledge that you are not alone, that others have been where you are, that there is a way through. For that to be possible, something must exist to connect people to. The evidence must lead to provision. The awareness must lead somewhere real.</p>
+
+        <blockquote><p>If there is no door to walk through, don't expect anyone to come forward.</p></blockquote>
+
+      </article>
+
+      <!-- AUTHOR BOX -->
+      <div class="post-author">
+        <div class="post-author-icon"><i class="fas fa-user"></i></div>
+        <div>
+          <div class="post-author-name">Mustafa Hameed</div>
+          <div class="post-author-role">Co-founder &amp; Project Coordinator, The Salik Project UK CIC — a grassroots community interest company based in Rochdale supporting South Asian individuals in recovery and their families. The Salik Project is currently funded by Action Together through the Rochdale Communities Fund Drug and Alcohol Diversity Programme.</div>
+        </div>
+      </div>
+
+      <!-- RELATED POSTS -->
+      <div class="post-related">
+        <p class="post-related-label">Related Reading</p>
+        <div class="post-related-grid">
+          <a href="salik-at-action-together-community-voices-network.html" class="post-related-card">
+            <p class="post-related-cat">News &amp; Events</p>
+            <p class="post-related-title">Salik Project UK at the Action Together Community Voices Network</p>
+            <p class="post-related-date">20 May 2026</p>
+          </a>
+          <a href="national-day-of-action-against-addiction.html" class="post-related-card">
+            <p class="post-related-cat">News &amp; Events</p>
+            <p class="post-related-title">National Day of Action Against Addiction</p>
+            <p class="post-related-date">19 February 2026</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- EMERGENCY STRIP -->
+  <div class="emergency">
+    <div class="emergency-inner">
+      <div class="emergency-left">
+        <div class="emergency-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="emergency-title">Need urgent support?</div>
+          <div class="emergency-desc">We are not a crisis service — but help is available right now.</div>
+        </div>
+      </div>
+      <div class="emergency-links">
+        <a href="tel:116123" class="emergency-link"><i class="fas fa-phone"></i> Samaritans: 116 123</a>
+        <a href="tel:03001236600" class="emergency-link"><i class="fas fa-phone"></i> FRANK: 0300 123 6600</a>
+        <a href="tel:999" class="emergency-link" style="border-color:rgba(255,80,80,0.4);color:#FF8080;background:rgba(255,80,80,0.08)"><i class="fas fa-ambulance"></i> Emergency: 999</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-newsletter">
+        <div class="footer-newsletter-text">
+          <h3>Stay informed</h3>
+          <p>Updates from The Salik Project UK — no spam, ever.</p>
+        </div>
+        <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+          <button type="submit">Go</button>
+        </form>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../logo.png" alt="The Salik Project UK" />
+          <p>Supporting South Asian individuals in recovery and the families who walk alongside them. Reducing stigma through education, culturally informed signposting and grassroots research.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../index.html#work">Our Work</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../research.html">Research</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="../emergency-contacts.html">Emergency Contacts</a></li>
+            <li><a href="../get-support.html">Get Support</a></li>
+            <li><a href="#">Resource Hub</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organisation</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Safeguarding Policy</a></li>
+            <li><a href="#">Equality &amp; Diversity</a></li>
+            <li><a href="#">GDPR Statement</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 The Salik Project UK CIC. All rights reserved.<br />
+          <span style="font-size:0.68rem;color:rgba(255,255,255,0.18);">The Salik Project UK CIC | Community Interest Company No. 16685087 | Not a registered charity.<br />This project is funded by Action Together through the Rochdale Communities Fund.</span>
+        </div>
+        <div class="footer-policies">
+          <a href="#">Privacy</a>
+          <a href="#">Safeguarding</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
