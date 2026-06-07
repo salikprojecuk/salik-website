@@ -940,6 +940,18 @@
       .emergency-links { flex-direction: column; }
     }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  /* ── FEATURED EVENT CARD ── */
+  .event-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: 400px 1fr; }
+  .event-card--featured .event-card-img { height: auto; min-height: 300px; }
+  .event-card-subsection { background: rgba(139,105,20,0.05); border: 1px solid rgba(139,105,20,0.18); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin: 1.1rem 0 1.3rem; }
+  .event-card-subsection-heading { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 0.45rem; }
+  .event-card-subsection p { font-size: 0.82rem; color: #4a3a20; line-height: 1.65; margin-bottom: 0.5rem; }
+  .event-prize-list { list-style: none; padding: 0; margin: 0.4rem 0 0.6rem; }
+  .event-prize-list li { font-size: 0.82rem; color: #4a3a20; padding: 3px 0; display: flex; align-items: baseline; gap: 7px; }
+  .event-prize-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; font-size: 0.75rem; }
+  @media (max-width: 900px) { .event-card--featured { grid-template-columns: 280px 1fr; } }
+  @media (max-width: 768px) { .event-card--featured { grid-column: 1; grid-template-columns: 1fr; } .event-card--featured .event-card-img { min-height: 220px; } }
         </style>
 <style>.nav-has-dropdown.nav-js-open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0s;}</style>
 </head>
@@ -1076,6 +1088,42 @@
         <p class="section-body">Join us at one of our community events. All sessions are free, open to South Asian individuals and families in Greater Manchester, and held in a safe, non-judgmental space.</p>
       </div>
       <div class="events-grid" style="margin-top:2rem;">
+
+        <!-- Rochdale Science Extravaganza 2026 -->
+        <div class="event-card event-card--featured fade-up">
+          <div class="event-card-img" style="background-image:url('Events/Poster competition RSI Final.png');background-size:cover;background-position:center;">
+            <div class="event-card-date-badge">
+              <span class="event-card-date-day">28</span>
+              <span class="event-card-date-month">Jun 2026</span>
+            </div>
+            <span class="event-card-tag">Upcoming · Free Entry</span>
+          </div>
+          <div class="event-card-body">
+            <h3 class="event-card-title">Rochdale Science Extravaganza 2026</h3>
+            <div class="event-card-meta">
+              <span><i class="fas fa-calendar-alt"></i> Sunday 28 June 2026</span>
+              <span><i class="fas fa-clock"></i> 10:30am – 4:00pm</span>
+              <span><i class="fas fa-map-marker-alt"></i> Rochdale Exchange Shopping Centre</span>
+            </div>
+            <p class="event-card-desc">The Salik Project UK will have a stall at the Rochdale Science Extravaganza 2026. Come and find us at Rochdale Exchange Shopping Centre for information, resources and a conversation about addiction awareness in our communities.</p>
+            <p class="event-card-desc">We will also be announcing the winner of our Addiction Awareness Poster Competition — designed to raise awareness around nitrous oxide and cannabis misuse among young people.</p>
+
+            <div class="event-card-subsection">
+              <p class="event-card-subsection-heading">Poster Competition — Last Chance to Enter</p>
+              <p>There is still time to enter! The deadline is 15 June 2026. Create a powerful school poster highlighting the real risks of nitrous oxide or cannabis misuse. Prizes up for grabs:</p>
+              <ul class="event-prize-list">
+                <li><strong>1st Prize:</strong> £50 Amazon voucher</li>
+                <li><strong>2nd &amp; 3rd Prize:</strong> £25 Amazon voucher each</li>
+              </ul>
+              <p>Winning posters will be printed and distributed to schools, mosques and community centres across Rochdale.</p>
+            </div>
+
+            <div class="event-card-footer">
+              <span class="event-card-spaces">Free to attend · <strong>All welcome</strong></span>
+              <a href="posts/addiction-awareness-poster-competition-rochdale.html" class="btn-event">Enter the Competition</a>
+            </div>
+          </div>
+        </div>
 
         <!-- Placeholder upcoming event card -->
         <div class="event-card fade-up">
