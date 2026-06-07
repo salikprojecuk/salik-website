@@ -176,15 +176,8 @@
     .nav-links a:hover { color: var(--gold); }
     .nav-links a.active { color: var(--gold); }
 
-    .nav-socials { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
 
-    .nav-socials a {
-      color: rgba(255,255,255,0.6);
-      font-size: 1rem;
-      transition: color 0.2s, transform 0.2s;
-    }
 
-    .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
 
     .hamburger {
       display: none;
@@ -989,7 +982,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       nav { padding: 0 1.2rem; }
-      .nav-links, .nav-socials, .nav-cta-wrap { display: none; }
+      .nav-links, .nav-cta-wrap { display: none; }
       .hamburger { display: flex; }
 
       .research-grid { grid-template-columns: 1fr 1fr; }
@@ -1092,13 +1085,6 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="emergency-contacts.html" style="color:var(--amber);font-weight:500;">Emergency Contacts</a></li>
     </ul>
-        <div class="nav-socials">
-        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="#" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
     <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
