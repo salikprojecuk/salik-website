@@ -172,6 +172,7 @@
     @media (max-width: 768px) { .nav-links, .nav-socials { display: none; } .hamburger { display: flex; } }
     @media (max-width: 600px) { :root { --bar-height: 64px; } .crisis-full { display: none; } .crisis-short { display: inline; } .services-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } .filter-section { position: static; } }
   </style>
+<style>.nav-has-dropdown.nav-js-open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0s;}</style>
 </head>
 <body>
 
@@ -616,5 +617,20 @@
       });
     });
   </script>
+<script>
+(function(){
+  var t=[];
+  document.querySelectorAll(".nav-has-dropdown").forEach(function(li,i){
+    t[i]=null;
+    li.addEventListener("mouseenter",function(){clearTimeout(t[i]);li.classList.add("nav-js-open");});
+    li.addEventListener("mouseleave",function(){t[i]=setTimeout(function(){li.classList.remove("nav-js-open");},250);});
+  });
+  document.addEventListener("click",function(e){
+    if(!e.target.closest(".nav-has-dropdown")){
+      document.querySelectorAll(".nav-has-dropdown.nav-js-open").forEach(function(el){el.classList.remove("nav-js-open");});
+    }
+  });
+}());
+</script>
 </body>
 </html>
