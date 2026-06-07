@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Privacy Policy for The Salik Project UK CIC — how we collect, store and protect your data in line with UK GDPR." />
-  <title>Privacy Policy — The Salik Project UK</title>
+  <meta name="description" content="Frequently asked questions about The Salik Project UK — who we are, what we do, and how to get involved." />
+  <title>FAQs — The Salik Project UK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -18,12 +18,9 @@
       --amber: #E8A030;
       --dark: #0A0A0A;
       --dark2: #111111;
-      --dark3: #1A1A1A;
-      --dark4: #222222;
-      --offwhite: #F5F0E8;
       --cream: #FAF6EF;
+      --offwhite: #F5F0E8;
       --white: #FFFFFF;
-      --grey: #888888;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'DM Sans', sans-serif;
       --max: 1200px;
@@ -34,7 +31,7 @@
     body { background: var(--dark); color: var(--white); font-family: var(--font-sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
 
     /* ── NAV ── */
-    nav { position: fixed; top: var(--bar-height); left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 70px; background: #000000; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,146,42,0.15); transition: background 0.3s; }
+    nav { position: fixed; top: var(--bar-height); left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 70px; background: #000; border-bottom: 1px solid rgba(201,146,42,0.15); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
     .nav-logo-text { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); line-height: 1.2; }
@@ -42,26 +39,25 @@
     .nav-logo-tagline { font-family: var(--font-sans); font-size: 11px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; margin-top: 2px; display: block; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .nav-socials { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
     .nav-socials a { color: rgba(255,255,255,0.6); font-size: 1rem; transition: color 0.2s, transform 0.2s; }
     .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
     .mobile-menu { display: none; position: fixed; top: calc(var(--bar-height) + 70px); left: 0; right: 0; background: var(--dark2); border-bottom: 1px solid rgba(201,146,42,0.2); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 1rem; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-socials { display: flex; gap: 1.2rem; margin-top: 0.5rem; }
     .mobile-socials a { color: rgba(255,255,255,0.6); font-size: 1.1rem; border: none; }
-    .mobile-socials a:hover { color: var(--gold); }
 
     /* ── NAV DROPDOWN ── */
     .nav-has-dropdown { position: relative; }
     .nav-dropdown-trigger { display: flex; align-items: center; gap: 5px; }
     .nav-dropdown-chevron { font-size: 0.55rem; opacity: 0.55; transition: transform 0.2s, opacity 0.2s; }
     .nav-has-dropdown:hover .nav-dropdown-chevron, .nav-has-dropdown:focus-within .nav-dropdown-chevron { transform: rotate(180deg); opacity: 1; }
-    .nav-dropdown { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: #111111; border: 1px solid rgba(201,146,42,0.22); border-radius: var(--radius); padding: 0.4rem 0; min-width: 210px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.18s ease 0.25s, transform 0.18s ease 0.25s, visibility 0.18s ease 0.25s; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 101; }
+    .nav-dropdown { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: #111; border: 1px solid rgba(201,146,42,0.22); border-radius: var(--radius); padding: 0.4rem 0; min-width: 210px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.18s ease 0.25s, transform 0.18s ease 0.25s, visibility 0.18s ease 0.25s; box-shadow: 0 10px 28px rgba(0,0,0,0.5); z-index: 101; }
     .nav-has-dropdown:hover .nav-dropdown, .nav-has-dropdown:focus-within .nav-dropdown, .nav-has-dropdown.force-open .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); transition-delay: 0s; }
     .nav-dropdown a { display: block; padding: 0.65rem 1.2rem; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s, background 0.15s; white-space: nowrap; }
     .nav-dropdown a:hover { color: var(--gold); background: rgba(201,146,42,0.06); }
@@ -81,24 +77,26 @@
     .page-hero-inner { max-width: var(--max); margin: 0 auto; padding: 40px 2rem; width: 100%; }
     .page-hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
     .page-hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-    .page-hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; max-width: 800px; margin-bottom: 1rem; color: #ffffff; }
+    .page-hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; max-width: 800px; margin-bottom: 1rem; color: #fff; }
     .page-hero-title em { font-style: italic; color: var(--gold); }
-    .page-hero-tagline { font-family: var(--font-serif); font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic; color: var(--amber); font-weight: 400; }
+    .page-hero-tagline { font-family: var(--font-serif); font-size: clamp(1rem, 2vw, 1.2rem); font-style: italic; color: rgba(255,255,255,0.6); font-weight: 400; max-width: 640px; line-height: 1.6; }
 
-    /* ── POLICY CONTENT ── */
+    /* ── FAQ CONTENT ── */
     .policy-section { background: var(--cream); padding: 5rem 2rem; }
     .policy-inner { max-width: 780px; margin: 0 auto; }
     .policy-meta { font-size: 0.78rem; color: #6b5a3e; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid #E8DCC8; }
-    .policy-block { margin-bottom: 3rem; }
-    .policy-block h2 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: #1a1008; margin-bottom: 1rem; line-height: 1.2; }
-    .policy-block p { font-size: 0.95rem; color: #3a2a10; line-height: 1.85; margin-bottom: 1rem; }
-    .policy-block ul { list-style: none; margin: 0.5rem 0 1rem; padding: 0; }
-    .policy-block ul li { font-size: 0.95rem; color: #3a2a10; line-height: 1.85; padding: 0.3rem 0 0.3rem 1.4rem; position: relative; }
-    .policy-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
-    .policy-block a { color: var(--gold); text-decoration: underline; }
-    .policy-block a:hover { color: #6b4f10; }
-    .policy-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
-    .policy-divider { border: none; border-top: 1px solid #E8DCC8; margin: 3rem 0; }
+
+    .faq-item { border-bottom: 1px solid #E8DCC8; }
+    .faq-item:first-of-type { border-top: 1px solid #E8DCC8; }
+    details { }
+    details summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; padding: 1.4rem 0; font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: #1a1008; line-height: 1.3; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; color: var(--gold); font-size: 1.4rem; font-weight: 300; flex-shrink: 0; line-height: 1; transition: transform 0.2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details[open] summary { color: var(--gold); }
+    .faq-answer { padding: 0 0 1.4rem; font-size: 0.95rem; color: #3a2a10; line-height: 1.85; }
+    .faq-answer a { color: var(--gold); text-decoration: underline; }
+    .faq-answer a:hover { color: #6b4f10; }
 
     /* ── EMERGENCY ── */
     .emergency { background: linear-gradient(135deg, #1A0800, #0A0A0A); border-top: 1px solid rgba(201,146,42,0.2); border-bottom: 1px solid rgba(201,146,42,0.2); padding: 40px 2rem; }
@@ -158,7 +156,7 @@
     @media (max-width: 768px) { .nav-links, .nav-socials { display: none; } .hamburger { display: flex; } }
     @media (max-width: 600px) { :root { --bar-height: 64px; } .crisis-full { display: none; } .crisis-short { display: inline; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
   </style>
-<style>.nav-has-dropdown.nav-js-open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0s;}</style>
+  <style>.nav-has-dropdown.nav-js-open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0s;}</style>
 </head>
 <body>
 
@@ -183,8 +181,7 @@
     <ul class="nav-links">
       <li class="nav-has-dropdown">
         <a href="about.html" class="nav-dropdown-trigger" aria-haspopup="true">
-          About
-          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+          About <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
         </a>
         <div class="nav-dropdown" role="menu">
           <a href="mission.html" role="menuitem">Our Mission</a>
@@ -194,8 +191,7 @@
       </li>
       <li class="nav-has-dropdown">
         <a href="get-support.html" class="nav-dropdown-trigger" aria-haspopup="true">
-          Get Help
-          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+          Get Help <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
         </a>
         <div class="nav-dropdown" role="menu">
           <a href="get-support.html#individual" role="menuitem">Help for Myself</a>
@@ -206,8 +202,7 @@
       </li>
       <li class="nav-has-dropdown">
         <a href="index.html#resources" class="nav-dropdown-trigger" aria-haspopup="true">
-          Resources
-          <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
+          Resources <i class="fas fa-chevron-down nav-dropdown-chevron"></i>
         </a>
         <div class="nav-dropdown" role="menu">
           <a href="research.html" role="menuitem">Our Research</a>
@@ -234,8 +229,7 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-dropdown-trigger" onclick="toggleAboutMobile(this)" aria-expanded="false">
-      About
-      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+      About <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
     </button>
     <div class="mobile-dropdown-items" id="mobileAboutMenu">
       <a href="mission.html" onclick="toggleMenu()">Our Mission</a>
@@ -243,8 +237,7 @@
       <a href="index.html#work" onclick="toggleMenu()">Our Work</a>
     </div>
     <button class="mobile-dropdown-trigger" onclick="toggleGetHelpMobile(this)" aria-expanded="false">
-      Get Help
-      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+      Get Help <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
     </button>
     <div class="mobile-dropdown-items" id="mobileGetHelpMenu">
       <a href="get-support.html#individual" onclick="toggleMenu()">Help for Myself</a>
@@ -253,8 +246,7 @@
       <a href="local-services.html" onclick="toggleMenu()">Local Services</a>
     </div>
     <button class="mobile-dropdown-trigger" onclick="toggleResourcesMobile(this)" aria-expanded="false">
-      Resources
-      <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
+      Resources <i class="fas fa-chevron-down mobile-dropdown-chevron"></i>
     </button>
     <div class="mobile-dropdown-items" id="mobileResourcesMenu">
       <a href="research.html" onclick="toggleMenu()">Our Research</a>
@@ -276,122 +268,64 @@
   <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-inner">
-      <p class="page-hero-eyebrow">Organisation &amp; Governance</p>
-      <h1 class="page-hero-title">Privacy <em>Policy.</em></h1>
-      <p class="page-hero-tagline">How we collect, use and protect your data.</p>
+      <p class="page-hero-eyebrow">Support &amp; Information</p>
+      <h1 class="page-hero-title">Frequently Asked <em>Questions.</em></h1>
+      <p class="page-hero-tagline">Answers to common questions about who we are, what we do, and how to get involved.</p>
     </div>
   </div>
 
-  <!-- POLICY CONTENT -->
+  <!-- FAQ CONTENT -->
   <section class="policy-section">
     <div class="policy-inner">
+      <p class="policy-meta">Last updated: June 2026</p>
 
-      <p class="policy-meta">Last updated: June 2026 &nbsp;·&nbsp; The Salik Project UK CIC &nbsp;·&nbsp; CIC No. 16685087</p>
-
-      <div class="policy-block">
-        <span class="policy-label">About Us</span>
-        <h2>Who we are</h2>
-        <p>The Salik Project UK CIC is a Community Interest Company registered in England and Wales (CIC No. 16685087), based in Rochdale, Greater Manchester. We work to reduce stigma around addiction in South Asian communities and improve access to culturally sensitive recovery services.</p>
-        <p>We are committed to protecting your personal data and handling it responsibly. This Privacy Policy explains what information we collect, why we collect it, how we store it, and your rights under UK GDPR.</p>
-        <p>If you have any questions about this policy, please contact us at <a href="mailto:contact@salikprojectuk.org">contact@salikprojectuk.org</a>.</p>
+      <div class="faq-item">
+        <details>
+          <summary>What is The Salik Project UK?</summary>
+          <p class="faq-answer">We are a grassroots Community Interest Company based in Rochdale supporting South Asian individuals in recovery from addiction and their families. We are not a treatment provider — we work alongside existing services.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Data We Collect</span>
-        <h2>What information we collect</h2>
-        <p>We only collect personal data that is necessary for us to respond to enquiries or communicate with supporters. We collect data through the following routes:</p>
-        <ul>
-          <li><strong>Contact form</strong> — name, email address, and the message you send us.</li>
-          <li><strong>Newsletter signup</strong> — email address only.</li>
-        </ul>
-        <p>We do not collect sensitive personal data (such as health information, ethnicity, or financial details) through our website forms. We do not use automated decision-making or profiling.</p>
+      <div class="faq-item">
+        <details>
+          <summary>Are you a charity?</summary>
+          <p class="faq-answer">No. We are a Community Interest Company (CIC No. 16685087), not a registered charity.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">How We Use Your Data</span>
-        <h2>Why we collect it and our legal basis</h2>
-        <p>We use the data you provide solely for the purpose it was submitted:</p>
-        <ul>
-          <li><strong>Contact form submissions</strong> are used to respond to your enquiry. Our legal basis is <em>legitimate interests</em> (responding to a message you have chosen to send us).</li>
-          <li><strong>Newsletter signups</strong> are used to send periodic updates about our work. Our legal basis is <em>consent</em> — you can withdraw at any time by emailing us.</li>
-        </ul>
-        <p>We will never use your data for purposes other than those stated above without first obtaining your explicit consent.</p>
+      <div class="faq-item">
+        <details>
+          <summary>Do you provide counselling or treatment?</summary>
+          <p class="faq-answer">No. We signpost and refer individuals and families to appropriate local services. We are not a clinical service.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Storage &amp; Processors</span>
-        <h2>How and where we store your data</h2>
-        <p>Our website is hosted and deployed via <strong>Netlify</strong>. Form submissions made through our website are stored securely by Netlify Forms and transmitted to us by email. Netlify is compliant with applicable data protection legislation. For more information, see <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify's Privacy Policy</a>.</p>
-        <p>We do not operate our own database or server infrastructure for storing personal data beyond what Netlify retains in connection with form submissions. Data is not transferred outside the UK/EEA in a manner that would be inconsistent with UK GDPR requirements.</p>
-        <p>We will retain contact form data for no longer than 12 months after your enquiry is resolved, unless you request earlier deletion.</p>
+      <div class="faq-item">
+        <details>
+          <summary>Is everything confidential?</summary>
+          <p class="faq-answer">Yes. Any information you share with us is treated with strict confidentiality in line with our <a href="privacy-policy.html">Privacy Policy</a> and UK GDPR.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Third Parties</span>
-        <h2>Sharing your data</h2>
-        <p>We do not sell, rent, or trade your personal data to any third party, ever.</p>
-        <p>We may share data with trusted third-party processors (such as Netlify) strictly as necessary to operate our website. Any such processor is bound by appropriate data processing agreements and is not permitted to use your data for their own purposes.</p>
-        <p>We may disclose data where required by law or to protect the safety of individuals — for example, if a safeguarding concern is raised.</p>
+      <div class="faq-item">
+        <details>
+          <summary>Who funds you?</summary>
+          <p class="faq-answer">We are currently funded by Action Together through the Rochdale Communities Fund Drug and Alcohol Diversity Programme.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Your Rights</span>
-        <h2>Your rights under UK GDPR</h2>
-        <p>Under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, you have the following rights:</p>
-        <ul>
-          <li><strong>Right to access</strong> — request a copy of the personal data we hold about you.</li>
-          <li><strong>Right to rectification</strong> — ask us to correct inaccurate or incomplete data.</li>
-          <li><strong>Right to erasure</strong> — request that we delete your personal data where there is no legitimate reason for us to continue holding it.</li>
-          <li><strong>Right to restrict processing</strong> — ask us to limit how we use your data in certain circumstances.</li>
-          <li><strong>Right to withdraw consent</strong> — where processing is based on consent (e.g. newsletter), you may withdraw at any time.</li>
-          <li><strong>Right to complain</strong> — if you are unhappy with how we handle your data, you have the right to complain to the Information Commissioner's Office (ICO).</li>
-        </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:contact@salikprojectuk.org">contact@salikprojectuk.org</a>. We will respond within one calendar month.</p>
+      <div class="faq-item">
+        <details>
+          <summary>How can I get support?</summary>
+          <p class="faq-answer">Visit our <a href="get-support.html">Get Support</a> page or contact us at <a href="mailto:contact@salikprojectuk.org">contact@salikprojectuk.org</a>.</p>
+        </details>
       </div>
 
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Cookies &amp; Analytics</span>
-        <h2>Cookies and tracking</h2>
-        <p>Our website currently uses only essential cookies required for basic functionality. We do not currently use advertising or tracking cookies.</p>
-        <p>We plan to introduce basic, privacy-respecting analytics (such as Google Analytics) in the future. When we do, we will update this policy and provide an opt-out mechanism in line with UK GDPR requirements. No analytics are active at the time of this policy's publication.</p>
-        <p>You can control cookie settings through your browser. Disabling cookies may affect certain website features.</p>
-      </div>
-
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Regulatory Information</span>
-        <h2>ICO registration and data controller</h2>
-        <p>The data controller for The Salik Project UK CIC is:</p>
-        <ul>
-          <li><strong>Name:</strong> Mustafa Hameed</li>
-          <li><strong>Organisation:</strong> The Salik Project UK CIC</li>
-          <li><strong>CIC Number:</strong> 16685087</li>
-          <li><strong>Address:</strong> Rochdale, Greater Manchester</li>
-          <li><strong>Email:</strong> <a href="mailto:contact@salikprojectuk.org">contact@salikprojectuk.org</a></li>
-        </ul>
-        <p>We are registered with the Information Commissioner's Office (ICO) as required under UK data protection law. If you wish to raise a complaint about how we handle your data, you can contact the ICO directly at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a> or by calling 0303 123 1113.</p>
-      </div>
-
-      <hr class="policy-divider" />
-
-      <div class="policy-block">
-        <span class="policy-label">Changes to This Policy</span>
-        <h2>Updates</h2>
-        <p>We may update this Privacy Policy from time to time as our services evolve or legal requirements change. Any significant changes will be reflected in the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
-        <p>Continued use of our website after any update constitutes acceptance of the revised policy.</p>
+      <div class="faq-item">
+        <details>
+          <summary>How can I get involved or partner with us?</summary>
+          <p class="faq-answer">Email us at <a href="mailto:contact@salikprojectuk.org">contact@salikprojectuk.org</a> or visit our <a href="partners.html">Partner With Us</a> page.</p>
+        </details>
       </div>
 
     </div>
@@ -455,9 +389,8 @@
         <ul>
           <li><a href="emergency-contacts.html" style="color:var(--amber)">Emergency Contacts</a></li>
           <li><a href="get-support.html">Get Support</a></li>
-          <li><a href="#">Referral Form</a></li>
-          <li><a href="#">Find Local Services</a></li>
-          <li><a href="#">Resources Hub</a></li>
+          <li><a href="local-services.html">Local Services</a></li>
+          <li><a href="resource-hub.html">Resource Hub</a></li>
           <li><a href="faqs.html">FAQs</a></li>
         </ul>
       </div>
@@ -498,28 +431,28 @@
       document.documentElement.style.setProperty('--bar-height', '0px');
     }
     function quickExit() { window.location.replace('https://www.google.com'); }
+
     function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
     function toggleAboutMobile(btn) {
-      const submenu = document.getElementById('mobileAboutMenu');
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      submenu.classList.toggle('open', !isOpen);
+      const s = document.getElementById('mobileAboutMenu');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      s.classList.toggle('open', !open);
     }
     function toggleGetHelpMobile(btn) {
-      const submenu = document.getElementById('mobileGetHelpMenu');
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      submenu.classList.toggle('open', !isOpen);
+      const s = document.getElementById('mobileGetHelpMenu');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      s.classList.toggle('open', !open);
     }
     function toggleResourcesMobile(btn) {
-      const submenu = document.getElementById('mobileResourcesMenu');
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      submenu.classList.toggle('open', !isOpen);
+      const s = document.getElementById('mobileResourcesMenu');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      s.classList.toggle('open', !open);
     }
     (function () {
-      var triggers = document.querySelectorAll('.nav-links .nav-dropdown-trigger');
-      triggers.forEach(function (trigger) {
+      document.querySelectorAll('.nav-links .nav-dropdown-trigger').forEach(function (trigger) {
         trigger.addEventListener('click', function (e) {
           e.preventDefault();
           var li = trigger.closest('.nav-has-dropdown');
@@ -535,20 +468,20 @@
       });
     }());
   </script>
-<script>
-(function(){
-  var t=[];
-  document.querySelectorAll(".nav-has-dropdown").forEach(function(li,i){
-    t[i]=null;
-    li.addEventListener("mouseenter",function(){clearTimeout(t[i]);li.classList.add("nav-js-open");});
-    li.addEventListener("mouseleave",function(){t[i]=setTimeout(function(){li.classList.remove("nav-js-open");},250);});
-  });
-  document.addEventListener("click",function(e){
-    if(!e.target.closest(".nav-has-dropdown")){
-      document.querySelectorAll(".nav-has-dropdown.nav-js-open").forEach(function(el){el.classList.remove("nav-js-open");});
-    }
-  });
-}());
-</script>
+  <script>
+  (function(){
+    var t=[];
+    document.querySelectorAll(".nav-has-dropdown").forEach(function(li,i){
+      t[i]=null;
+      li.addEventListener("mouseenter",function(){clearTimeout(t[i]);li.classList.add("nav-js-open");});
+      li.addEventListener("mouseleave",function(){t[i]=setTimeout(function(){li.classList.remove("nav-js-open");},250);});
+    });
+    document.addEventListener("click",function(e){
+      if(!e.target.closest(".nav-has-dropdown")){
+        document.querySelectorAll(".nav-has-dropdown.nav-js-open").forEach(function(el){el.classList.remove("nav-js-open");});
+      }
+    });
+  }());
+  </script>
 </body>
 </html>
