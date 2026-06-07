@@ -14,6 +14,7 @@
 
     :root {
       --bar-height: 42px;
+      --topbar-height: 28px;
       --gold: #8B6914;
       --amber: #E8A030;
       --orange: #D4611A;
@@ -48,7 +49,7 @@
     /* ── CRISIS BAR ── */
     .crisis-bar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--topbar-height); left: 0; right: 0;
       z-index: 200;
       height: var(--bar-height);
       background: #150303;
@@ -98,7 +99,7 @@
     /* ── QUICK EXIT (fixed) ── */
     .quick-exit {
       position: fixed;
-      top: calc(var(--bar-height) + 18px);
+      top: calc(var(--topbar-height) + var(--bar-height) + 18px);
       right: 1.2rem;
       z-index: 300;
       background: rgba(16,16,16,0.9);
@@ -125,7 +126,7 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: var(--bar-height); left: 0; right: 0;
+      top: calc(var(--topbar-height) + var(--bar-height)); left: 0; right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -232,7 +233,7 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 70px; left: 0; right: 0;
+      top: calc(var(--topbar-height) + var(--bar-height) + 70px); left: 0; right: 0;
       background: var(--dark2);
       border-bottom: 1px solid rgba(201,146,42,0.2);
       padding: 1.5rem 2rem;
@@ -446,7 +447,7 @@
 
     /* ── PAGE HERO ── */
     .page-hero {
-      padding-top: calc(var(--bar-height) + 70px);
+      padding-top: calc(var(--topbar-height) + var(--bar-height) + 70px);
       background: linear-gradient(160deg, #0F0800 0%, #0A0A0A 60%);
       border-bottom: 1px solid rgba(201,146,42,0.12);
       padding-bottom: 4rem;
@@ -953,7 +954,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
-      margin-top: calc(var(--bar-height) + 70px);
+      margin-top: calc(var(--topbar-height) + var(--bar-height) + 70px);
     }
 
     .ec-notice-text {
