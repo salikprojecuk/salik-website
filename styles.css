@@ -3,3 +3,24 @@ section:not(.hero):not(.dark):not(.dark-section) p { color: #4a3728; }
 section:not(.hero):not(.dark):not(.dark-section) h1,
 section:not(.hero):not(.dark):not(.dark-section) h2,
 section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
+
+@media (max-width: 768px) {
+
+  /* NAV: hide logo text (image only); push hamburger clear of Quick Exit (fixed at right:1.2rem) */
+  .nav-logo-text-wrap { display: none; }
+  nav { padding-right: 110px !important; }
+
+  /* HERO: text-only stacked layout, no image panel */
+  .hero { min-height: 80vh; }
+  .hero-slide.active { display: flex !important; flex-direction: column; }
+  .hero-image-panel { display: none !important; }
+  .hero-text-panel { width: 100%; }
+
+  /* YOUTUBE: 4-column → 2×2 grid; inline style requires !important */
+  #media > div { grid-template-columns: 1fr 1fr !important; }
+  #media iframe { min-height: 260px; }
+
+  /* SECTIONS: uniform 2rem padding across all pages */
+  section { padding: 2rem !important; }
+
+}
