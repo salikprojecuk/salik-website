@@ -9,6 +9,10 @@ section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
   /* NAV: hide logo text (image only); push hamburger clear of Quick Exit (fixed at right:1.2rem) */
   .nav-logo-text-wrap { display: none; }
   nav { padding-right: 110px !important; }
+  .quick-exit { top: auto; bottom: auto; position: relative; }
+  nav { position: fixed; display: flex; justify-content: space-between; align-items: center; }
+  .hamburger { margin-left: auto; }
+  .quick-exit { display: none; }
 
   /* HERO: text-only stacked layout, no image panel */
   .hero { min-height: 80vh; }
