@@ -4,15 +4,14 @@ section:not(.hero):not(.dark):not(.dark-section) h1,
 section:not(.hero):not(.dark):not(.dark-section) h2,
 section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
 
-@media (max-width: 768px) {
-
-  /* NAV: hide logo text (image only); push hamburger clear of Quick Exit (fixed at right:1.2rem) */
-  .nav-logo-text-wrap { display: none; }
-  nav { padding-right: 110px !important; }
-  .quick-exit { top: auto; bottom: auto; position: relative; }
-  nav { position: fixed; display: flex; justify-content: space-between; align-items: center; }
-  .hamburger { margin-left: auto; }
+@media (max-width: 1024px) {
+  /* Hide Quick Exit button on tablet and mobile */
   .quick-exit { display: none; }
+}
+
+@media (max-width: 768px) {
+  /* Hide logo text on phones to keep nav compact */
+  .nav-logo-text-wrap { display: none; }
 
   /* HERO: text-only stacked layout, no image panel */
   .hero { min-height: 80vh; }
@@ -26,5 +25,4 @@ section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
 
   /* SECTIONS: uniform 2rem padding across all pages */
   section { padding: 2rem !important; }
-
 }
