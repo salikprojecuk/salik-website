@@ -1149,19 +1149,24 @@
     }
 
     .pdf-ctrl-btn {
-      background: rgba(201,146,42,0.12);
-      border: 1px solid rgba(201,146,42,0.25);
-      color: var(--gold);
-      width: 32px; height: 32px;
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--dark);
+      width: 36px; height: 36px;
       border-radius: var(--radius);
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem;
-      transition: background 0.2s;
+      font-size: 0.9rem;
+      transition: background 0.2s, border-color 0.2s;
     }
 
-    .pdf-ctrl-btn:hover { background: rgba(201,146,42,0.25); }
-    .pdf-ctrl-btn:disabled { opacity: 0.3; cursor: default; }
+    .pdf-ctrl-btn:hover:not(:disabled) { background: #a8801f; border-color: #a8801f; }
+    .pdf-ctrl-btn:disabled {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.3);
+      cursor: default;
+    }
 
     .pdf-page-counter {
       font-size: 0.78rem;
