@@ -26,3 +26,9 @@ section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
   /* SECTIONS: uniform 2rem padding across all pages */
   section { padding: 2rem !important; }
 }
+
+/* PDF viewer prev/next buttons: inline SVG chevrons (no icon font needed) */
+.pdf-ctrl-btn { color: #fff; padding: 0; }
+.pdf-ctrl-btn .pdf-ctrl-icon { width: 22px; height: 22px; display: block; flex-shrink: 0; }
+.pdf-ctrl-btn:disabled { color: #fff; }
+.pdf-ctrl-btn:disabled .pdf-ctrl-icon { opacity: 0.4; }
