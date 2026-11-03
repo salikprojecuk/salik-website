@@ -365,6 +365,7 @@
     @media (max-width: 600px) { :root { --bar-height: 64px; } .crisis-full { display: none; } .crisis-short { display: inline; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
   </style>
   <style>.nav-has-dropdown.nav-js-open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:0s;}</style>
+<style>@media (max-width: 1040px) { :root { --bar-height: 64px; } }</style>
 </head>
 <body>
 
@@ -380,8 +381,8 @@
   <!-- CRISIS BAR -->
   <div class="crisis-bar" id="crisisBar" role="alert" aria-live="polite">
     <p class="crisis-bar-text">
-      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK free on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> — both free, 24/7.</span>
-      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;·&nbsp; Samaritans: <a href="tel:116123">116 123</a></span>
+      <span class="crisis-full"><strong>Need help now?</strong> Call FRANK on <a href="tel:03001236600">0300 123 6600</a> or Samaritans on <a href="tel:116123">116 123</a> (both free, 24/7), or the Muslim Youth Helpline on <a href="tel:08088082008">0808 808 2008</a> (free, 4pm–10pm).</span>
+      <span class="crisis-short">FRANK: <a href="tel:03001236600">0300 123 6600</a> &nbsp;·&nbsp; Samaritans: <a href="tel:116123">116 123</a><br />Muslim Youth Helpline: <a href="tel:08088082008">0808 808 2008</a></span>
     </p>
     <button class="crisis-bar-close" onclick="dismissCrisisBar()" aria-label="Dismiss this message">×</button>
   </div>
