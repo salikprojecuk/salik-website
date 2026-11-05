@@ -1,0 +1,168 @@
+/* Lighter, warmer theme. Loaded last. Remaps the site's colour variables so cream/white
+   is the default surface, and keeps nav, footer and menus as a warm chocolate band. */
+:root {
+  --dark: #FFF8EE;
+  --dark2: #FFF8EE;
+  --dark3: #FBEFDD;
+  --dark4: #FFFFFF;
+  --white: #1F1409;
+  --grey: #6B5A3E;
+  --gold: #B34F0A;
+  --amber: #C2570C;
+  --choc: #2B1810;
+}
+
+/* Dark bands keep light-on-dark values for everything inside them */
+nav, footer, .mobile-menu, .nav-dropdown {
+  --dark: #1F130C; --dark2: #2B1810; --dark3: #33201A; --dark4: #3C281F;
+  --white: #FFFFFF; --grey: #B8A78C; --gold: #E8A030; --amber: #F0A24A;
+}
+nav { background: var(--choc) !important; border-bottom-color: rgba(232,160,48,0.25); }
+.mobile-menu { background: var(--choc); }
+body > div[style*="background:#111"] { background: var(--choc) !important; }
+.nav-logo img { background: none; }
+
+/* Crisis bar: soft peach, strong red numbers */
+.crisis-bar { background: #FFF1E6; border-bottom: 1px solid #F3C9A8; }
+.crisis-bar-text, .crisis-bar-text strong { color: #3A2410; }
+.crisis-bar-text a { color: #B3261E; }
+.crisis-bar-close { color: #6B4A2E; }
+
+/* Buttons */
+.btn-primary, .nav-cta { background: #E8A030; color: #1F1409 !important; }
+.btn-primary:hover, .nav-cta:hover { background: #F0B04A !important; color: #1F1409 !important; }
+nav .nav-cta { color: #1F1409 !important; }
+.hero .btn-outline, .page-hero .btn-outline { color: #1F1409; border-color: #1F1409; }
+
+/* Homepage hero */
+.hero-text-panel, .hero-dots { background: #FFF8EE; }
+.hero-headline, .hero-headline em { }
+.hero-headline { color: #1F1409; }
+.hero-headline em { color: #B34F0A; }
+.hero-eyebrow { color: #8A4A10; }
+.hero-eyebrow::before { background: #B34F0A; }
+.hero-subline { color: #9A4B0A; }
+.hero-body { color: #4A3728; }
+.hero-dot { background: rgba(31,20,9,0.25); border-color: transparent; }
+.hero-dot.active { background: #B34F0A; }
+
+/* Inner-page headers */
+.page-hero { background: #FFF8EE; }
+.page-hero-title, .page-hero h1 { color: #1F1409; }
+.page-hero-title em, .page-hero h1 em { color: #B34F0A; }
+.page-hero-eyebrow { color: #8A4A10; }
+.page-hero-tagline { color: #9A4B0A; }
+
+/* Blog post headers */
+.post-hero { background: #FFF8EE; border-bottom: 1px solid #F0DFC4; }
+.post-breadcrumb, .post-breadcrumb a { color: #6B5A3E; }
+.post-cat { background: rgba(179,79,10,0.10); border-color: rgba(179,79,10,0.35); color: #8A3D08; }
+.post-title { color: #1F1409; }
+.post-meta, .post-meta strong { color: #4A3728; }
+.post-body, .related { background: #FFFFFF; }
+.related-card { background: #FFF8EE; }
+.post-img-wrap img { filter: none; }
+
+/* "Need urgent support" band above the footer */
+.emergency { background: #FFF1E6; border-top: 1px solid #F3C9A8; border-bottom: 1px solid #F3C9A8; }
+.emergency-title { color: #8A3D08; }
+.emergency-desc { color: #4A3728; }
+.emergency-link { background: #FFFFFF; border-color: #E5B98F; color: #8A3D08; }
+.emergency-link:hover { background: #FBE3CC; }
+
+/* Footer: warm chocolate instead of near-black, with readable text */
+footer { background: var(--choc); color: #E5D8C4; }
+footer p, footer li, footer a { color: #E5D8C4; }
+footer a:hover { color: #F0B04A; }
+footer h4 { color: #F0B04A; }
+.footer-legal-line { color: #C9B89C; }
+.footer-newsletter-label { color: #E5D8C4; }
+.footer-bottom { border-top-color: rgba(229,216,196,0.2); }
+.nav-logo-tagline { color: #F0B04A; }
+
+/* Emergency band: the 999 link has inline red-on-dark colours */
+.emergency-link[style] { color: #B3261E !important; background: #FFFFFF !important; border-color: #E58A80 !important; }
+
+/* Get Support intro */
+.gs-intro { background: #FFF8EE; border-bottom-color: #F0DFC4; }
+.gs-intro-title em { color: #B34F0A; }
+
+/* Emergency Contacts: urgent section becomes a warm alert tint */
+.contacts-section--urgent { background: #FFF1E6 !important; }
+.contacts-section--urgent .section-number { border-color: #B3261E; color: #B3261E; }
+.ccard--urgent .ccard-number, .ccard--urgent .ccard-action { color: #B3261E; }
+
+/* Footer (more specific selectors in page CSS) */
+footer .footer-brand p, footer .footer-col ul li a, footer .footer-policies a { color: #E5D8C4; }
+footer .footer-col ul li a:hover { color: #F0B04A; }
+footer .footer-legal-line { color: #C9B89C; }
+
+/* Get Support */
+.gs-intro-text { color: #4A3728; }
+.gs-intro-text strong { color: #1F1409; }
+.gs-emergency-note { color: #3A2410; background: #FFF1E6; border-color: #F3C9A8; }
+.gs-emergency-note a { color: #B3261E; }
+.inline-exit, .ec-leave-btn { background: #FFFFFF; border-color: #C9A97F; color: #4A3728; }
+.inline-exit:hover, .ec-leave-btn:hover { background: #FBEFDD; color: #1F1409; }
+
+/* Emergency Contacts */
+.ccard-detail { color: #4A3728; }
+.ccard-action { color: #8A3D08; }
+.section-label { color: #8A4A10; }
+
+/* Events, Local Services, Newsletters, Partners, Resource Hub */
+.event-card-date-badge { background: #B34F0A; color: #FFFFFF; }
+.services-count, .resources-intro { color: #6B5A3E; }
+.card-logo { color: #8A3D08; }
+.page-hero-sub, .page-hero-subtitle { color: #9A4B0A; }
+
+/* Partner with us page: light white-section cards keep white backgrounds */
+.why-section, .who-tag { background: #FFFFFF; }
+.split-hero-body, .split-bullets li, .option-body { color: #4A3728; }
+.split-form-label { color: #6B5A3E; }
+.split-form-note { color: #6B5A3E; }
+.split-right { background: #FBEFDD; }
+.split-form-control { background: #FFFFFF; border-color: #D9C7A8; color: #1F1409; }
+.split-form-control:focus { background: #FFFFFF; }
+.split-form-control::placeholder { color: #8A7A62; }
+
+/* Final contrast fixes */
+.footer-bottom p, footer .footer-bottom p { color: #C9B89C; }
+.ccard-detail { color: #4A3728; }
+.contacts-section--urgent .section-label { color: #B3261E; }
+.split-form-label span, .split-form-label small { color: #6B5A3E; }
+
+/* Photo overlay text always sits on a dark gradient: keep it light */
+.hero-img-overlay-text { color: #FFFFFF; }
+.hero-img-overlay-tag { background: #E8A030; color: #1F1409; }
+
+/* Specificity / inline-style overrides */
+footer .footer-legal-line { color: #C9B89C !important; }
+.post-content [style*="rgba(255,255,255"] { color: #6B5A3E !important; }
+.ccard--urgent { background: #FFFFFF; border-color: #E58A80; }
+.ccard--urgent .ccard-name { color: #1F1409; }
+.ccard--urgent .ccard-detail { color: #4A3728; }
+.ccard--urgent .ccard-number, .ccard--urgent .ccard-action { color: #B3261E; }
+.event-card--past .event-card-date-badge { background: #6B5A3E; color: #FFFFFF; }
+.split-form-label span[style] { opacity: 1 !important; color: #6B5A3E; }
+.post-hero [style*="rgba(255,255,255"] { color: #6B5A3E !important; }
+.ccard--text { background: #FFFFFF; border-color: #E5C98F; }
+.ccard--text .ccard-name { color: #1F1409; }
+.ccard--text .ccard-detail { color: #4A3728; }
+.ccard--text .ccard-number, .ccard--text .ccard-action { color: #8A3D08; }
+.contacts-section--urgent .section-label[style] { color: #B3261E !important; }
+
+/* Desktop: keep the Get Support button clear of the floating Quick Exit button */
+@media (min-width: 1025px) { .nav-socials-wrap { margin-right: 130px; } }
+@media (min-width: 1025px) {
+  nav:has(.nav-socials-wrap) .nav-links { gap: 1.3rem; margin-right: 0; }
+  nav:has(.nav-socials-wrap) .nav-links a, .nav-socials-wrap a { white-space: nowrap; }
+}
+/* Blog posts and older pages: the full desktop nav needs ~1360px, so use the menu button below that */
+@media (max-width: 1360px) {
+  nav:has(.nav-socials-wrap) .nav-links, nav:has(.nav-socials-wrap) .nav-socials-wrap { display: none !important; }
+  nav:has(.nav-socials-wrap) .hamburger { display: flex !important; }
+}
+@media (max-width: 1360px) {
+  body:has(nav .nav-socials-wrap) .quick-exit { top: calc(var(--topbar-height) + var(--bar-height) + 78px); }
+}
