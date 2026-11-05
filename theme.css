@@ -166,3 +166,19 @@ footer .footer-legal-line { color: #C9B89C !important; }
 @media (max-width: 1360px) {
   body:has(nav .nav-socials-wrap) .quick-exit { top: calc(var(--topbar-height) + var(--bar-height) + 78px); }
 }
+
+/* Desktop homepage hero: larger, easier-to-read text (phones and tablets unchanged) */
+@media (min-width: 1025px) {
+  .hero-text-panel { padding-right: 4rem; }
+  .hero-eyebrow { font-size: 0.82rem; }
+  .hero-headline[style] { font-size: clamp(2.3rem, 3.6vw, 3.4rem) !important; line-height: 1.12; }
+  h1.hero-headline { font-size: clamp(2.1rem, 3.1vw, 2.9rem); line-height: 1.1; }
+  .hero-subline { font-size: clamp(1.15rem, 1.6vw, 1.45rem); }
+  .hero-body { font-size: clamp(1.05rem, 1.25vw, 1.2rem); line-height: 1.7; max-width: 34em; }
+  .hero .btn-primary, .hero .btn-outline { font-size: 0.95rem; padding: 14px 30px; }
+}
+
+/* Desktop carousel dots: a small pill so they read over both the cream panel and the photo */
+@media (min-width: 769px) {
+  .hero-dots { background: rgba(255,248,238,0.94); padding: 8px 14px; border-radius: 99px; box-shadow: 0 1px 6px rgba(31,20,9,0.18); }
+}
