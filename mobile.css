@@ -1,0 +1,39 @@
+/* Mobile usability fixes: tap targets (44px), readable text (12px+), no iOS input zoom,
+   consistent Quick Exit. Loaded last on every page. */
+
+@media (max-width: 1024px) {
+  .hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; padding: 10px; }
+  /* Safety: Quick Exit must be available on every page, on every device */
+  .quick-exit { display: block !important; top: calc(var(--topbar-height) + var(--bar-height) + 78px); min-height: 44px; min-width: 44px; padding: 8px 14px; font-size: 0.75rem; }
+}
+
+@media (max-width: 768px) {
+  .crisis-bar-close { min-width: 44px; min-height: 44px; right: 0; display: flex; align-items: center; justify-content: center; }
+  .crisis-bar { padding-right: 3rem; }
+
+  /* "Leave this page" safety buttons */
+  .inline-exit, .ec-leave-btn { min-height: 44px; padding-top: 10px; padding-bottom: 10px; display: inline-flex; align-items: center; justify-content: center; }
+
+  /* Buttons and filters */
+  .filter-btn, .btn-event, .btn-event--outline, .card-btn, .btn-primary, .btn-outline, .btn-gold { min-height: 44px; }
+  .split-form-control { min-height: 44px; }
+  footer a:has(> i.fab), footer a:has(> i.fas) { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+
+  /* Carousel dots: larger invisible hit area */
+  .hero-dots { gap: 1.1rem; }
+  .hero-dot { width: 12px; height: 12px; position: relative; }
+  .hero-dot::after { content: ""; position: absolute; inset: -12px; }
+
+  /* Form fields at 16px stop iOS Safari zooming in on focus */
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]), select, textarea { font-size: 16px !important; }
+
+  /* Minimum readable text size for labels, tags and metadata */
+  .footer-newsletter-label, .section-label, .post-breadcrumb, .related-cat, .post-cat, .related-date,
+  .page-hero-eyebrow, .funder-programme, .research-card-date, .policy-label, .team-role, .advisory-role,
+  .legal-card-label, .listing-card-meta, .listing-card-cat, .ccard-org, .ec-card-org, .ccard-action,
+  .ec-notice-text, .ec-card-tag, .ec-leave-btn, .ec-card-what, .btn-event, .btn-event--outline,
+  .event-card-date-month, .event-card-spaces, .event-card-tag, .inline-exit, .blog-card-meta,
+  .work-card-tag, .blog-card-cat, .hero-eyebrow, .filter-label, .card-tag, .split-form-note,
+  .split-form-label, .partner-card-name, .partner-tag, .card-coming-soon, .lang-badge, .success-label,
+  .quick-exit { font-size: 12px !important; }
+}

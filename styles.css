@@ -5,8 +5,7 @@ section:not(.hero):not(.dark):not(.dark-section) h2,
 section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
 
 @media (max-width: 1024px) {
-  /* Hide Quick Exit button on tablet and mobile */
-  .quick-exit { display: none; }
+  /* Quick Exit stays visible on tablet and mobile (see mobile.css) */
 }
 
 @media (max-width: 768px) {
