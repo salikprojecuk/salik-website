@@ -13,10 +13,13 @@ section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
   /* Hide logo text on phones to keep nav compact */
   .nav-logo-text-wrap { display: none; }
 
-  /* HERO: text-only stacked layout, no image panel */
-  .hero { min-height: 80vh; }
+  /* HERO: stacked layout - image on top, text below, full width */
+  .hero { min-height: 80vh; padding: 0 !important; }
   .hero-slide.active { display: flex !important; flex-direction: column; }
-  .hero-image-panel { display: none !important; }
+  .hero-image-panel { display: block !important; order: 0; height: 240px; min-height: 0; flex: 0 0 auto; }
+  .hero-text-panel { order: 1; }
+  .hero-img-overlay { padding: 2.5rem 1.2rem 1rem; }
+  .hero-img-overlay-text { font-size: 1.05rem; }
   .hero-text-panel { width: 100%; }
 
   /* YOUTUBE: 4-column → 2×2 grid; inline style requires !important */
