@@ -362,6 +362,36 @@
     }
 
 
+    .hero-img-overlay {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 4rem 2rem 3.6rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+    .hero-img-overlay-tag {
+      align-self: flex-start;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 99px;
+    }
+    .hero-img-overlay-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--white);
+      max-width: 30ch;
+    }
+
     .hero-img,
     .hero-video {
       width: 100%;
@@ -1608,7 +1638,13 @@
 
     <!-- Slide: Recovery & Employment Support -->
     <div class="hero-slide" data-slide="1" role="group" aria-label="Slide 2 of 5: In Recovery? Get Free Help Finding Work">
-      <div class="hero-image-panel"><img src="Images/blog-images/recovery-employment-support.jpg" alt="A bright open doorway at the end of a path, symbolising new opportunities and moving forward in recovery" class="hero-img" /></div>
+      <div class="hero-image-panel">
+        <img src="Images/blog-images/groundwork-employment-support.jpg" alt="A Groundwork employment specialist talking with a young man in a supportive one-to-one meeting" class="hero-img" style="object-position:38% center" />
+        <div class="hero-img-overlay" aria-hidden="true">
+          <span class="hero-img-overlay-tag">Free employment support</span>
+          <span class="hero-img-overlay-text">In recovery? Help finding work is available in Rochdale &amp; Oldham.</span>
+        </div>
+      </div>
       <div class="hero-text-panel">
         <div class="hero-right">
           <p class="hero-eyebrow">Support &amp; Recovery · November 2026</p>
