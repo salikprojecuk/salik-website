@@ -18,7 +18,7 @@ section:not(.hero):not(.dark):not(.dark-section) h3 { color: #1a1008; }
   .hero-image-panel { display: block !important; order: 0; height: 240px; min-height: 0; flex: 0 0 auto; }
   .hero-text-panel { order: 1; }
   .hero-img-overlay { padding: 2.5rem 1.2rem 1rem; }
-  .hero-img-overlay-text { font-size: 1.05rem; }
+  .hero-img-overlay-text { font-size: 1.35rem; }
   .hero-text-panel { width: 100%; }
 
   /* YOUTUBE: 4-column → 2×2 grid; inline style requires !important */
