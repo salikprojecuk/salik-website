@@ -1,0 +1,259 @@
+/* Readability & accessibility layer. Loaded LAST on every page (after mobile.css and theme.css).
+   Fonts: Atkinson Hyperlegible (body/UI) + Source Serif 4 (headings). */
+
+:root {
+  --font-sans: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --max: 1320px;
+}
+
+/* ── Base type ── */
+html { scroll-behavior: smooth; }
+@media (min-width: 769px) { html { font-size: 112.5%; } } /* 1rem = 18px on desktop/tablet */
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+}
+button, input, select, textarea { font-family: var(--font-sans); }
+
+p, li, blockquote, dd, figcaption { max-width: 70ch; line-height: 1.6; }
+p, li { font-size: max(1em, 18px); }
+/* Centred blocks stay centred when capped at 70ch */
+[style*="text-align:center"] p, [style*="text-align: center"] p,
+.text-center p, .section-header p, .partners-header p, .page-hero p, .why-section p {
+  margin-left: auto; margin-right: auto;
+}
+.container, .post-content { max-width: var(--max); }
+
+/* Headings: Source Serif 4 semibold. Italic only on short phrases (em inside a heading). */
+h1, h2, h3, h4, h5, h6,
+.hero-headline, .page-hero-title, .post-title, .gs-intro-title, .section-title,
+.nav-logo-text {
+  font-family: var(--font-serif);
+}
+/* Mobile header site name keeps its original face so the mobile header is unchanged */
+.nav-mobile-title { font-family: 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3, h4, h5, h6, .hero-headline, .page-hero-title, .post-title, .gs-intro-title, .section-title {
+  font-weight: 600 !important;
+  line-height: 1.2;
+}
+/* Long highlighted phrases in headings stay upright (colour carries the emphasis); italics are for short phrases in running text */
+h1 em, h2 em, h3 em, .hero-headline em, .page-hero-title em, .gs-intro-title em { font-style: normal; }
+p em, li em { font-style: italic; }
+blockquote, .post-content blockquote { font-style: normal; }
+
+/* ── Eyebrow / label text: 15px, letter-spacing at most 0.12em ── */
+.hero-eyebrow, .page-hero-eyebrow, .section-label, .post-cat, .post-breadcrumb, .related-cat, .related-date,
+.footer-newsletter-label, .funder-programme, .research-card-date, .policy-label, .team-role, .advisory-role,
+.legal-card-label, .listing-card-meta, .listing-card-cat, .ccard-org, .ec-card-org, .ccard-action,
+.ec-card-tag, .event-card-date-month, .event-card-tag, .blog-card-meta, .work-card-tag, .blog-card-cat,
+.filter-label, .card-tag, .split-form-label, .partner-tag, .success-label, .hero-img-overlay-tag {
+  font-size: 15px !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.4;
+}
+
+/* ── Navigation (desktop): sentence case, 16px ── */
+.nav-links a, .nav-dropdown a, .nav-socials-wrap a {
+  font-size: 16px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  font-weight: 400;
+}
+.nav-links a { color: rgba(255,255,255,0.92); }
+.nav-links a:hover { color: #F0B04A; }
+.nav-links a[style*="var(--amber)"] { color: #F0B04A !important; font-weight: 700; }
+/* "Get help" (and the older pages' "Get support") as a solid button */
+.nav-links a.nav-dropdown-trigger[href$="get-support.html"],
+.nav-socials-wrap a {
+  background: #E8A030 !important;
+  color: #1F1409 !important;
+  padding: 10px 22px !important;
+  border-radius: 99px;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nav-links a.nav-dropdown-trigger[href$="get-support.html"]:hover,
+.nav-socials-wrap a:hover { background: #F6BE63 !important; color: #1F1409 !important; }
+.nav-links a.nav-dropdown-trigger[href$="get-support.html"] .nav-dropdown-chevron { color: #1F1409; }
+
+/* ── Crisis bar: desktop = short, large, three tel: buttons ── */
+@media (min-width: 769px) {
+  :root { --bar-height: 56px; }
+  .crisis-bar { padding: 0 3.5rem; }
+  .crisis-bar-text { font-size: 16px; display: flex; align-items: center; justify-content: center; max-width: none; }
+  .crisis-full { display: flex !important; align-items: center; gap: 0.75rem; flex-wrap: nowrap; }
+  .crisis-short { display: none !important; }
+  .crisis-full strong { font-size: 17px; font-weight: 700; margin-right: 0.25rem; white-space: nowrap; }
+  .crisis-bar-text a.crisis-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    min-height: 40px; padding: 6px 18px;
+    background: #B3261E; color: #FFFFFF; border-radius: 99px;
+    font-size: 16px; font-weight: 700; line-height: 1.2; white-space: nowrap; text-decoration: none;
+  }
+  .crisis-bar-text a.crisis-btn:hover { background: #8E1B15; text-decoration: none; }
+  .crisis-bar-text a.crisis-btn:focus-visible { outline: 3px solid #1F1409; outline-offset: 2px; }
+  .crisis-btn small { font-size: 16px; font-weight: 400; opacity: 1; }
+  .crisis-bar-close { font-size: 1.6rem; color: #3A2410; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .crisis-full { gap: 0.5rem; }
+  .crisis-bar-text a.crisis-btn { padding: 6px 12px; font-size: 15px; }
+  .crisis-full strong { display: none; }
+}
+
+/* ── Quick Exit: always pinned, high contrast ── */
+.quick-exit {
+  position: fixed !important;
+  display: block !important;
+  z-index: 2147483000 !important;
+  background: #B3261E !important;
+  color: #FFFFFF !important;
+  border: 3px solid #FFFFFF !important;
+  box-shadow: 0 0 0 2px #1F1409, 0 4px 14px rgba(0,0,0,0.45);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  padding: 10px 16px !important;
+  min-height: 48px;
+  min-width: 48px;
+  opacity: 1;
+}
+.quick-exit:hover, .quick-exit:focus-visible { background: #8E1B15 !important; color: #FFFFFF !important; border-color: #FFFFFF !important; }
+.quick-exit:focus-visible { outline: 3px solid #FFD27A; outline-offset: 3px; }
+
+/* ── Desktop header: no separate social row, use the right-edge tab (same as mobile) ── */
+@media (min-width: 769px) {
+  :root { --topbar-height: 0px; }
+  .social-topbar { display: none !important; }
+  .social-tab {
+    display: flex; flex-direction: column;
+    position: fixed; right: 0; top: 45%; z-index: 90;
+    background: var(--choc, #2B1810);
+    border-radius: 12px 0 0 12px;
+    box-shadow: -2px 2px 12px rgba(0,0,0,0.3);
+    padding: 2px 0;
+  }
+  .social-tab a {
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px;
+    color: #F0B04A; font-size: 24px; text-decoration: none;
+  }
+  .social-tab a:hover { color: #FFFFFF; }
+  .social-tab a i { font-size: 24px; line-height: 1; }
+  /* Quick Exit pinned bottom-right so it never collides with the nav links */
+  .quick-exit { top: auto !important; bottom: 20px; right: 20px; }
+  .nav-socials-wrap { margin-right: 0; }
+  .nav-links { margin-right: 0; }
+}
+
+/* ── Homepage hero ── */
+@media (min-width: 769px) {
+  .hero { height: max(70vh, 640px); }
+  .hero-text-panel { padding: 1.25rem 4rem 1.25rem 5.5rem; }
+  .hero-body { font-size: 1rem; line-height: 1.6; max-width: 34em; }
+  .hero-eyebrow { margin-bottom: 0.4rem; }
+  .hero-headline[style] { font-size: clamp(1.8rem, 2.5vw, 2.6rem) !important; line-height: 1.15; }
+  h1.hero-headline { font-size: clamp(1.8rem, 2.4vw, 2.5rem); line-height: 1.15; }
+  .hero-subline { font-size: 1.05rem; font-style: normal; font-weight: 700; margin-bottom: 0.6rem; }
+  .hero .btn-primary, .hero .btn-outline { padding: 12px 26px; }
+}
+
+.hero-controls {
+  position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 0.9rem; z-index: 10;
+}
+.hero-controls .hero-dots { position: static; transform: none; background: none; box-shadow: none; }
+@media (min-width: 769px) {
+  .hero-controls {
+    left: 75%;
+    background: rgba(255,248,238,0.96); padding: 6px 12px 6px 16px; border-radius: 99px;
+    box-shadow: 0 1px 8px rgba(31,20,9,0.3);
+  }
+  .hero-controls .hero-dots { padding: 0; border-radius: 0; gap: 1rem; }
+  .hero-controls .hero-dot { width: 14px; height: 14px; border: 2px solid #1F1409; background: transparent; }
+  .hero-controls .hero-dot.active { background: #1F1409; transform: scale(1); }
+}
+.hero-pause {
+  width: 44px; height: 44px; border-radius: 50%; border: 2px solid #1F1409;
+  background: #1F1409; color: #FFFFFF; cursor: pointer; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.hero-pause:hover { background: #3A2410; }
+.hero-pause svg { width: 20px; height: 20px; fill: currentColor; display: block; }
+.hero-pause .icon-play { display: none; }
+.hero-pause[data-state="paused"] .icon-play { display: block; }
+.hero-pause[data-state="paused"] .icon-pause { display: none; }
+
+.hero-arrow {
+  position: absolute; top: calc(50% + 61px); transform: translateY(-50%); z-index: 12;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #1F1409; color: #FFFFFF; border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+}
+.hero-arrow svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.hero-arrow:hover { background: #B34F0A; }
+.hero-arrow--prev { left: 14px; }
+.hero-arrow--next { right: 14px; }
+.hero-arrow:focus-visible, .hero-pause:focus-visible, .hero-dot:focus-visible { outline: 3px solid #E8A030; outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .hero-controls {
+    position: relative; bottom: auto; left: auto; transform: none;
+    justify-content: center; padding: 1rem 0 1.4rem; background: #FFF8EE;
+  }
+  .hero-arrow { top: calc(var(--bar-height) + 70px + max(150px, 27.5vh)); width: 48px; height: 48px; border-width: 2px; }
+  .hero-arrow svg { width: 22px; height: 22px; }
+  .hero-arrow--prev { left: 8px; }
+  .hero-arrow--next { right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* ── Focus visibility for everything ── */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #E8A030; outline-offset: 2px;
+}
+
+/* ── Text-size floors: body copy 18px, UI text/meta 16px (labels handled above at 15px) ── */
+.work-card-desc, .blog-card-excerpt, .value-desc, .team-bio, .advisory-bio, .listing-card-excerpt,
+.event-card-desc, .event-card-subsection-heading, .resources-intro, .services-count, .ccard-detail,
+.ccard-address, .ec-card-what, .ec-notice-text, .policy-meta, .post-meta, .impact-num-label,
+.split-form-note, .hero-body, .gs-intro-text, .option-body, .emergency-desc, .newsletter-sub, .funder-desc,
+.dual-card-desc, .gs-pathways-sub, .pathway-card-desc, .card-desc, .research-card-desc, .why-card-body {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+}
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-gold, .btn-gold-outline, .btn-event, .btn-event--outline,
+.card-btn, .filter-btn, .emergency-link, .listing-card-link, .inline-exit, .ec-leave-btn, .pathway-card-cta,
+.event-card-spaces, .partner-card-name, .lang-badge, .card-coming-soon, .who-tag, .footer-legal-line,
+footer a, footer p, footer li, footer h4, footer label, label {
+  font-size: 16px !important;
+}
+button:not(.hero-dot):not(.hero-pause):not(.hamburger):not(.crisis-bar-close):not(.hero-arrow):not(.quick-exit) {
+  font-size: max(16px, 1em);
+}
+@media (min-width: 769px) { .nav-logo-tagline { font-size: 13px; } }
+
+/* Tablet widths: narrower text column, so tighten the hero copy and give it more height */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero { height: max(70vh, 720px); }
+  .hero-text-panel { padding-left: 5rem; padding-right: 2rem; }
+  .hero-body { font-size: 16px !important; }
+  .hero-headline[style] { font-size: clamp(1.6rem, 3vw, 2rem) !important; }
+  .hero-subline { font-size: 1rem; }
+}
+
+/* Long URLs in running text wrap instead of forcing sideways scroll */
+p a, li a { overflow-wrap: anywhere; }
