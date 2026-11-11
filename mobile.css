@@ -37,3 +37,40 @@
   .split-form-label, .partner-card-name, .partner-tag, .card-coming-soon, .lang-badge, .success-label,
   .quick-exit { font-size: 12px !important; }
 }
+
+/* ── Mobile header: hide top social bar, centred site name, side social tab ── */
+.nav-mobile-title, .social-tab { display: none; }
+
+@media (max-width: 768px) {
+  :root { --topbar-height: 0px; }
+  .social-topbar { display: none !important; }
+
+  nav .nav-logo-text-wrap { display: none; }
+  .nav-mobile-title {
+    display: block;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: calc(100% - 168px); max-width: 260px;
+    text-align: center;
+    font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+    font-weight: 700;
+    font-size: clamp(12px, 4.6vw, 17px);
+    letter-spacing: 0.08em; line-height: 1.15;
+    color: #fff; pointer-events: none;
+  }
+  .nav-mobile-title span { color: #C9A84C; }
+
+  .social-tab {
+    display: flex; flex-direction: column;
+    position: fixed; right: 0; top: 45%; z-index: 90;
+    background: var(--choc, #2B1810);
+    border-radius: 12px 0 0 12px;
+    box-shadow: -2px 2px 12px rgba(0,0,0,0.3);
+    padding: 2px 0;
+  }
+  .social-tab a {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    color: #E8A030; font-size: 24px; text-decoration: none;
+  }
+  .social-tab a i { font-size: 24px; line-height: 1; }
+}
