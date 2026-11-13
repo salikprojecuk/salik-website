@@ -310,6 +310,15 @@
     .card-icon { width: 60px; height: 60px; background: rgba(139,105,20,0.08); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.5rem; flex-shrink: 0; }
     .card-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: #1a1008; line-height: 1.2; padding-right: 5rem; }
     .card-desc { font-size: 0.88rem; color: #4a3a20; line-height: 1.8; flex: 1; }
+    .fact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
+    .fact-card { background: #fff; border: 1px solid #E8DCC8; border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .fact-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(139,105,20,0.1); }
+    .fact-card .card-title { padding-right: 0; font-size: 1.25rem; }
+    .fact-meta { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8b7a5a; }
+    .fact-download { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold); color: #fff; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; padding: 0.75rem 1rem; border-radius: var(--radius); text-decoration: none; min-height: 44px; transition: background 0.2s; }
+    .fact-download:hover { background: #6f5410; }
+    @media (max-width: 1024px) { .fact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
     .card-languages { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: auto; }
     .lang-badge { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(139,105,20,0.07); color: var(--gold); border: 1px solid rgba(139,105,20,0.22); border-radius: 99px; padding: 3px 11px; font-weight: 500; }
 
@@ -512,7 +521,44 @@
   <!-- RESOURCES GRID -->
   <section class="resources-section">
     <div class="resources-inner">
-      <p class="resources-intro">4 resources — more coming soon</p>
+      <p class="resources-intro" id="fact-sheets">Drug &amp; alcohol fact sheets — free to download</p>
+      <div class="fact-grid">
+
+        <div class="fact-card">
+          <div class="card-icon"><i class="fas fa-wine-glass-alt"></i></div>
+          <div class="card-title">Alcohol</div>
+          <p class="card-desc">Know the risks, recognise dependence and find support.</p>
+          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <a class="fact-download" href="resources/alcohol-fact-sheet.pdf" download><i class="fas fa-download"></i> Download fact sheet</a>
+        </div>
+
+        <div class="fact-card">
+          <div class="card-icon"><i class="fas fa-cannabis"></i></div>
+          <div class="card-title">Cannabis</div>
+          <p class="card-desc">How cannabis can affect memory, mood, mental health and reaction time.</p>
+          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <a class="fact-download" href="resources/cannabis-fact-sheet.pdf" download><i class="fas fa-download"></i> Download fact sheet</a>
+        </div>
+
+        <div class="fact-card">
+          <div class="card-icon"><i class="fas fa-capsules"></i></div>
+          <div class="card-title">Cocaine</div>
+          <p class="card-desc">A powerful stimulant with serious heart, brain and mental health risks.</p>
+          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <a class="fact-download" href="resources/cocaine-fact-sheet.pdf" download><i class="fas fa-download"></i> Download fact sheet</a>
+        </div>
+
+        <div class="fact-card">
+          <div class="card-icon"><i class="fas fa-wind"></i></div>
+          <div class="card-title">Nitrous Oxide</div>
+          <p class="card-desc">What &ldquo;balloons&rdquo; or laughing gas are, and how they can harm you.</p>
+          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <a class="fact-download" href="resources/nitrous-oxide-fact-sheet.pdf" download><i class="fas fa-download"></i> Download fact sheet</a>
+        </div>
+
+      </div>
+
+      <p class="resources-intro">Guides &mdash; coming soon</p>
       <div class="resources-grid">
 
         <!-- What is Addiction? -->
