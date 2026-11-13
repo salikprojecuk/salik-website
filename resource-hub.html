@@ -314,6 +314,9 @@
     .fact-card { background: #fff; border: 1px solid #E8DCC8; border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
     .fact-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(139,105,20,0.1); }
     .fact-card .card-title { padding-right: 0; font-size: 1.25rem; }
+    .lang-soon { opacity: 0.6; border-style: dashed; }
+    .print-request { background: #fff; border: 1px dashed var(--gold); border-radius: var(--radius); padding: 1.4rem 1.8rem; margin: -2rem 0 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
+    .print-request p { font-size: 0.9rem; color: #4a3a20; line-height: 1.7; margin: 0; flex: 1 1 280px; }
     .fact-meta { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8b7a5a; }
     .fact-download { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold); color: #fff; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; padding: 0.75rem 1rem; border-radius: var(--radius); text-decoration: none; min-height: 44px; transition: background 0.2s; }
     .fact-download:hover { background: #6f5410; }
@@ -529,7 +532,8 @@
           <div class="card-icon"><i class="fas fa-wine-glass-alt"></i></div>
           <div class="card-title">Alcohol</div>
           <p class="card-desc">Know the risks, recognise dependence and find support.</p>
-          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <span class="fact-meta">PDF &middot; 2 pages</span>
+          <div class="card-languages"><span class="lang-badge">English</span><span class="lang-badge lang-soon">Urdu soon</span><span class="lang-badge lang-soon">Bengali soon</span><span class="lang-badge lang-soon">Arabic soon</span></div>
           <a class="fact-download" href="resources/alcohol-fact-sheet.pdf" download><i class="fas fa-download"></i> Download &amp; share</a>
         </div>
 
@@ -537,7 +541,8 @@
           <div class="card-icon"><i class="fas fa-cannabis"></i></div>
           <div class="card-title">Cannabis</div>
           <p class="card-desc">How cannabis can affect memory, mood, mental health and reaction time.</p>
-          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <span class="fact-meta">PDF &middot; 2 pages</span>
+          <div class="card-languages"><span class="lang-badge">English</span><span class="lang-badge lang-soon">Urdu soon</span><span class="lang-badge lang-soon">Bengali soon</span><span class="lang-badge lang-soon">Arabic soon</span></div>
           <a class="fact-download" href="resources/cannabis-fact-sheet.pdf" download><i class="fas fa-download"></i> Download &amp; share</a>
         </div>
 
@@ -545,7 +550,8 @@
           <div class="card-icon"><i class="fas fa-capsules"></i></div>
           <div class="card-title">Cocaine</div>
           <p class="card-desc">A powerful stimulant with serious heart, brain and mental health risks.</p>
-          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <span class="fact-meta">PDF &middot; 2 pages</span>
+          <div class="card-languages"><span class="lang-badge">English</span><span class="lang-badge lang-soon">Urdu soon</span><span class="lang-badge lang-soon">Bengali soon</span><span class="lang-badge lang-soon">Arabic soon</span></div>
           <a class="fact-download" href="resources/cocaine-fact-sheet.pdf" download><i class="fas fa-download"></i> Download &amp; share</a>
         </div>
 
@@ -553,10 +559,16 @@
           <div class="card-icon"><i class="fas fa-wind"></i></div>
           <div class="card-title">Nitrous Oxide</div>
           <p class="card-desc">What &ldquo;balloons&rdquo; or laughing gas are, and how they can harm you.</p>
-          <span class="fact-meta">PDF &middot; 2 pages &middot; English</span>
+          <span class="fact-meta">PDF &middot; 2 pages</span>
+          <div class="card-languages"><span class="lang-badge">English</span><span class="lang-badge lang-soon">Urdu soon</span><span class="lang-badge lang-soon">Bengali soon</span><span class="lang-badge lang-soon">Arabic soon</span></div>
           <a class="fact-download" href="resources/nitrous-oxide-fact-sheet.pdf" download><i class="fas fa-download"></i> Download &amp; share</a>
         </div>
 
+      </div>
+
+      <div class="print-request">
+        <p><strong>Need printed copies?</strong> No printer? Community groups, mosques and youth clubs can request printed copies of our fact sheets, and tell us if you need them in Urdu, Bengali or Arabic.</p>
+        <a class="fact-download" style="margin-top:0;" href="mailto:contact@salikprojectuk.org?subject=Request%20for%20printed%20fact%20sheets&amp;body=Group%20name%3A%0AFact%20sheets%20needed%3A%0ANumber%20of%20copies%3A%0ALanguage%3A%0ADelivery%20address%3A"><i class="fas fa-envelope"></i> Request printed copies</a>
       </div>
 
       <p class="resources-intro">Guides &mdash; coming soon</p>
@@ -572,6 +584,7 @@
             <span class="lang-badge">English</span>
             <span class="lang-badge">Urdu</span>
             <span class="lang-badge">Bengali</span>
+            <span class="lang-badge">Arabic</span>
           </div>
         </div>
 
@@ -585,6 +598,7 @@
             <span class="lang-badge">English</span>
             <span class="lang-badge">Urdu</span>
             <span class="lang-badge">Bengali</span>
+            <span class="lang-badge">Arabic</span>
           </div>
         </div>
 
@@ -598,6 +612,7 @@
             <span class="lang-badge">English</span>
             <span class="lang-badge">Urdu</span>
             <span class="lang-badge">Bengali</span>
+            <span class="lang-badge">Arabic</span>
           </div>
         </div>
 
@@ -611,6 +626,7 @@
             <span class="lang-badge">English</span>
             <span class="lang-badge">Urdu</span>
             <span class="lang-badge">Bengali</span>
+            <span class="lang-badge">Arabic</span>
           </div>
         </div>
 
