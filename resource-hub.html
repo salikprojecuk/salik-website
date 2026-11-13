@@ -314,6 +314,11 @@
     .fact-card { background: #fff; border: 1px solid #E8DCC8; border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
     .fact-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(139,105,20,0.1); }
     .fact-card .card-title { padding-right: 0; font-size: 1.25rem; }
+    .guide-feature { display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap; background: #fff; border: 1px solid #E8DCC8; border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 2rem; margin-bottom: 3rem; }
+    .guide-feature .card-icon { flex-shrink: 0; }
+    .guide-feature-body { flex: 1 1 320px; display: flex; flex-direction: column; gap: 0.6rem; }
+    .guide-feature .card-title { padding-right: 0; }
+    .guide-feature .fact-download { margin-top: 0; }
     .lang-soon { opacity: 0.6; border-style: dashed; }
     .print-request { background: #fff; border: 1px dashed var(--gold); border-radius: var(--radius); padding: 1.4rem 1.8rem; margin: -2rem 0 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1.2rem; flex-wrap: wrap; }
     .print-request p { font-size: 0.9rem; color: #4a3a20; line-height: 1.7; margin: 0; flex: 1 1 280px; }
@@ -525,6 +530,18 @@
   <section class="resources-section">
     <div class="resources-inner">
       <p class="card-desc" style="max-width:760px;margin-bottom:2rem;">Our resources are free for community groups, mosques, youth clubs, community centres and families to use. Print them, display them, share them with your members and start the conversation. We would love to hear how you use them &mdash; <a href="index.html#contact" style="color:var(--gold);">get in touch</a>.</p>
+      <p class="resources-intro">Featured guide</p>
+      <div class="guide-feature">
+        <div class="card-icon"><i class="fas fa-book-open"></i></div>
+        <div class="guide-feature-body">
+          <div class="card-title">Understanding and Supporting Someone with Addiction</div>
+          <p class="card-desc" style="flex:none;">What addiction is, how to recognise the signs, and how to support individuals and families &mdash; a practical guide for community groups, families and professionals.</p>
+          <span class="fact-meta">PDF &middot; 6 pages</span>
+          <div class="card-languages"><span class="lang-badge">English</span><span class="lang-badge lang-soon">Urdu soon</span><span class="lang-badge lang-soon">Bengali soon</span><span class="lang-badge lang-soon">Arabic soon</span></div>
+        </div>
+        <a class="fact-download" href="resources/addiction-guide.pdf" download><i class="fas fa-download"></i> Download &amp; share</a>
+      </div>
+
       <p class="resources-intro" id="fact-sheets">Drug &amp; alcohol fact sheets — free to download</p>
       <div class="fact-grid">
 
