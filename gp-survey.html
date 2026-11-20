@@ -1148,6 +1148,26 @@
       });
     }
 
+    var submitted = false;
+    var curStepNum = function(){ return parseInt(visibleSteps()[current].dataset.step, 10); };
+
+    // push a history entry per step so the browser Back/Forward buttons move between questions
+    function go(delta){
+      current += delta;
+      render();
+      history.pushState({ gpsStep: curStepNum() }, '');
+    }
+
+    window.addEventListener('popstate', function(e){
+      if (submitted) return;
+      var st = e.state && e.state.gpsStep;
+      var vis = visibleSteps();
+      var idx = -1;
+      vis.forEach(function(el, i){ if (parseInt(el.dataset.step, 10) === st) idx = i; });
+      current = idx === -1 ? 0 : idx;
+      render();
+    });
+
     function render(){
       var vis = visibleSteps();
       if (current > vis.length - 1) current = vis.length - 1;
@@ -1252,14 +1272,14 @@
       }
       var vis = visibleSteps();
       if (current < vis.length - 1){
-        current++;
-        render();
+        go(1);
       } else {
         errorBox.style.display = 'none';
         nextBtn.disabled = true;
         nextBtn.textContent = 'Submitting…';
         submitNetlifyForm(form).then(function(res){
           if (!res.ok) throw new Error('Bad response');
+          submitted = true;
           progressWrap.style.display = 'none';
           form.style.display = 'none';
           document.body.classList.remove('gps-focus'); // full page chrome returns on the thank-you screen
@@ -1273,16 +1293,10 @@
       }
     });
 
-    startBtn.addEventListener('click', function(){
-      current++;
-      render();
-    });
+    startBtn.addEventListener('click', function(){ go(1); });
 
     backBtn.addEventListener('click', function(){
-      if (current > 0){
-        current--;
-        render();
-      }
+      if (current > 0) history.back(); // same as the browser Back button
     });
 
     ['ty_chat', 'ty_focus_group'].forEach(function(n){
@@ -1314,6 +1328,7 @@
       }
     });
 
+    history.replaceState({ gpsStep: 0 }, '');
     render();
   })();
   </script>
