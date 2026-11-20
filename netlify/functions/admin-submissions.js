@@ -13,9 +13,11 @@ const GROUPS = [
   { key: 'support-individual', label: 'Support: Individual', forms: ['support-individual'] },
   { key: 'contact-form', label: 'Contact', forms: ['contact-form'] },
   { key: 'partner-enquiry', label: 'Partner enquiries', forms: ['partner-enquiry'] },
+  { key: 'gp-survey', label: 'GP Survey — Responses', forms: ['gp-survey'] },
+  { key: 'gp-survey-contact', label: 'GP Survey — Follow-up contacts', forms: ['gp-survey-contact'] },
 ];
 
-const HIDDEN_FIELDS = new Set(['form-name', 'bot-field', 'ip', 'user_agent', 'referrer']);
+const HIDDEN_FIELDS = new Set(['form-name', 'bot-field', 'bot-field-2', 'ip', 'user_agent', 'referrer']);
 
 const sha = (s) => crypto.createHash('sha256').update(String(s)).digest();
 
