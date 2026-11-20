@@ -395,7 +395,17 @@
     body.gps-focus .gps-progress-wrap { top: var(--bar-height); }
     body.gps-focus .quick-exit { top: calc(var(--bar-height) + 10px); right: 1.2rem; }
     body.gps-focus .gps-card { padding: 2rem 3rem 2.2rem; }
-    @media (max-width: 600px) { body.gps-focus .gps-card { padding: 1.3rem 1.1rem 1.6rem; } }
+    @media (max-width: 600px) {
+      /* reserve a row under the crisis bar for Quick Exit so it never covers the card */
+      body.gps-focus .gps-section { padding: calc(var(--bar-height) + 58px) 0.8rem 1.5rem; }
+      body.gps-focus .gps-card { padding: 1.1rem 1.1rem 1.4rem; }
+      body.gps-focus .gps-intro h1 { font-size: 1.6rem; margin-bottom: 0.6rem; }
+      body.gps-focus .gps-intro p { font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.6rem; }
+      body.gps-focus .gps-logo-row img { height: 38px; }
+      body.gps-focus .gps-logo-placeholder { padding: 6px 10px; }
+      body.gps-focus .gps-chip { font-size: 0.76rem; padding: 6px 12px; }
+      body.gps-focus .gps-meta-row { gap: 0.5rem; margin: 0.8rem 0 1rem; }
+    }
     body.gps-focus .gps-logo-row { margin-bottom: 1.1rem; }
     body.gps-focus .gps-intro p { margin-bottom: 0.8rem; }
     body.gps-focus .gps-meta-row { margin: 1rem 0 1.4rem; }
