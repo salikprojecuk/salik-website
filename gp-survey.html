@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -382,7 +380,26 @@
 
   <style>
     /* ===== GP Survey page — additions only, reuse site tokens ===== */
-    .gps-section { background: linear-gradient(180deg, #FBEFDD 0%, var(--dark) 220px); padding: 0 2rem 5rem; margin-top: -2rem; }
+    .gps-section { background: var(--dark); padding: calc(var(--topbar-height) + var(--bar-height) + 70px + 2rem) 2rem 4rem; }
+
+    /* ── FOCUS MODE: strip page chrome while the survey is active.
+       Crisis bar and Quick Exit are safety features and are deliberately NOT hidden. ── */
+    body.gps-focus { --topbar-height: 0px; }
+    body.gps-focus nav,
+    body.gps-focus .mobile-menu,
+    body.gps-focus .social-topbar,
+    body.gps-focus .social-tab,
+    body.gps-focus .emergency,
+    body.gps-focus footer { display: none !important; }
+    body.gps-focus .gps-section { padding: calc(var(--bar-height) + 1.2rem) 1.5rem 2rem; min-height: 100vh; }
+    body.gps-focus .gps-progress-wrap { top: var(--bar-height); }
+    body.gps-focus .quick-exit { top: calc(var(--bar-height) + 10px); right: 1.2rem; }
+    body.gps-focus .gps-card { padding: 2rem 3rem 2.2rem; }
+    @media (max-width: 600px) { body.gps-focus .gps-card { padding: 1.3rem 1.1rem 1.6rem; } }
+    body.gps-focus .gps-logo-row { margin-bottom: 1.1rem; }
+    body.gps-focus .gps-intro p { margin-bottom: 0.8rem; }
+    body.gps-focus .gps-meta-row { margin: 1rem 0 1.4rem; }
+    .gps-start-wrap { margin-top: 0.4rem; }
     .gps-inner { max-width: 760px; margin: 0 auto; }
     .gps-card { background: #FFFFFF; border: 1px solid #F0DFC4; border-radius: 14px; box-shadow: 0 18px 50px rgba(31,20,9,0.08); padding: 2.6rem 3rem 3rem; }
     @media (max-width: 600px) { .gps-card { padding: 1.6rem 1.3rem 2rem; border-radius: 10px; } }
@@ -465,7 +482,7 @@
     .gps-error { display: none; background: #FFF1E6; border: 1px solid #E58A80; color: #9A2A1E; font-size: 0.85rem; padding: 10px 14px; border-radius: var(--radius); margin-top: 1rem; }
   </style>
 </head>
-<body>
+<body class="gps-focus">
 
   <div class="social-topbar" style="background:#111;padding:4px 24px 4px 24px;padding-right:80px;display:flex;justify-content:flex-end;align-items:center;gap:16px;position:fixed;top:0;left:0;right:0;z-index:250;">
     <a href="https://www.instagram.com/salikprojectuk?igsh=bTh0cjhuMXA4YjUy&utm_source=qr" target="_blank" style="color:#C9A84C;font-size:1rem;"><i class="fab fa-instagram"></i></a>
@@ -589,43 +606,12 @@
     </div>
   </div>
 
-    <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <p class="page-hero-eyebrow">For GPs &amp; Primary Care Staff</p>
-      <h1 class="page-hero-title">GP &amp; Primary Care <em>Survey.</em></h1>
-      <p class="page-hero-tagline">A short, anonymous survey run in partnership with Action Together.</p>
-    </div>
-  </div>
-
   <!-- GP SURVEY -->
   <section class="gps-section">
     <div class="gps-inner">
      <div class="gps-card">
 
-      <div class="gps-logo-row">
-        <img src="logo-transparent.png" alt="The Salik Project UK logo" />
-        <div class="gps-logo-divider"></div>
-        <!-- Replace with Action Together's logo file once supplied -->
-        <div class="gps-logo-placeholder">Action Together logo (to add)</div>
-      </div>
-
-      <div class="gps-intro">
-        <p>This short, anonymous survey is part of our work with <strong>Action Together</strong> to help reduce health inequalities in access to drug and alcohol recovery support for South Asian communities in Rochdale.</p>
-        <p>The questions are based on what The Salik Project UK is already hearing from local communities and focus groups &mdash; but we want to hear about <strong>your own experience</strong> as a GP or primary care professional. Your contribution will genuinely help us build a clearer picture and make the case for better, more culturally informed support locally.</p>
-        <div class="gps-meta-row">
-          <span class="gps-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            Takes about 3&ndash;4 minutes (around 1 minute if you select &ldquo;No&rdquo; at Q5)
-          </span>
-          <span class="gps-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Fully anonymous &mdash; no patient or practice details collected
-          </span>
-        </div>
-      </div>
-
-      <div class="gps-progress-wrap" id="gpsProgressWrap">
+      <div class="gps-progress-wrap" id="gpsProgressWrap" style="display:none;">
         <div class="gps-progress-track"><div class="gps-progress-fill" id="gpsProgressFill"></div></div>
         <div class="gps-progress-label"><span id="gpsProgressLabel">Question 1 of 21</span></div>
       </div>
@@ -634,8 +620,37 @@
         <input type="hidden" name="form-name" value="gp-survey" />
         <p style="position:absolute;left:-9999px;" aria-hidden="true"><label>Don&rsquo;t fill this in: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
+        <!-- STEP 0 — intro / start screen -->
+        <div class="gps-step active" data-step="0">
+        <div class="gps-logo-row">
+          <img src="logo-transparent.png" alt="The Salik Project UK logo" />
+          <div class="gps-logo-divider"></div>
+          <!-- Replace with Action Together's logo file once supplied -->
+          <div class="gps-logo-placeholder">Action Together logo (to add)</div>
+        </div>
+
+        <div class="gps-intro">
+          <h1>GP &amp; Primary Care Survey</h1>
+          <p>This short, anonymous survey is part of our work with <strong>Action Together</strong> to help reduce health inequalities in access to drug and alcohol recovery support for South Asian communities in Rochdale.</p>
+          <p>The questions are based on what The Salik Project UK is already hearing from local communities and focus groups &mdash; but we want to hear about <strong>your own experience</strong> as a GP or primary care professional. Your contribution will genuinely help us build a clearer picture and make the case for better, more culturally informed support locally.</p>
+          <div class="gps-meta-row">
+            <span class="gps-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              Takes about 3&ndash;4 minutes (around 1 minute if you select &ldquo;No&rdquo; at Q5)
+            </span>
+            <span class="gps-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Fully anonymous &mdash; no patient or practice details collected
+            </span>
+          </div>
+        </div>
+          <div class="gps-start-wrap">
+            <button type="button" class="gps-btn gps-btn-primary" id="startBtn">Start survey</button>
+          </div>
+        </div>
+
         <!-- STEP 1 -->
-        <div class="gps-step active" data-step="1">
+        <div class="gps-step" data-step="1">
           <div class="gps-q">
             <label class="gps-q-label">1. Your role</label>
             <div class="gps-options" data-name="role">
@@ -888,7 +903,7 @@
 
         <div class="gps-error" id="gpsError">Sorry, something went wrong sending your answers. Please check your connection and try again.</div>
 
-        <div class="gps-step-nav">
+        <div class="gps-step-nav" id="stepNav">
           <button type="button" class="gps-btn gps-btn-ghost" id="backBtn">Back</button>
           <button type="button" class="gps-btn gps-btn-primary" id="nextBtn">Continue</button>
         </div>
@@ -1102,9 +1117,12 @@
     var form = document.getElementById('gpSurvey');
     var contactForm = document.getElementById('gpSurveyContact');
     var errorBox = document.getElementById('gpsError');
+    var progressWrap = document.getElementById('gpsProgressWrap');
+    var stepNav = document.getElementById('stepNav');
+    var startBtn = document.getElementById('startBtn');
 
     // step -> approx last question number reached, for the progress label
-    var stepQNum = {1:1,2:2,3:4,4:5,5:7,6:10,7:15,8:19,9:21};
+    var stepQNum = {0:0,1:1,2:2,3:4,4:5,5:7,6:10,7:15,8:19,9:21};
 
     function dealtWithNo(){
       var r = form.querySelector('input[name="dealt_with"]:checked');
@@ -1125,15 +1143,20 @@
       if (current > vis.length - 1) current = vis.length - 1;
       steps.forEach(function(s){ s.classList.remove('active'); });
       vis[current].classList.add('active');
-      backBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+      var n = parseInt(vis[current].dataset.step, 10);
+      var isIntro = n === 0;
+      // intro: no progress bar, no Back/Continue (it has its own Start button)
+      progressWrap.style.display = isIntro ? 'none' : '';
+      stepNav.style.display = isIntro ? 'none' : '';
+      backBtn.style.visibility = current <= 1 ? 'hidden' : 'visible';
       var atEnd = current === vis.length - 1;
       nextBtn.textContent = atEnd ? 'Submit' : 'Continue';
-      var n = parseInt(vis[current].dataset.step, 10);
       var qn = Math.min(stepQNum[n] || n, 21);
+      var total = vis.length - 1; // excludes the intro step
       label.textContent = dealtWithNo()
-        ? 'Short route — step ' + (current + 1) + ' of ' + vis.length
+        ? 'Short route — step ' + current + ' of ' + total
         : 'Question ' + qn + ' of 21';
-      var pct = Math.round(((current + 1) / vis.length) * 100);
+      var pct = isIntro ? 0 : Math.round((current / total) * 100);
       fill.style.width = pct + '%';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1227,10 +1250,9 @@
         nextBtn.textContent = 'Submitting…';
         submitNetlifyForm(form).then(function(res){
           if (!res.ok) throw new Error('Bad response');
-          document.getElementById('gpsProgressWrap').style.display = 'none';
+          progressWrap.style.display = 'none';
           form.style.display = 'none';
-          document.querySelector('.gps-intro').style.display = 'none';
-          document.querySelector('.gps-logo-row').style.display = 'none';
+          document.body.classList.remove('gps-focus'); // full page chrome returns on the thank-you screen
           document.getElementById('thankyou').style.display = 'block';
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }).catch(function(){
@@ -1239,6 +1261,11 @@
           nextBtn.textContent = 'Submit';
         });
       }
+    });
+
+    startBtn.addEventListener('click', function(){
+      current++;
+      render();
     });
 
     backBtn.addEventListener('click', function(){
